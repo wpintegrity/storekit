@@ -1,0 +1,41 @@
+/**
+* Default slider style
+*/
+body.single-product .product-gallery {
+    width: 48%;
+    float: left;
+}
+
+/**
+* Default slider style for /storefront/ them
+*/
+body.single-product.theme-storefront .product-gallery {
+    width: 45%;
+}
+
+/**
+* YouTube video popup svg icon
+*/
+body.single-product .product-gallery .youtube-popup svg {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    top: 44%;
+    left: 44%;
+    fill: #c4302b;
+}
+
+/**
+* Soundcloud Title
+*/
+.wctk_soundcloud-info {
+    font-size: 10px; 
+    color: #cccccc;
+    line-break: anywhere;
+    word-break: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+}
