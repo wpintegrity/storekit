@@ -214,3 +214,32 @@ function wctk_dk_product_video_url_field_save( $post_id, $data ){
 }
 add_action( 'dokan_product_updated', 'wctk_dk_product_video_url_field_save', 10, 2 );
 
+function remove_vendor_dashboard_vendormenu_widgets(){ 
+    $wctk_dk_remove_vendor_dashboard_widget_options = wctk_get_option( 'dk_vendor_dashboard_widgets', 'dokan', '' );
+    
+    if( $wctk_dk_remove_vendor_dashboard_widget_options['big-counter'] ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_big_counter_widgets', 10 );
+    }
+
+    if( $wctk_dk_remove_vendor_dashboard_widget_options['orders'] ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_orders_widgets', 15 );
+    }
+
+    if( $wctk_dk_remove_vendor_dashboard_widget_options['products'] ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_products_widgets', 20 );
+    }
+
+    if( $wctk_dk_remove_vendor_dashboard_widget_options['reviews'] ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\DokanPro\Dashboard', 'get_review_widget', 16 );
+    }
+
+    if( $wctk_dk_remove_vendor_dashboard_widget_options['sales-chart'] ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_right_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_sales_report_chart_widget', 10 );
+    }
+
+    if( $wctk_dk_remove_vendor_dashboard_widget_options['announcement'] ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_right_widgets', 'WeDevs\DokanPro\Dashboard', 'get_announcement_widget', 12 );
+    }
+
+}
+add_action( 'wp_head', 'remove_vendor_dashboard_vendormenu_widgets' );

@@ -112,6 +112,20 @@ class Admin {
                     'desc'    => __( 'Disallow vendors from using the product audio feature', 'woocom-toolkit' ),
                     'type'    => 'checkbox',
                     'default' => ''
+                ],
+                [
+                    'name'    => 'dk_vendor_dashboard_widgets',
+                    'label'   => __( 'Hide Vendor Dashboard Widgets', 'woocom-toolkit' ),
+                    'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'woocom-toolkit' ),
+                    'type'    => 'multicheck',
+                    'options' => [
+                        'big-counter'   => __( 'Big Counter Widget', 'woocom-toolkit' ),
+                        'orders'        => __( 'Orders Widget', 'woocom-toolkit' ),
+                        'products'      => __( 'Products Widget', 'woocom-toolkit' ),
+                        'reviews'        => __( 'Reviews Widget', 'woocom-toolkit' ),
+                        'sales-chart'   => __( 'Sales Report Chart Widget', 'woocom-toolkit' ),
+                        'announcement'  => __( 'Announcement Widget', 'woocom-toolkit' )
+                    ]
                 ]
             ]
         ];
