@@ -49,8 +49,8 @@ class Frontend {
 
         if ( 'single-product/product-image.php' == $template_name && $wctk_woocommerce_product_video == 'on') {
             remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
-            
-            $located = WOOCOM_TOOLKIT_PATH . '/templates/product-gallery-images.php';
+
+            $located = WOOCOM_TOOLKIT_PATH . '/templates/product-gallery.php';
         }
 
         return $located;
