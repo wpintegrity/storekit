@@ -49,60 +49,12 @@ class Frontend {
 
         if ( 'single-product/product-image.php' == $template_name && $wctk_woocommerce_product_video == 'on') {
             remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
-
-            return $this->wctk_show_product_image();
+            
+            $located = WOOCOM_TOOLKIT_PATH . '/templates/product-gallery-images.php';
         }
+
         return $located;
-    }
-
-    /**
-     * 
-     * Show product gallery image with video on the single product page
-     * 
-     */
-    public function wctk_show_product_image(){
-        global $product, $post;
-
-        $attachment_ids                         = $product->get_gallery_image_ids();
-        $product_featured_image                 = get_the_post_thumbnail( $product->ID, 'full' );
-        $product_featured_image_thumbnail_src   = get_the_post_thumbnail_url( $product->ID, 'thumbnail' );
-        $product_featured_image_url             = get_the_post_thumbnail_url( $product->ID, 'full' );
-
-
-        $yt_video_url = get_post_meta( $post->ID, '_wctk_product_video_url', true );
-
-        echo '<div class="product-gallery"><div class="flexslider">';
-        
-        $htmlvideo = '';
-
-        $htmlvideo = '<li class="youtube-popup"><a href='. $yt_video_url .' class="mfp-iframe"><img src=""></a></li>';
-
-        $html = '<ul class="slides product-gallery-img">';
-
-        if( !empty( $yt_video_url ) ){
-            $html .= $htmlvideo;
-        }
-
-        if( has_post_thumbnail() ){
-            $html .= sprintf( '<li data-thumb="%s"><a href="%s">%s</a></li>', $product_featured_image_thumbnail_src, $product_featured_image_url, $product_featured_image );
-        }
-
-        foreach( $attachment_ids as $attachment_id ){
-            $product_gallery_image                  = wp_get_attachment_image( $attachment_id, 'full' );
-            $product_gallery_image_src              = wp_get_attachment_image_url( $attachment_id, 'full' );
-            $product_gallery_image_thumbnail_src    = wp_get_attachment_image_url( $attachment_id, 'thumbnail' );
-
-            $html .= sprintf( '<li data-thumb="%s"><a href="%s">%s</a></li>', $product_gallery_image_thumbnail_src, $product_gallery_image_src, $product_gallery_image );
-        }
-
-        $html .= '</ul>';
-
-        echo $html;
-
-        do_action( 'woocommerce_product_thumbnails' );
-
-        echo '</div></div>';
-    }
+    }    
 
     /**
      * 
