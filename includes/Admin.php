@@ -126,6 +126,30 @@ class Admin {
                         'sales-chart'   => __( 'Sales Report Chart Widget', 'woocom-toolkit' ),
                         'announcement'  => __( 'Announcement Widget', 'woocom-toolkit' )
                     ]
+                ],
+                [
+                    'name'    => 'dk_vendor_dashboard_product_form',
+                    'label'   => __( 'Hide Product Form Sections', 'woocom-toolkit' ),
+                    'desc'    => __( 'Hide Vendor Dashboard - Product Form sections', 'woocom-toolkit' ),
+                    'type'    => 'multicheck',
+                    'options' => [
+                        'download-virtual'  => __( 'Download/Virtual Checkboxes', 'woocom-toolkit' ),
+                        'inventory'         => __( 'Inventory', 'woocom-toolkit' ),
+                        'downloadable'      => __( 'Downloadable', 'woocom-toolkit' ),
+                        'other-options'     => __( 'Other Options', 'woocom-toolkit' ),
+                        'shipping-tax'      => __( 'Shipping & Tax', 'woocom-toolkit' ),
+                        'linked-products'   => __( 'Linked Products', 'woocom-toolkit' ),
+                        'attributes'        => __( 'Attributes & Variations', 'woocom-toolkit' ),
+                        'discount-options'  => __( 'Discount Options', 'woocom-toolkit' ),
+                        'yoast-seo'         => __( 'Products SEO (Yoast SEO)', 'woocom-toolkit' ),
+                        'rankmath-seo'      => __( 'Products SEO (Rank Math SEO)', 'woocom-toolkit' ),
+                        'geolocation'       => __( 'Geolocation', 'woocom-toolkit' ),
+                        'rma'               => __( 'RMA Options', 'woocom-toolkit' ),
+                        'product-addon'     => __( 'Add-ons', 'woocom-toolkit' ),
+                        'wholesale'         => __( 'Wholesale', 'woocom-toolkit' ),
+                        'order-min-max'     => __( 'Min/Max Options', 'woocom-toolkit' ),
+                        'advertise'         => __( 'Advertise Product', 'woocom-toolkit' ),
+                    ]
                 ]
             ]
         ];

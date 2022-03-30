@@ -28,10 +28,10 @@ function wctk_get_option( $option, $section, $default = '' ) {
 
 function wctk_product_settings_tabs( $tabs ){
  
-	$tabs['misha'] = array(
+	$tabs['wctk_product_tab'] = array(
 		'label'    => __( 'WooCom Toolkit' ),
 		'target'   => 'wctk_product_data',
-		'priority' => 21,
+		'priority' => 99,
 	);
 	return $tabs;
  
@@ -214,8 +214,13 @@ function wctk_dk_product_video_url_field_save( $post_id, $data ){
 }
 add_action( 'dokan_product_updated', 'wctk_dk_product_video_url_field_save', 10, 2 );
 
+/**
+ * 
+ * Vendor dashboard's Dashboard menu widget remove function
+ * 
+ */
 function remove_vendor_dashboard_vendormenu_widgets(){ 
-    $wctk_dk_remove_vendor_dashboard_widget_options = wctk_get_option( 'dk_vendor_dashboard_widgets', 'dokan', '' );
+    $wctk_dk_vendor_dashboard_widget_options = wctk_get_option( 'dk_vendor_dashboard_widgets', 'dokan', '' );
     
     if( isset($wctk_dk_remove_vendor_dashboard_widget_options['big-counter']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_big_counter_widgets', 10 );
@@ -243,3 +248,78 @@ function remove_vendor_dashboard_vendormenu_widgets(){
 
 }
 add_action( 'wp_head', 'remove_vendor_dashboard_vendormenu_widgets' );
+
+/**
+ * 
+ * Vendor dashboard's Edit product form's section remove function
+ * 
+ */
+function remove_edit_product_form_fields(){
+    $wctk_dk_product_form_sections = wctk_get_option( 'dk_vendor_dashboard_product_form', 'dokan', '' );
+
+    if( isset( $wctk_dk_product_form_sections['download-virtual'] ) ){
+        remove_action( 'dokan_product_edit_after_title', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_download_virtual_template' ], 10, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['inventory'] ) ){
+        remove_action( 'dokan_product_edit_after_main', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_inventory_template' ], 5, 2 );
+    }
+    
+    if( isset( $wctk_dk_product_form_sections['downloadable'] ) ){
+        remove_action( 'dokan_product_edit_after_main', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_downloadable_template' ], 10, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['other-options'] ) ){
+        remove_action( 'dokan_product_edit_after_inventory_variants', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_others_template' ], 85, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['shipping-tax'] ) ){
+        remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_shipping_tax_content' ], 10, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['linked-products'] ) ){
+        remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_linked_product_content' ], 15, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['attributes'] ) ){
+        remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_variations_content' ], 20, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['discount-options'] ) ){
+        remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_lot_discount_content' ], 25, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['yoast-seo'] ) ){
+        remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->product_seo, 'load_product_seo_content' ], 5, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['rankmath-seo'] ) ){
+        remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->module->rank_math, 'load_product_seo_content' ], 6, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['geolocation'] ) ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_main', 'Dokan_Geolocation_Vendor_Dashboard', 'add_product_editor_options', 10 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['rma'] ) ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_inventory_variants', 'Dokan_RMA_Product', 'load_rma_content', 30, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['product-addon'] ) ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_main', 'Dokan_Product_Addon_Vendor_Product', 'add_addons_section', 15, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['wholesale'] ) ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_inventory_variants', 'Dokan_Wholesale_Vendor', 'load_wholesale_content', 30, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['order-min-max'] ) ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_inventory_variants', 'WeDevs\DokanPro\Modules\OrderMinMax\Vendor', 'load_min_max_meta_box', 31, 2 );
+    }
+
+    if( isset( $wctk_dk_product_form_sections['advertise'] ) ){
+        dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_options', 'WeDevs\DokanPro\Modules\ProductAdvertisement\Frontend\Product', 'render_advertise_product_section', 99, 1 );
+    }    
+
+}
+add_action( 'wp_head', 'remove_edit_product_form_fields' );
