@@ -114,6 +114,14 @@ class Admin {
                     'default' => ''
                 ],
                 [
+                    'name'    => 'dk_vendor_upload_size',
+                    'size'    => 'small',
+                    'label'   => __( 'Limit File Upload Size', 'woocom-toolkit' ),
+                    'desc'    => __( 'Limit vendor from uploading file size', 'woocom-toolkit' ),
+                    'type'    => 'text',
+                    'default' => '1'
+                ],
+                [
                     'name'    => 'dk_vendor_dashboard_widgets',
                     'label'   => __( 'Hide Vendor Dashboard Widgets', 'woocom-toolkit' ),
                     'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'woocom-toolkit' ),

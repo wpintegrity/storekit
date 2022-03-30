@@ -323,3 +323,26 @@ function remove_edit_product_form_fields(){
 
 }
 add_action( 'wp_head', 'remove_edit_product_form_fields' );
+
+
+/**
+ * 
+ * Limit vendor file upload size
+ * 
+ */
+function wctk_vendor_file_upload_size( $size ){
+    $wctk_dk_inputf_size = wctk_get_option( 'dk_vendor_upload_size', 'dokan', '1' );;
+
+    if( is_user_logged_in() ){
+        $user = wp_get_current_user();
+        $roles = ( array ) $user->roles;
+
+        if( in_array( 'seller', $roles ) == true && isset( $wctk_dk_inputf_size ) ){
+            $size = 1048576 * $wctk_dk_inputf_size;
+        }
+    }
+
+    return $size;
+    
+}
+add_action( 'upload_size_limit', 'wctk_vendor_file_upload_size' );
