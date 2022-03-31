@@ -29,7 +29,7 @@
     }
 
     if( has_post_thumbnail() ){
-        $html .= sprintf( '<li data-thumb="%s"><a href="%s">%s</a></li>', $product_featured_image_thumbnail_src, $product_featured_image_url, $product_featured_image );
+        $html .= sprintf( '<li data-thumb="%s" class="woocommerce-product-gallery__image"><a href="%s">%s</a></li>', $product_featured_image_thumbnail_src, $product_featured_image_url, $product_featured_image );
     }
 
     foreach( $attachment_ids as $attachment_id ){
