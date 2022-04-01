@@ -96,7 +96,14 @@ class Admin {
                     'desc'      => __( 'This option enables audio adding capability in product edit form', 'woocom-toolkit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
-                ]
+                ],
+                [
+                    'name'      => 'wc_new_customer_reg_email',
+                    'label'     => __( 'Enable New Customer Registration Email', 'woocom-toolkit' ),
+                    'desc'      => __( 'It will enables the New Customer Registration Email functionality', 'woocom-toolkit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'on'
+                ],
             ],
             'dokan' => [
                 [

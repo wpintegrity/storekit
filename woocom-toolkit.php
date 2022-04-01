@@ -166,7 +166,6 @@ final class WooCom_Toolkit {
     public function includes() {
 
         require_once WOOCOM_TOOLKIT_INCLUDES . '/Assets.php';
-        require_once WOOCOM_TOOLKIT_INCLUDES . '/functions.php';
 
         if ( $this->is_request( 'admin' ) ) {
             require_once WOOCOM_TOOLKIT_INCLUDES . '/Admin.php';
@@ -176,6 +175,9 @@ final class WooCom_Toolkit {
         if ( $this->is_request( 'frontend' ) ) {
             require_once WOOCOM_TOOLKIT_INCLUDES . '/Frontend.php';
         }
+
+        require_once WOOCOM_TOOLKIT_INCLUDES . '/functions.php';
+        require_once WOOCOM_TOOLKIT_INCLUDES . '/Emails/Manager.php';
 
     }
 
@@ -200,14 +202,15 @@ final class WooCom_Toolkit {
     public function init_classes() {
 
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin'] = new WooComToolkit\Admin();
+            $this->container['admin']       = new WooComToolkit\Admin();
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend'] = new WooComToolkit\Frontend();
+            $this->container['frontend']    = new WooComToolkit\Frontend();
         }
 
-        $this->container['assets'] = new WooComToolkit\Assets();
+        $this->container['assets']          = new WooComToolkit\Assets();
+        $this->container['emails']          = new WooComToolkit\Emails\Manager();
     }
 
     /**
