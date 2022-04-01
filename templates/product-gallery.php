@@ -37,7 +37,7 @@
         $product_gallery_image_src              = wp_get_attachment_image_url( $attachment_id, 'full' );
         $product_gallery_image_thumbnail_src    = wp_get_attachment_image_url( $attachment_id, 'thumbnail' );
 
-        $html .= sprintf( '<li data-thumb="%s"><a href="%s">%s</a></li>', $product_gallery_image_thumbnail_src, $product_gallery_image_src, $product_gallery_image );
+        $html .= sprintf( '<li data-thumb="%s" class="woocommerce-product-gallery__image"><a href="%s">%s</a></li>', $product_gallery_image_thumbnail_src, $product_gallery_image_src, $product_gallery_image );
     }
 
     $html .= '</ul>';
