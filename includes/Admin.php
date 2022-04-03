@@ -104,6 +104,13 @@ class Admin {
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
+                [
+                    'name'      => 'wc_clear_cart',
+                    'label'     => __( 'Enable Clear Cart button', 'woocom-toolkit' ),
+                    'desc'      => __( 'Add a clear cart button on the cart page to clear cart by one click', 'woocom-toolkit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'on'
+                ],
             ],
             'dokan' => [
                 [

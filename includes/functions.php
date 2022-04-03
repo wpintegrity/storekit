@@ -382,6 +382,40 @@ function sort_cart_by_vendor_store_name( $cart ) {
         $cart->set_session();
     }
  
- };
+};
 
- add_action( 'woocommerce_cart_loaded_from_session', 'sort_cart_by_vendor_store_name', 100 );
+add_action( 'woocommerce_cart_loaded_from_session', 'sort_cart_by_vendor_store_name', 100 );
+
+/**
+ *   
+ * Clear cart button to clear/empty cart 
+ *
+ */
+
+function wctk_clear_cart_button(){
+    $wctk_wc_clear_cart = wctk_get_option( 'wc_clear_cart', 'woocommerce', 'on' );
+
+    if( $wctk_wc_clear_cart == 'on' ):
+    ?>
+
+    <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'woocom-toolkit' ); ?>"><?php esc_html_e( 'Clear cart', 'woocom-toolkit' ); ?></button>
+
+    <?php
+    endif;
+}
+add_action( 'woocommerce_cart_actions', 'wctk_clear_cart_button' );
+
+
+/**
+ *   
+ * Clear cart session
+ *
+ */
+function wctk_clear_cart_session(){
+    global $woocommerce;
+
+    if( isset( $_REQUEST['clear_cart'] ) ){
+        $woocommerce->cart->empty_cart(); 
+    }
+}
+add_action( 'init', 'wctk_clear_cart_session' );
