@@ -96,7 +96,21 @@ class Admin {
                     'desc'      => __( 'This option enables audio adding capability in product edit form', 'woocom-toolkit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
-                ]
+                ],
+                [
+                    'name'      => 'wc_new_customer_reg_email',
+                    'label'     => __( 'Enable New Customer Registration Email', 'woocom-toolkit' ),
+                    'desc'      => __( 'It will enables the New Customer Registration Email functionality', 'woocom-toolkit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'on'
+                ],
+                [
+                    'name'      => 'wc_clear_cart',
+                    'label'     => __( 'Enable Clear Cart button', 'woocom-toolkit' ),
+                    'desc'      => __( 'Add a clear cart button on the cart page to clear cart by one click', 'woocom-toolkit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'on'
+                ],
             ],
             'dokan' => [
                 [
@@ -122,6 +136,18 @@ class Admin {
                     'default' => '1'
                 ],
                 [
+                    'name'    => 'dk_sort_product_by_vendor',
+                    'label'   => __( 'Sort Product by Vendor', 'woocom-toolkit' ),
+                    'desc'    => __( 'Sort products by vendor name on the cart', 'woocom-toolkit' ),
+                    'type'    => 'select',
+                    'options' => [
+                        'none'  => __( 'None', 'woocom-toolkit' ),
+                        'asc'   => __( 'ASC', 'woocom-toolkit' ),
+                        'desc'  => __( 'DESC', 'woocom-toolkit' ),
+                    ],
+                    'default' => 'asc'
+                ],
+                [
                     'name'    => 'dk_vendor_dashboard_widgets',
                     'label'   => __( 'Hide Vendor Dashboard Widgets', 'woocom-toolkit' ),
                     'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'woocom-toolkit' ),
@@ -130,7 +156,7 @@ class Admin {
                         'big-counter'   => __( 'Big Counter Widget', 'woocom-toolkit' ),
                         'orders'        => __( 'Orders Widget', 'woocom-toolkit' ),
                         'products'      => __( 'Products Widget', 'woocom-toolkit' ),
-                        'reviews'        => __( 'Reviews Widget', 'woocom-toolkit' ),
+                        'reviews'       => __( 'Reviews Widget', 'woocom-toolkit' ),
                         'sales-chart'   => __( 'Sales Report Chart Widget', 'woocom-toolkit' ),
                         'announcement'  => __( 'Announcement Widget', 'woocom-toolkit' )
                     ]

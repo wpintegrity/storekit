@@ -346,3 +346,76 @@ function wctk_vendor_file_upload_size( $size ){
     
 }
 add_action( 'upload_size_limit', 'wctk_vendor_file_upload_size' );
+
+/**
+ * 
+ * Sort products by vendor on the cart
+ * 
+ */
+
+function sort_cart_by_vendor_store_name( $cart ) {
+
+    $wctk_dk_sort_product = wctk_get_option( 'dk_sort_product_by_vendor', 'dokan', 'none' );
+
+    if( $wctk_dk_sort_product != 'none' ){
+
+        $products_in_cart = array();
+    
+        foreach ( $cart->get_cart() as $key => $item ) {
+            $vendor = dokan_get_vendor_by_product( $item['data']->get_id() );
+            $products_in_cart[ $key ] = $vendor->get_shop_name();
+        }
+        
+        if( $wctk_dk_sort_product == 'asc' ){
+            asort( $products_in_cart );
+        } elseif( $wctk_dk_sort_product == 'desc' ){
+            arsort( $products_in_cart );
+        }
+    
+        $cart_contents = array();
+
+        foreach ( $products_in_cart as $cart_key => $vendor_store_name ) {
+            $cart_contents[ $cart_key ] = $cart->cart_contents[ $cart_key ];
+        }
+    
+        $cart->set_cart_contents( $cart_contents );
+        $cart->set_session();
+    }
+ 
+};
+
+add_action( 'woocommerce_cart_loaded_from_session', 'sort_cart_by_vendor_store_name', 100 );
+
+/**
+ *   
+ * Clear cart button to clear/empty cart 
+ *
+ */
+
+function wctk_clear_cart_button(){
+    $wctk_wc_clear_cart = wctk_get_option( 'wc_clear_cart', 'woocommerce', 'on' );
+
+    if( $wctk_wc_clear_cart == 'on' ):
+    ?>
+
+    <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'woocom-toolkit' ); ?>"><?php esc_html_e( 'Clear cart', 'woocom-toolkit' ); ?></button>
+
+    <?php
+    endif;
+}
+add_action( 'woocommerce_cart_actions', 'wctk_clear_cart_button' );
+
+
+/**
+ *   
+ * Clear cart session
+ *
+ */
+function wctk_clear_cart_session(){
+    global $woocommerce;
+
+    if( isset( $_REQUEST['clear_cart'] ) ){
+        $woocommerce->cart->empty_cart(); 
+    }
+}
+add_action( 'init', 'wctk_clear_cart_session' );
