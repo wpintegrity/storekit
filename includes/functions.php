@@ -419,3 +419,31 @@ function wctk_clear_cart_session(){
     }
 }
 add_action( 'init', 'wctk_clear_cart_session' );
+
+/**
+ *   
+ * Sold by label on the shop/product loop
+ *
+ */
+function wctk_sold_by_product(){
+    global $product;
+    $vendor = dokan_get_vendor_by_product( $product->get_id() );
+    $store_rating = $vendor->get_rating();
+
+    ?>
+
+    <div class="wctk_sold_by_container">
+        <div class="wctk_sold_by_wrapper">
+            <span class="sold_by_label">Store: </span>
+            <img src="<?php echo esc_url( $vendor->get_avatar() ); ?>" alt="<?php echo esc_attr( $vendor->get_shop_name() ); ?>" style="width: 25px; border-radius: 50%;">
+            <a href="<?php echo esc_attr( $vendor->get_shop_url() ); ?>"><?php echo esc_html( $vendor->get_shop_name() ); ?></a>
+        </div>
+        <div class="wctk_store_rating">
+            <?php echo wp_kses_post( dokan_generate_ratings( $store_rating['rating'], 5 ) ); ?>
+        </div>
+    </div>
+
+    <?php
+
+}
+add_action('woocommerce_after_shop_loop_item', 'wctk_sold_by_product', 50 );
