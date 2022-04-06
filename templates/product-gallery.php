@@ -14,7 +14,7 @@
     $product_featured_image_url             = get_the_post_thumbnail_url( $product->get_id(), 'full' );
 
 
-    $yt_video_url = get_post_meta( $product->get_id(), '_wctk_product_video_url', true );
+    $yt_video_url = get_post_meta( $product->get_id(), '_wookit_product_video_url', true );
 
     echo '<div class="product-gallery"><div class="flexslider">';
 

@@ -12,16 +12,16 @@ if ( !defined( 'ABSPATH' ) ) {
 echo "= " . esc_html( $email_heading ) . " =\n\n";
 ?>
 
-<?php esc_html_e( 'Hello there,', 'woocom-toolkit' ); echo " \n";?>
+<?php esc_html_e( 'Hello there,', 'wookit' ); echo " \n";?>
 
-<?php esc_html_e( 'A new customer has registered in your marketplace  ', 'woocom-toolkit' );  echo " \n";?>
-<?php esc_html_e( 'Customer Details:', 'woocom-toolkit' ); echo " \n"; ?>
+<?php esc_html_e( 'A new customer has registered in your marketplace  ', 'wookit' );  echo " \n";?>
+<?php esc_html_e( 'Customer Details:', 'wookit' ); echo " \n"; ?>
 
 <?php echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n"; ?>
 
-<?php esc_html_e( 'Customer: '. $data['customer_name'], 'woocom-toolkit' ); echo " \n"; ?>
+<?php esc_html_e( 'Customer: '. $data['customer_name'], 'wookit' ); echo " \n"; ?>
 
-<?php esc_html_e( 'To edit vendor access and details visit : '.$data['customer_edit'], 'woocom-toolkit' );  ?>
+<?php esc_html_e( 'To edit vendor access and details visit : '.$data['customer_edit'], 'wookit' );  ?>
 <?php
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 

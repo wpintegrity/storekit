@@ -12,25 +12,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <p>
-    <?php esc_html_e( 'Hello there,', 'woocom-toolkit' ); ?>
+    <?php esc_html_e( 'Hello there,', 'wookit' ); ?>
     <br>
-    <?php esc_html_e( 'A new customer has registered in your store ', 'woocom-toolkit' ); ?>
+    <?php esc_html_e( 'A new customer has registered in your store ', 'wookit' ); ?>
     <?php echo esc_html( $data['site_name'] ); ?>
 </p>
 <p>
-    <?php esc_html_e( 'Customer Details:', 'woocom-toolkit' ); ?>
+    <?php esc_html_e( 'Customer Details:', 'wookit' ); ?>
     <hr>
 </p>
 <ul>
     <li>
         <strong>
-            <?php esc_html_e( 'Customer:', 'woocom-toolkit' ); ?>
+            <?php esc_html_e( 'Customer:', 'wookit' ); ?>
         </strong>
         <?php printf( '<a href="%s">%s</a>', esc_url( $data['customer_edit'] ), esc_html( $data['customer_name'] ) ); ?>
     </li>
 </ul>
 <p>
-    <?php echo wp_kses_post( sprintf( __( 'To edit customer access and details <a href="%s">Click Here</a>', 'woocom-toolkit' ), esc_url( $data['customer_edit'] ) ) ); ?>
+    <?php echo wp_kses_post( sprintf( __( 'To edit customer access and details <a href="%s">Click Here</a>', 'wookit' ), esc_url( $data['customer_edit'] ) ) ); ?>
 </p>
 
 <?php

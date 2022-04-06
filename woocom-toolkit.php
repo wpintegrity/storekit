@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: WooCom Toolkit
+Plugin Name: WooCommerce Kit
 Plugin URI: https://tanjirsdev.com
 Description: A Helpful Toolkit WordPress plugin for WooCommerce
 Version: 0.1
@@ -8,7 +8,7 @@ Author: Tanjir Al Mamun
 Author URI: https://tanjirsdev.com
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: woocom-toolkit
+Text Domain: wookit
 Domain Path: /languages
 */
 
@@ -46,7 +46,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
  *
  * @class WooCom_Toolkit The class that holds the entire WooCom_Toolkit plugin
  */
-final class WooCom_Toolkit {
+final class WooKit {
 
     /**
      * Plugin version
@@ -86,7 +86,7 @@ final class WooCom_Toolkit {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new WooCom_Toolkit();
+            $instance = new WooKit();
         }
 
         return $instance;
@@ -124,12 +124,12 @@ final class WooCom_Toolkit {
      * @return void
      */
     public function define_constants() {
-        define( 'WOOCOM_TOOLKIT_VERSION', $this->version );
-        define( 'WOOCOM_TOOLKIT_FILE', __FILE__ );
-        define( 'WOOCOM_TOOLKIT_PATH', dirname( WOOCOM_TOOLKIT_FILE ) );
-        define( 'WOOCOM_TOOLKIT_INCLUDES', WOOCOM_TOOLKIT_PATH . '/includes' );
-        define( 'WOOCOM_TOOLKIT_URL', plugins_url( '', WOOCOM_TOOLKIT_FILE ) );
-        define( 'WOOCOM_TOOLKIT_ASSETS', WOOCOM_TOOLKIT_URL . '/assets' );
+        define( 'WOOKIT_VERSION', $this->version );
+        define( 'WOOKIT_FILE', __FILE__ );
+        define( 'WOOKIT_PATH', dirname( WOOKIT_FILE ) );
+        define( 'WOOKIT_INCLUDES', WOOKIT_PATH . '/includes' );
+        define( 'WOOKIT_URL', plugins_url( '', WOOKIT_FILE ) );
+        define( 'WOOKIT_ASSETS', WOOKIT_URL . '/assets' );
     }
 
     /**
@@ -149,13 +149,13 @@ final class WooCom_Toolkit {
      */
     public function activate() {
 
-        $installed = get_option( 'woocom_toolkit_installed' );
+        $installed = get_option( 'wookit_installed' );
 
         if ( ! $installed ) {
-            update_option( 'woocom_toolkit_installed', time() );
+            update_option( 'wookit_installed', time() );
         }
 
-        update_option( 'woocom_toolkit_version', WOOCOM_TOOLKIT_VERSION );
+        update_option( 'wookit_version', WOOKIT_VERSION );
     }
 
     /**
@@ -165,19 +165,19 @@ final class WooCom_Toolkit {
      */
     public function includes() {
 
-        require_once WOOCOM_TOOLKIT_INCLUDES . '/Assets.php';
+        require_once WOOKIT_INCLUDES . '/Assets.php';
 
         if ( $this->is_request( 'admin' ) ) {
-            require_once WOOCOM_TOOLKIT_INCLUDES . '/Admin.php';
-            require_once WOOCOM_TOOLKIT_INCLUDES . '/class.settings-api.php';
+            require_once WOOKIT_INCLUDES . '/Admin.php';
+            require_once WOOKIT_INCLUDES . '/class.settings-api.php';
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            require_once WOOCOM_TOOLKIT_INCLUDES . '/Frontend.php';
+            require_once WOOKIT_INCLUDES . '/Frontend.php';
         }
 
-        require_once WOOCOM_TOOLKIT_INCLUDES . '/functions.php';
-        require_once WOOCOM_TOOLKIT_INCLUDES . '/Emails/Manager.php';
+        require_once WOOKIT_INCLUDES . '/functions.php';
+        require_once WOOKIT_INCLUDES . '/Emails/Manager.php';
 
     }
 
@@ -202,15 +202,15 @@ final class WooCom_Toolkit {
     public function init_classes() {
 
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin']       = new WooComToolkit\Admin();
+            $this->container['admin']       = new WooKit\Admin();
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend']    = new WooComToolkit\Frontend();
+            $this->container['frontend']    = new WooKit\Frontend();
         }
 
-        $this->container['assets']          = new WooComToolkit\Assets();
-        $this->container['emails']          = new WooComToolkit\Emails\Manager();
+        $this->container['assets']          = new WooKit\Assets();
+        $this->container['emails']          = new WooKit\Emails\Manager();
     }
 
     /**
@@ -219,7 +219,7 @@ final class WooCom_Toolkit {
      * @uses load_plugin_textdomain()
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'woocom-toolkit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'wookit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**
@@ -241,4 +241,4 @@ final class WooCom_Toolkit {
 
 } // WooCom_Toolkit
 
-$woocom_toolkit = WooCom_Toolkit::init();
+$wookit = WooKit::init();

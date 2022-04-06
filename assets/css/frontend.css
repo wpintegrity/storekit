@@ -10,7 +10,18 @@ body.single-product .product-gallery {
 * Default slider style for /storefront/ them
 */
 body.single-product.theme-storefront .product-gallery {
-    width: 45%;
+    width: 41%;
+    margin-right: 6%;
+}
+@media screen and (max-width: 480px){
+    body.single-product.theme-storefront .product-gallery {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+    }
+    body.single-product.theme-storefront .product-gallery .flexslider {
+        margin-bottom: 5% !important;
+    }
 }
 
 /**
@@ -28,7 +39,7 @@ body.single-product .product-gallery .youtube-popup svg {
 /**
 * Soundcloud Title
 */
-.wctk_soundcloud-info {
+.wookit_soundcloud-info {
     font-size: 10px; 
     color: #cccccc;
     line-break: anywhere;
@@ -38,4 +49,29 @@ body.single-product .product-gallery .youtube-popup svg {
     text-overflow: ellipsis; 
     font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
     font-weight: 100;
+}
+
+/**
+*
+* Dokan Shop Page Loop Sold by
+*
+*/
+.wookit_sold_by_wrapper {
+    padding: 5px 0;
+}
+.wookit_sold_by_wrapper img {
+    display: inline-block !important;
+    margin: 0 !important;
+    vertical-align: bottom;
+}
+.wookit_sold_by_wrapper a {
+    display: inline-block !important;
+}
+.wookit_store_rating {
+    padding: 5px 0;
+}
+.wookit_store_rating i.dashicons-star-empty,
+.wookit_store_rating i.dashicons-star-filled,
+.wookit_store_rating i.dashicons-star-half {
+    font-size: 15px;
 }

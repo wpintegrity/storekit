@@ -1,6 +1,6 @@
 <?php
 
-namespace WooComToolkit\Emails;
+namespace WooKit\Emails;
 
 use WC_Email;
 
@@ -14,12 +14,12 @@ class NewCustomer extends WC_Email {
      * Constructor.
      */
     public function __construct() {
-        $this->id               = 'wctk_new_customer_registration';
-        $this->title            = __( 'New Customer Registration', 'woocom-toolkit' );
-        $this->description      = __( 'These emails are sent to chosen recipient(s) when a new customer registers in the store', 'woocom-toolkit' );
+        $this->id               = 'wookit_new_customer_registration';
+        $this->title            = __( 'New Customer Registration', 'wookit' );
+        $this->description      = __( 'These emails are sent to chosen recipient(s) when a new customer registers in the store', 'wookit' );
         $this->template_html    = 'emails/new-customer-registration.php';
         $this->template_plain   = 'emails/plain/new-customer-registration.php';
-        $this->template_base    = WOOCOM_TOOLKIT_PATH . '/templates/';
+        $this->template_base    = WOOKIT_PATH . '/templates/';
 
         // Triggers for this email
         add_action( 'woocommerce_created_customer', [ $this, 'trigger' ], 20 );
@@ -38,7 +38,7 @@ class NewCustomer extends WC_Email {
      * @return string
      */
     public function get_default_subject() {
-            return __( '[{site_name}] A New customer has registered', 'woocom-toolkit' );
+            return __( '[{site_name}] A New customer has registered', 'wookit' );
     }
 
     /**
@@ -48,7 +48,7 @@ class NewCustomer extends WC_Email {
      * @return string
      */
     public function get_default_heading() {
-            return __( 'New Customer Registered - {customer_name}', 'woocom-toolkit' );
+            return __( 'New Customer Registered - {customer_name}', 'wookit' );
     }
 
     /**
@@ -95,7 +95,7 @@ class NewCustomer extends WC_Email {
 						'plain_text'    => false,
 						'email'         => $this,
 						'data'          => $this->replace,
-                    ), 'woocom-toolkit/', $this->template_base
+                    ), 'wookit/', $this->template_base
                 );
             return ob_get_clean();
     }
@@ -116,7 +116,7 @@ class NewCustomer extends WC_Email {
 						'plain_text'    => true,
 						'email'         => $this,
 						'data'          => $this->replace,
-                    ), 'woocom-toolkit/', $this->template_base
+                    ), 'wookit/', $this->template_base
                 );
             return ob_get_clean();
     }
@@ -127,37 +127,37 @@ class NewCustomer extends WC_Email {
     public function init_form_fields() {
         $this->form_fields = array(
             'enabled' => array(
-                'title'         => __( 'Enable/Disable', 'woocom-toolkit' ),
+                'title'         => __( 'Enable/Disable', 'wookit' ),
                 'type'          => 'checkbox',
-                'label'         => __( 'Enable this email notification', 'woocom-toolkit' ),
+                'label'         => __( 'Enable this email notification', 'wookit' ),
                 'default'       => 'yes',
             ),
             'recipient' => array(
-                'title'         => __( 'Recipient(s)', 'woocom-toolkit' ),
+                'title'         => __( 'Recipient(s)', 'wookit' ),
                 'type'          => 'text',
-                'description'   => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'woocom-toolkit' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
+                'description'   => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'wookit' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
                 'placeholder'   => '',
                 'default'       => '',
                 'desc_tip'      => true,
             ),
             'subject' => array(
-                'title'         => __( 'Subject', 'woocom-toolkit' ),
+                'title'         => __( 'Subject', 'wookit' ),
                 'type'          => 'text',
                 'desc_tip'      => true,
                 'placeholder'   => $this->get_default_subject(),
                 'default'       => '',
             ),
             'heading' => array(
-                'title'         => __( 'Email heading', 'woocom-toolkit' ),
+                'title'         => __( 'Email heading', 'wookit' ),
                 'type'          => 'text',
                 'desc_tip'      => true,
                 'placeholder'   => $this->get_default_heading(),
                 'default'       => '',
             ),
             'email_type' => array(
-                'title'         => __( 'Email type', 'woocom-toolkit' ),
+                'title'         => __( 'Email type', 'wookit' ),
                 'type'          => 'select',
-                'description'   => __( 'Choose which format of email to send.', 'woocom-toolkit' ),
+                'description'   => __( 'Choose which format of email to send.', 'wookit' ),
                 'default'       => 'html',
                 'class'         => 'email_type wc-enhanced-select',
                 'options'       => $this->get_email_type_options(),
