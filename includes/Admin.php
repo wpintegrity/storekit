@@ -203,7 +203,7 @@ class Admin {
 
         ?>
 
-        <h1 class="wp-heading-inline"><?php esc_html_e( 'WooCom Toolkit: A Helpfull WooCommerce Toolkit', 'wookit' ) ?></h1>        
+        <h1 class="wp-heading-inline"><?php esc_html_e( 'WooCommerce Kit: A Helpfull Toolkit for WooCommerce', 'wookit' ) ?></h1>        
 
         <?php
 
