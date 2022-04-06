@@ -1,5 +1,5 @@
 <?php
-namespace WooComToolkit;
+namespace WooKit;
 
 /**
  * Admin Pages Handler
@@ -35,9 +35,9 @@ class Admin {
         global $submenu;
 
         $capability = 'manage_options';
-        $slug       = 'woocom-toolkit';
+        $slug       = 'wookit';
 
-        $hook = add_menu_page( __( 'WooCom Toolkit', 'textdomain' ), __( 'WooCom Toolkit', 'textdomain' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
+        $hook = add_menu_page( __( 'WooCommerce Kit', 'wookit' ), __( 'WooCommerce Toolkit', 'wookit' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
 
         add_action( 'load-' . $hook, [ $this, 'init_hooks'] );
     }
@@ -57,19 +57,19 @@ class Admin {
      * @return void
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'woocom-toolkit-admin' );
-        wp_enqueue_script( 'woocom-toolkit-admin' );
+        wp_enqueue_style( 'wookit-admin' );
+        wp_enqueue_script( 'wookit-admin' );
     }
 
     public function get_settings_sections() {
         $sections = array(
             array(
                 'id'    => 'woocommerce',
-                'title' => __( 'WooCommerce Settings', 'woocom-toolkit' )
+                'title' => __( 'WooCommerce Settings', 'wookit' )
             ),
             array(
                 'id'    => 'dokan',
-                'title' => __( 'Dokan Settings', 'woocom-toolkit' )
+                'title' => __( 'Dokan Settings', 'wookit' )
             )
         );
         return $sections;
@@ -85,29 +85,29 @@ class Admin {
             'woocommerce' => [
                 [
                     'name'      => 'wc_product_video_checkbox',
-                    'label'     => __( 'Enable Product Video', 'woocom-toolkit' ),
-                    'desc'      => __( 'This option enables video adding capability in product edit form', 'woocom-toolkit' ),
+                    'label'     => __( 'Enable Product Video', 'wookit' ),
+                    'desc'      => __( 'This option enables video adding capability in product edit form', 'wookit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_product_audio_checkbox',
-                    'label'     => __( 'Enable Product Audio', 'woocom-toolkit' ),
-                    'desc'      => __( 'This option enables audio adding capability in product edit form', 'woocom-toolkit' ),
+                    'label'     => __( 'Enable Product Audio', 'wookit' ),
+                    'desc'      => __( 'This option enables audio adding capability in product edit form', 'wookit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_new_customer_reg_email',
-                    'label'     => __( 'Enable New Customer Registration Email', 'woocom-toolkit' ),
-                    'desc'      => __( 'It will enables the New Customer Registration Email functionality', 'woocom-toolkit' ),
+                    'label'     => __( 'Enable New Customer Registration Email', 'wookit' ),
+                    'desc'      => __( 'It will enables the New Customer Registration Email functionality', 'wookit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_clear_cart',
-                    'label'     => __( 'Enable Clear Cart button', 'woocom-toolkit' ),
-                    'desc'      => __( 'Add a clear cart button on the cart page to clear cart by one click', 'woocom-toolkit' ),
+                    'label'     => __( 'Enable Clear Cart button', 'wookit' ),
+                    'desc'      => __( 'Add a clear cart button on the cart page to clear cart by one click', 'wookit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
@@ -115,74 +115,74 @@ class Admin {
             'dokan' => [
                 [
                     'name'    => 'dk_product_video_checkbox',
-                    'label'   => __( 'Disable Product Video', 'woocom-toolkit' ),
-                    'desc'    => __( 'Disallow vendors from using the product video feature', 'woocom-toolkit' ),
+                    'label'   => __( 'Disable Product Video', 'wookit' ),
+                    'desc'    => __( 'Disallow vendors from using the product video feature', 'wookit' ),
                     'type'    => 'checkbox',
                     'default' => ''
                 ],
                 [
                     'name'    => 'dk_product_audio_checkbox',
-                    'label'   => __( 'Disable Product Audio', 'woocom-toolkit' ),
-                    'desc'    => __( 'Disallow vendors from using the product audio feature', 'woocom-toolkit' ),
+                    'label'   => __( 'Disable Product Audio', 'wookit' ),
+                    'desc'    => __( 'Disallow vendors from using the product audio feature', 'wookit' ),
                     'type'    => 'checkbox',
                     'default' => ''
                 ],
                 [
                     'name'    => 'dk_vendor_upload_size',
                     'size'    => 'small',
-                    'label'   => __( 'Limit File Upload Size', 'woocom-toolkit' ),
-                    'desc'    => __( 'Limit vendor from uploading file size', 'woocom-toolkit' ),
+                    'label'   => __( 'Limit File Upload Size', 'wookit' ),
+                    'desc'    => __( 'Limit vendor from uploading file size', 'wookit' ),
                     'type'    => 'text',
                     'default' => '1'
                 ],
                 [
                     'name'    => 'dk_sort_product_by_vendor',
-                    'label'   => __( 'Sort Product by Vendor', 'woocom-toolkit' ),
-                    'desc'    => __( 'Sort products by vendor name on the cart', 'woocom-toolkit' ),
+                    'label'   => __( 'Sort Product by Vendor', 'wookit' ),
+                    'desc'    => __( 'Sort products by vendor name on the cart', 'wookit' ),
                     'type'    => 'select',
                     'options' => [
-                        'none'  => __( 'None', 'woocom-toolkit' ),
-                        'asc'   => __( 'ASC', 'woocom-toolkit' ),
-                        'desc'  => __( 'DESC', 'woocom-toolkit' ),
+                        'none'  => __( 'None', 'wookit' ),
+                        'asc'   => __( 'ASC', 'wookit' ),
+                        'desc'  => __( 'DESC', 'wookit' ),
                     ],
                     'default' => 'asc'
                 ],
                 [
                     'name'    => 'dk_vendor_dashboard_widgets',
-                    'label'   => __( 'Hide Vendor Dashboard Widgets', 'woocom-toolkit' ),
-                    'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'woocom-toolkit' ),
+                    'label'   => __( 'Hide Vendor Dashboard Widgets', 'wookit' ),
+                    'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'wookit' ),
                     'type'    => 'multicheck',
                     'options' => [
-                        'big-counter'   => __( 'Big Counter Widget', 'woocom-toolkit' ),
-                        'orders'        => __( 'Orders Widget', 'woocom-toolkit' ),
-                        'products'      => __( 'Products Widget', 'woocom-toolkit' ),
-                        'reviews'       => __( 'Reviews Widget', 'woocom-toolkit' ),
-                        'sales-chart'   => __( 'Sales Report Chart Widget', 'woocom-toolkit' ),
-                        'announcement'  => __( 'Announcement Widget', 'woocom-toolkit' )
+                        'big-counter'   => __( 'Big Counter Widget', 'wookit' ),
+                        'orders'        => __( 'Orders Widget', 'wookit' ),
+                        'products'      => __( 'Products Widget', 'wookit' ),
+                        'reviews'       => __( 'Reviews Widget', 'wookit' ),
+                        'sales-chart'   => __( 'Sales Report Chart Widget', 'wookit' ),
+                        'announcement'  => __( 'Announcement Widget', 'wookit' )
                     ]
                 ],
                 [
                     'name'    => 'dk_vendor_dashboard_product_form',
-                    'label'   => __( 'Hide Product Form Sections', 'woocom-toolkit' ),
-                    'desc'    => __( 'Hide Vendor Dashboard - Product Form sections', 'woocom-toolkit' ),
+                    'label'   => __( 'Hide Product Form Sections', 'wookit' ),
+                    'desc'    => __( 'Hide Vendor Dashboard - Product Form sections', 'wookit' ),
                     'type'    => 'multicheck',
                     'options' => [
-                        'download-virtual'  => __( 'Download/Virtual Checkboxes', 'woocom-toolkit' ),
-                        'inventory'         => __( 'Inventory', 'woocom-toolkit' ),
-                        'downloadable'      => __( 'Downloadable', 'woocom-toolkit' ),
-                        'other-options'     => __( 'Other Options', 'woocom-toolkit' ),
-                        'shipping-tax'      => __( 'Shipping & Tax', 'woocom-toolkit' ),
-                        'linked-products'   => __( 'Linked Products', 'woocom-toolkit' ),
-                        'attributes'        => __( 'Attributes & Variations', 'woocom-toolkit' ),
-                        'discount-options'  => __( 'Discount Options', 'woocom-toolkit' ),
-                        'yoast-seo'         => __( 'Products SEO (Yoast SEO)', 'woocom-toolkit' ),
-                        'rankmath-seo'      => __( 'Products SEO (Rank Math SEO)', 'woocom-toolkit' ),
-                        'geolocation'       => __( 'Geolocation', 'woocom-toolkit' ),
-                        'rma'               => __( 'RMA Options', 'woocom-toolkit' ),
-                        'product-addon'     => __( 'Add-ons', 'woocom-toolkit' ),
-                        'wholesale'         => __( 'Wholesale', 'woocom-toolkit' ),
-                        'order-min-max'     => __( 'Min/Max Options', 'woocom-toolkit' ),
-                        'advertise'         => __( 'Advertise Product', 'woocom-toolkit' ),
+                        'download-virtual'  => __( 'Download/Virtual Checkboxes', 'wookit' ),
+                        'inventory'         => __( 'Inventory', 'wookit' ),
+                        'downloadable'      => __( 'Downloadable', 'wookit' ),
+                        'other-options'     => __( 'Other Options', 'wookit' ),
+                        'shipping-tax'      => __( 'Shipping & Tax', 'wookit' ),
+                        'linked-products'   => __( 'Linked Products', 'wookit' ),
+                        'attributes'        => __( 'Attributes & Variations', 'wookit' ),
+                        'discount-options'  => __( 'Discount Options', 'wookit' ),
+                        'yoast-seo'         => __( 'Products SEO (Yoast SEO)', 'wookit' ),
+                        'rankmath-seo'      => __( 'Products SEO (Rank Math SEO)', 'wookit' ),
+                        'geolocation'       => __( 'Geolocation', 'wookit' ),
+                        'rma'               => __( 'RMA Options', 'wookit' ),
+                        'product-addon'     => __( 'Add-ons', 'wookit' ),
+                        'wholesale'         => __( 'Wholesale', 'wookit' ),
+                        'order-min-max'     => __( 'Min/Max Options', 'wookit' ),
+                        'advertise'         => __( 'Advertise Product', 'wookit' ),
                     ]
                 ]
             ]
@@ -203,7 +203,7 @@ class Admin {
 
         ?>
 
-        <h1 class="wp-heading-inline"><?php esc_html_e( 'WooCom Toolkit: A Helpfull WooCommerce Toolkit', 'woocom-toolkit' ) ?></h1>        
+        <h1 class="wp-heading-inline"><?php esc_html_e( 'WooCom Toolkit: A Helpfull WooCommerce Toolkit', 'wookit' ) ?></h1>        
 
         <?php
 

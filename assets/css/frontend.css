@@ -39,7 +39,7 @@ body.single-product .product-gallery .youtube-popup svg {
 /**
 * Soundcloud Title
 */
-.wctk_soundcloud-info {
+.wookit_soundcloud-info {
     font-size: 10px; 
     color: #cccccc;
     line-break: anywhere;
@@ -56,22 +56,22 @@ body.single-product .product-gallery .youtube-popup svg {
 * Dokan Shop Page Loop Sold by
 *
 */
-.wctk_sold_by_wrapper {
+.wookit_sold_by_wrapper {
     padding: 5px 0;
 }
-.wctk_sold_by_wrapper img {
+.wookit_sold_by_wrapper img {
     display: inline-block !important;
     margin: 0 !important;
     vertical-align: bottom;
 }
-.wctk_sold_by_wrapper a {
+.wookit_sold_by_wrapper a {
     display: inline-block !important;
 }
-.wctk_store_rating {
+.wookit_store_rating {
     padding: 5px 0;
 }
-.wctk_store_rating i.dashicons-star-empty,
-.wctk_store_rating i.dashicons-star-filled,
-.wctk_store_rating i.dashicons-star-half {
+.wookit_store_rating i.dashicons-star-empty,
+.wookit_store_rating i.dashicons-star-filled,
+.wookit_store_rating i.dashicons-star-half {
     font-size: 15px;
 }
