@@ -42,9 +42,9 @@ Domain Path: /languages
 if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
- * WooCom_Toolkit class
+ * WooKit class
  *
- * @class WooCom_Toolkit The class that holds the entire WooCom_Toolkit plugin
+ * @class WooKit The class that holds the entire WooKit plugin
  */
 final class WooKit {
 
