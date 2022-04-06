@@ -107,7 +107,7 @@ class Assets {
                 'src' =>  WOOKIT_ASSETS . '/css/style.css'
             ],
             'wookit-frontend' => [
-                'src' =>  WOOKIT_ASSETSw . '/css/frontend.css'
+                'src' =>  WOOKIT_ASSETS . '/css/frontend.css'
             ]
         ];
 
