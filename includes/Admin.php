@@ -37,7 +37,7 @@ class Admin {
         $capability = 'manage_options';
         $slug       = 'wookit';
 
-        $hook = add_menu_page( __( 'WooCommerce Kit', 'wookit' ), __( 'WooCommerce Kit', 'wookit' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-text' );
+        $hook = add_menu_page( __( 'WooCommerce Kit', 'wookit' ), __( 'WooCommerce Kit', 'wookit' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-editor-paste-word' );
 
         add_action( 'load-' . $hook, [ $this, 'init_hooks'] );
     }

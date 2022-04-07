@@ -31,12 +31,6 @@ jq( document ).ready( function(){
             });
         });
 
-        // let setHeight   = jq( 'body.single-product .product-gallery img:eq(1)' ).height();
-        // let viewport    = jq( 'body.single-product .product-gallery' );
-        // if( setHeight ){
-        //     viewport.height( setHeight );
-        // }
-
         /**
          * 
          * Adjust Video Gallery Image Thumbnail
@@ -47,9 +41,6 @@ jq( document ).ready( function(){
         if ( sliderHeight ){
             videoframe.height( sliderHeight ).css( 'object-fit', 'cover' );
         }
-
-
-        // jq( 'body.single-product .product-gallery' ).find( 'iframe' ).height( sliderHeight );
 
         /**
          * 
@@ -74,7 +65,7 @@ jq( document ).ready( function(){
              */
             if( set_yt_video_featured_img ){
 
-                setTimeout(function(){
+                setTimeout( function(){
                     var sliderThumbHeight  = jq( '.flex-control-thumbs img:eq(1)' ).height();
 
                     jq( 'ol.flex-control-nav.flex-control-thumbs img:eq(0)' ).css({

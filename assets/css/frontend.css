@@ -70,8 +70,12 @@ body.single-product .product-gallery .youtube-popup svg {
 .wookit_store_rating {
     padding: 5px 0;
 }
-.wookit_store_rating i.dashicons-star-empty,
+.wookit_store_rating i.dashicons-star-empty {
+    font-size: 15px;
+    color: #e0e0e0;
+}
 .wookit_store_rating i.dashicons-star-filled,
 .wookit_store_rating i.dashicons-star-half {
     font-size: 15px;
+    color: #ffc239;
 }
