@@ -148,6 +148,19 @@ class Admin {
                     'default' => 'asc'
                 ],
                 [
+                    'name'    => 'dk_sold_by_label',
+                    'label'   => __( 'Sold by label', 'wookit' ),
+                    'desc'    => __( 'Display sold by label on the shop page', 'wookit' ),
+                    'type'    => 'select',
+                    'options' => [
+                        'none'          => __( 'None', 'wookit' ),
+                        'product-title' => __( 'After Product Title', 'wookit' ),
+                        'product-price' => __( 'Before Add to Cart Button', 'wookit' ),
+                        'add-to-cart'   => __( 'After Add to Cart Button', 'wookit' ),
+                    ],
+                    'default' => 'add-to-cart'
+                ],
+                [
                     'name'    => 'dk_vendor_dashboard_widgets',
                     'label'   => __( 'Hide Vendor Dashboard Widgets', 'wookit' ),
                     'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'wookit' ),

@@ -62,6 +62,8 @@ body.single-product .product-gallery .youtube-popup svg {
 .wookit_sold_by_wrapper img {
     display: inline-block !important;
     margin: 0 !important;
+    width: 25px !important; 
+    border-radius: 50%;
     vertical-align: bottom;
 }
 .wookit_sold_by_wrapper a {

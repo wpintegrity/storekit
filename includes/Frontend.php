@@ -14,6 +14,17 @@ class Frontend {
         if( $wookit_woocommerce_product_video == 'on' ){
             add_action( 'woocommerce_before_add_to_cart_form', [ $this, 'wookit_show_soundcloud_player' ] );
         }
+
+        $wookit_sold_by_label = wookit_get_option( 'dk_sold_by_label', 'dokan', 'add-to-cart' );
+        
+        if( $wookit_sold_by_label != 'none' && $wookit_sold_by_label == 'add-to-cart' ){
+            add_action( 'woocommerce_after_shop_loop_item', [ $this, 'wookit_sold_by_product' ] );
+        } elseif ( $wookit_sold_by_label != 'none' && $wookit_sold_by_label == 'product-price' ){
+            add_action( 'woocommerce_after_shop_loop_item_title', [ $this, 'wookit_sold_by_product' ] );
+        } elseif ( $wookit_sold_by_label != 'none' && $wookit_sold_by_label == 'product-title' ){
+            add_action( 'woocommerce_shop_loop_item_title', [ $this, 'wookit_sold_by_product' ] );
+        }
+
     }
 
     /**
@@ -75,6 +86,33 @@ class Frontend {
 
         <?php
         endif;
+    }
+
+    /**
+     *   
+     * Sold by label on the shop/product loop
+     *
+     */
+    function wookit_sold_by_product(){
+        global $product;
+        $vendor = dokan_get_vendor_by_product( $product->get_id() );
+        $store_rating = $vendor->get_rating();
+
+        ?>
+
+        <div class="wookit_sold_by_container">
+            <div class="wookit_sold_by_wrapper">
+                <span class="wookit_sold_by_label">Store:&nbsp;</span>
+                <img src="<?php echo esc_url( $vendor->get_avatar() ); ?>" alt="<?php echo esc_attr( $vendor->get_shop_name() ); ?>">&nbsp;
+                <a href="<?php echo esc_attr( $vendor->get_shop_url() ); ?>"><?php echo esc_html( $vendor->get_shop_name() ); ?></a>
+            </div>
+            <div class="wookit_store_rating">
+                <?php echo wp_kses_post( dokan_generate_ratings( $store_rating['rating'], 5 ) ); ?>
+            </div>
+        </div>
+
+        <?php
+
     }
 
 }
