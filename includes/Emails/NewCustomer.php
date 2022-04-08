@@ -69,7 +69,7 @@ class NewCustomer extends WC_Email {
             $this->find['site_name']        = '{site_name}';
             $this->find['site_url']         = '{site_url}';
 
-            $this->replace['customer_name'] = $customer->display_name;
+            $this->replace['customer_name'] = ucwords( $customer->display_name ) ;
             $this->replace['customer_edit'] = admin_url( 'user-edit.php?user_id=' . $customer_id );
             $this->replace['site_name']     = $this->get_from_name();
             $this->replace['site_url']      = site_url();
