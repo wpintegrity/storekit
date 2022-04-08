@@ -13,9 +13,7 @@ echo "= " . esc_html( $email_heading ) . " =\n\n";
 ?>
 
 <?php esc_html_e( 'Hello there,', 'wookit' ); echo " \n";?>
-
-<?php esc_html_e( 'A new customer has registered in your marketplace  ', 'wookit' );  echo " \n";?>
-<?php esc_html_e( 'Customer Details:', 'wookit' ); echo " \n"; ?>
+<?php printf( esc_html( 'A new customer has registered in your %s store', 'wookit' ), esc_html( $data['site_name'] ) ); echo " \n"; ?>
 
 <?php echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n"; ?>
 

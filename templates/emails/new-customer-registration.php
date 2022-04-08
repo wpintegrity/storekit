@@ -14,8 +14,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <p>
     <?php esc_html_e( 'Hello there,', 'wookit' ); ?>
     <br>
-    <?php esc_html_e( 'A new customer has registered in your store ', 'wookit' ); ?>
-    <?php echo esc_html( $data['site_name'] ); ?>
+    <?php printf( esc_html( 'A new customer has registered in your %s store', 'wookit' ), esc_html( $data['site_name'] ) ); ?>
 </p>
 <p>
     <?php esc_html_e( 'Customer Details:', 'wookit' ); ?>
