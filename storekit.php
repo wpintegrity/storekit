@@ -42,9 +42,9 @@ Domain Path: /languages
 if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
- * storekit class
+ * StoreKit class
  *
- * @class storekit The class that holds the entire storekit plugin
+ * @class StoreKit The class that holds the entire StoreKit plugin
  */
 final class StoreKit {
 
@@ -63,7 +63,7 @@ final class StoreKit {
     private $container = array();
 
     /**
-     * Constructor for the WooCom_Toolkit class
+     * Constructor for the StoreKit class
      *
      * Sets up all the appropriate hooks and actions
      * within our plugin.
@@ -77,16 +77,16 @@ final class StoreKit {
     }
 
     /**
-     * Initializes the WooCom_Toolkit() class
+     * Initializes the StoreKit() class
      *
-     * Checks for an existing WooCom_Toolkit() instance
+     * Checks for an existing StoreKit() instance
      * and if it doesn't find one, creates it.
      */
     public static function init() {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new WooKit();
+            $instance = new StoreKit();
         }
 
         return $instance;
@@ -239,6 +239,6 @@ final class StoreKit {
         }
     }
 
-} // WooCom_Toolkit
+} // StoreKit
 
 $storekit = StoreKit::init();

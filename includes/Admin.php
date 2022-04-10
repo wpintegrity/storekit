@@ -86,30 +86,45 @@ class Admin {
                 [
                     'name'      => 'wc_product_video_checkbox',
                     'label'     => __( 'Enable Product Video', 'storekit' ),
-                    'desc'      => __( 'This option enables video adding capability in product edit form', 'storekit' ),
+                    'desc'      => __( 'Allow customers to see product featured video from the single product page', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_product_audio_checkbox',
                     'label'     => __( 'Enable Product Audio', 'storekit' ),
-                    'desc'      => __( 'This option enables audio adding capability in product edit form', 'storekit' ),
+                    'desc'      => __( 'Allow customers to listen to sample audio from the single product page', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_new_customer_reg_email',
                     'label'     => __( 'Enable New Customer Registration Email', 'storekit' ),
-                    'desc'      => __( 'It will enables the New Customer Registration Email functionality', 'storekit' ),
+                    'desc'      => __( 'Get new customers registration email to the admin email', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_clear_cart',
                     'label'     => __( 'Enable Clear Cart button', 'storekit' ),
-                    'desc'      => __( 'Add a clear cart button on the cart page to clear cart by one click', 'storekit' ),
+                    'desc'      => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
+                ],
+                [
+                    'name'      => 'wc_default_product_stock',
+                    'size'      => 'small',
+                    'label'     => __( 'Default product stock', 'storekit' ),
+                    'desc'      => __( 'Insert default product stock amount', 'storekit' ),
+                    'type'      => 'text',
+                    'default'   => '0'
+                ],
+                [
+                    'name'      => 'wc_product_sold_individually',
+                    'label'     => __( 'Enable Product Individual Sale', 'storekit' ),
+                    'desc'      => __( 'Prevent customers from purchasing one product multiple times at a time', 'storekit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'off'
                 ],
             ],
             'dokan' => [
@@ -118,14 +133,14 @@ class Admin {
                     'label'   => __( 'Disable Product Video', 'storekit' ),
                     'desc'    => __( 'Disallow vendors from using the product video feature', 'storekit' ),
                     'type'    => 'checkbox',
-                    'default' => ''
+                    'default' => 'off'
                 ],
                 [
                     'name'    => 'dk_product_audio_checkbox',
                     'label'   => __( 'Disable Product Audio', 'storekit' ),
                     'desc'    => __( 'Disallow vendors from using the product audio feature', 'storekit' ),
                     'type'    => 'checkbox',
-                    'default' => ''
+                    'default' => 'off'
                 ],
                 [
                     'name'    => 'dk_vendor_upload_size',
@@ -197,7 +212,22 @@ class Admin {
                         'order-min-max'     => __( 'Min/Max Options', 'storekit' ),
                         'advertise'         => __( 'Advertise Product', 'storekit' ),
                     ]
-                ]
+                ],
+                [
+                    'name'      => 'dk_default_product_stock',
+                    'size'      => 'small',
+                    'label'     => __( 'Default product stock', 'storekit' ),
+                    'desc'      => __( 'Insert default product stock amount', 'storekit' ),
+                    'type'      => 'text',
+                    'default'   => '0'
+                ],
+                [
+                    'name'      => 'dk_product_sold_individually',
+                    'label'     => __( 'Enable Product Individual Sale', 'storekit' ),
+                    'desc'      => __( 'Prevent customers from purchasing one product multiple times at a time', 'storekit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'off'
+                ],
             ]
         ];
 
@@ -216,7 +246,7 @@ class Admin {
 
         ?>
 
-        <h1 class="wp-heading-inline"><?php esc_html_e( 'WooCommerce Kit: A Helpfull Toolkit for WooCommerce', 'storekit' ) ?></h1>        
+        <h1 class="wp-heading-inline"><?php esc_html_e( 'StoreKit: A Helpfull Toolkit for WooCommerce', 'storekit' ) ?></h1>        
 
         <?php
 

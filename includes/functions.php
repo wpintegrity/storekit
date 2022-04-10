@@ -29,7 +29,7 @@ function storekit_get_option( $option, $section, $default = '' ) {
 function storekit_product_settings_tabs( $tabs ){
  
 	$tabs[ 'storekit_product_tab' ] = array(
-		'label'    => __( 'storekit' ),
+		'label'    => __( 'StoreKit' ),
 		'target'   => 'storekit_product_data',
 		'priority' => 99,
 	);
@@ -58,9 +58,9 @@ function storekit_product_data() {
         woocommerce_wp_text_input(
             array(
             'id'          => '_storekit_product_video_url',
-            'label'       => __( 'Product Video URL', 'woocom-toolkit' ),
+            'label'       => __( 'Product Video URL', 'storekit' ),
             'placeholder' => 'https://www.youtube.com/watch?v=tt2k8PGm-TI',
-            'description' => __( 'Insert your YouTube Video URL', 'woocom-toolkit' ),
+            'description' => __( 'Insert your YouTube Video URL', 'storekit' ),
             'desc_tip'    => 'true'
             )
         );
@@ -144,7 +144,7 @@ function storekit_dk_product_video_url_field( $post, $post_id ){
     ?>
 
     <div class="dokan-form-group">
-    <label for="_storekit_product_video_url" class="form-label"><?php esc_html_e( 'Product Video URL', 'dokan-lite' ) ?></label>    
+    <label for="_storekit_product_video_url" class="form-label"><?php esc_html_e( 'Product Video URL', 'storekit' ) ?></label>    
 
     <?php
         dokan_post_input_box( 
@@ -163,18 +163,18 @@ function storekit_dk_product_video_url_field( $post, $post_id ){
     ?>
 
     <div class="dokan-form-group">
-    <label for="_storekit_product_audio_title" class="form-label"><?php esc_html_e( 'Product Audio Title', 'dokan-lite' ) ?></label>    
+    <label for="_storekit_product_audio_title" class="form-label"><?php esc_html_e( 'Product Audio Title', 'storekit' ) ?></label>    
     <?php
         dokan_post_input_box( 
             $post_id,
             '_storekit_product_audio_title', 
             [
-                'placeholder'   =>  __( 'OneRepublic - Counting Stars', 'woocom-toolkit' )
+                'placeholder'   =>  __( 'OneRepublic - Counting Stars', 'storekit' )
             ]
         );
     ?>
 
-    <label for="_storekit_product_audio_url" class="form-label"><?php esc_html_e( 'Product Audio URL', 'dokan-lite' ) ?></label>    
+    <label for="_storekit_product_audio_url" class="form-label"><?php esc_html_e( 'Product Audio URL', 'storekit' ) ?></label>    
     <?php
         dokan_post_input_box( 
             $post_id,
@@ -398,7 +398,7 @@ function storekit_clear_cart_button(){
     if( $storekit_wc_clear_cart == 'on' ):
     ?>
 
-    <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'woocom-toolkit' ); ?>"><?php esc_html_e( 'Clear cart', 'woocom-toolkit' ); ?></button>
+    <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'storekit' ); ?>"><?php esc_html_e( 'Clear cart', 'storekit' ); ?></button>
 
     <?php
     endif;
@@ -418,4 +418,44 @@ function storekit_clear_cart_session(){
         $woocommerce->cart->empty_cart(); 
     }
 }
-add_action( 'init', 'storekit_clear_cart_session' );
+add_action( 'wp_head', 'storekit_clear_cart_session' );
+
+/**
+ * 
+ * Default Product Stock
+ * 
+ */
+function default_product_stock( $post_id ){
+    $product_stock = storekit_get_option( 'wc_default_product_stock', 'woocommerce', '0' );
+    $sold_individually = storekit_get_option( 'wc_product_sold_individually', 'woocommerce', 'off' );
+
+    if( $product_stock > 0 ){
+        update_post_meta( $post_id, '_manage_stock', 'yes' );
+        update_post_meta( $post_id, '_stock', $product_stock );
+    }
+
+    if( $sold_individually == 'on' ){
+        update_post_meta( $post_id, '_sold_individually', 'yes' );
+    }
+}
+add_action( 'save_post_product', 'default_product_stock' );
+
+/**
+ * 
+ * Default Product Stock for Dokan Vendors
+ * 
+ */
+function default_product_stock_for_vendors( $post_id ){
+    $dk_product_stock = storekit_get_option( 'dk_default_product_stock', 'dokan', '0' );
+    $dk_sold_individually = storekit_get_option( 'dk_product_sold_individually', 'dokan', 'off' );
+
+    if( $dk_product_stock > 0 ){
+        update_post_meta( $post_id, '_manage_stock', 'yes' );
+        update_post_meta( $post_id, '_stock', $dk_product_stock );
+    }
+
+    if( $dk_sold_individually == 'on' ){
+        update_post_meta( $post_id, '_sold_individually', 'yes' );
+    }
+}
+add_action( 'dokan_new_product_added', 'default_product_stock_for_vendors' );
