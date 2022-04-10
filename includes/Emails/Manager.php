@@ -1,5 +1,5 @@
 <?php
-namespace WooKit\Emails;
+namespace StoreKit\Emails;
 /**
  * Handles email sending
  */
@@ -10,10 +10,10 @@ class Manager {
 	 */
 	public function __construct() {
 
-        $wookit_new_cus_reg_option = wookit_get_option( 'wc_new_customer_reg_email', 'woocommerce', 'on' );
+        $storekit_new_cus_reg_option = storekit_get_option( 'wc_new_customer_reg_email', 'woocommerce', 'on' );
 
-        if( $wookit_new_cus_reg_option == 'on' ){
-	        add_filter( 'woocommerce_email_classes', array( $this, 'load_wookit_emails' ), 99 );
+        if( $storekit_new_cus_reg_option == 'on' ){
+	        add_filter( 'woocommerce_email_classes', array( $this, 'load_storekit_emails' ), 99 );
         }
 
         add_filter( 'woocommerce_template_directory', array( $this, 'set_email_template_directory' ), 15, 2 );
@@ -32,18 +32,18 @@ class Manager {
     }
 
     /**
-     * Add WooCom Toolkit Email classes in WC Email
+     * Add StoreKit Email classes in WC Email
      */
-    public function load_wookit_emails( $wc_emails ) {
-        require_once WOOKIT_INCLUDES . '/Emails/NewCustomer.php';
+    public function load_storekit_emails( $wc_emails ) {
+        require_once STOREKIT_INCLUDES . '/Emails/NewCustomer.php';
 
-        $wc_emails['WooKit_New_Customer']   = new NewCustomer();
+        $wc_emails['StoreKit_New_Customer']   = new NewCustomer();
 
         return $wc_emails;
     }
 
     /**
-     * Set template override directory for WooComToolkit Emails
+     * Set template override directory for StoreKit Emails
      *
      * @since 0.1
      *
@@ -54,21 +54,21 @@ class Manager {
      * @return string
      */
     public function set_email_template_directory( $template_dir, $template ) {
-        $wookit_emails = [
+        $storekit_emails = [
             'new-customer-registration.php'
         ];
 
         $template_name = basename( $template );
 
-        if ( in_array( $template_name, $wookit_emails, true ) ) {
-            return 'wookit';
+        if ( in_array( $template_name, $storekit_emails, true ) ) {
+            return 'storekit';
         }
 
         return $template_dir;
     }
 
     /**
-     * Register Dokan Email actions for WC
+     * Register StoreKit Email actions for WC
      *
      * @since 0.1
      *
@@ -78,7 +78,7 @@ class Manager {
      */
     public function register_email_actions( $actions ) {
         $dokan_email_actions = [
-            'wookit_new_customer_registration'
+            'storekit_new_customer_registration'
         ];
 
         foreach ( $dokan_email_actions as $action ) {

@@ -3,12 +3,12 @@
 Plugin Name: StoreKit
 Plugin URI: https://wordpress.org/plugins/storekit
 Description: A Helpful Toolkit WordPress plugin for WooCommerce
-Version: 1.0
+Version: 1.0.0
 Author: Tanjir Al Mamun
 Author URI: https://tanjirsdev.com
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wookit
+Text Domain: storekit
 Domain Path: /languages
 */
 
@@ -42,18 +42,18 @@ Domain Path: /languages
 if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
- * WooKit class
+ * storekit class
  *
- * @class WooKit The class that holds the entire WooKit plugin
+ * @class storekit The class that holds the entire storekit plugin
  */
-final class WooKit {
+final class StoreKit {
 
     /**
      * Plugin version
      *
      * @var string
      */
-    public $version = '0.1.0';
+    public $version = '1.0.0';
 
     /**
      * Holds various class instances
@@ -124,12 +124,12 @@ final class WooKit {
      * @return void
      */
     public function define_constants() {
-        define( 'WOOKIT_VERSION', $this->version );
-        define( 'WOOKIT_FILE', __FILE__ );
-        define( 'WOOKIT_PATH', dirname( WOOKIT_FILE ) );
-        define( 'WOOKIT_INCLUDES', WOOKIT_PATH . '/includes' );
-        define( 'WOOKIT_URL', plugins_url( '', WOOKIT_FILE ) );
-        define( 'WOOKIT_ASSETS', WOOKIT_URL . '/assets' );
+        define( 'STOREKIT_VERSION', $this->version );
+        define( 'STOREKIT_FILE', __FILE__ );
+        define( 'STOREKIT_PATH', dirname( STOREKIT_FILE ) );
+        define( 'STOREKIT_INCLUDES', STOREKIT_PATH . '/includes' );
+        define( 'STOREKIT_URL', plugins_url( '', STOREKIT_FILE ) );
+        define( 'STOREKIT_ASSETS', STOREKIT_URL . '/assets' );
     }
 
     /**
@@ -149,13 +149,13 @@ final class WooKit {
      */
     public function activate() {
 
-        $installed = get_option( 'wookit_installed' );
+        $installed = get_option( 'storekit_installed' );
 
         if ( ! $installed ) {
-            update_option( 'wookit_installed', time() );
+            update_option( 'storekit_installed', time() );
         }
 
-        update_option( 'wookit_version', WOOKIT_VERSION );
+        update_option( 'storekit_version', STOREKIT_VERSION );
     }
 
     /**
@@ -165,19 +165,19 @@ final class WooKit {
      */
     public function includes() {
 
-        require_once WOOKIT_INCLUDES . '/Assets.php';
+        require_once STOREKIT_INCLUDES . '/Assets.php';
 
         if ( $this->is_request( 'admin' ) ) {
-            require_once WOOKIT_INCLUDES . '/Admin.php';
-            require_once WOOKIT_INCLUDES . '/class.settings-api.php';
+            require_once STOREKIT_INCLUDES . '/Admin.php';
+            require_once STOREKIT_INCLUDES . '/class.settings-api.php';
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            require_once WOOKIT_INCLUDES . '/Frontend.php';
+            require_once STOREKIT_INCLUDES . '/Frontend.php';
         }
 
-        require_once WOOKIT_INCLUDES . '/functions.php';
-        require_once WOOKIT_INCLUDES . '/Emails/Manager.php';
+        require_once STOREKIT_INCLUDES . '/functions.php';
+        require_once STOREKIT_INCLUDES . '/Emails/Manager.php';
 
     }
 
@@ -202,15 +202,15 @@ final class WooKit {
     public function init_classes() {
 
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin']       = new WooKit\Admin();
+            $this->container['admin']       = new StoreKit\Admin();
         }
 
         if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend']    = new WooKit\Frontend();
+            $this->container['frontend']    = new StoreKit\Frontend();
         }
 
-        $this->container['assets']          = new WooKit\Assets();
-        $this->container['emails']          = new WooKit\Emails\Manager();
+        $this->container['assets']          = new StoreKit\Assets();
+        $this->container['emails']          = new StoreKit\Emails\Manager();
     }
 
     /**
@@ -219,7 +219,7 @@ final class WooKit {
      * @uses load_plugin_textdomain()
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'wookit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        load_plugin_textdomain( 'storekit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
     /**
@@ -241,4 +241,4 @@ final class WooKit {
 
 } // WooCom_Toolkit
 
-$wookit = WooKit::init();
+$storekit = StoreKit::init();

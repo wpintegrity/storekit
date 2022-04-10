@@ -1,5 +1,5 @@
 <?php
-namespace WooKit;
+namespace StoreKit;
 
 /**
  * Scripts and Styles Class
@@ -36,7 +36,7 @@ class Assets {
         foreach ( $scripts as $handle => $script ) {
             $deps      = isset( $script['deps'] ) ? $script['deps'] : false;
             $in_footer = isset( $script['in_footer'] ) ? $script['in_footer'] : false;
-            $version   = isset( $script['version'] ) ? $script['version'] : WOOKIT_VERSION;
+            $version   = isset( $script['version'] ) ? $script['version'] : STOREKIT_VERSION;
 
             wp_register_script( $handle, $script['src'], $deps, $version, $in_footer );
         }
@@ -53,7 +53,7 @@ class Assets {
         foreach ( $styles as $handle => $style ) {
             $deps = isset( $style['deps'] ) ? $style['deps'] : false;
 
-            wp_register_style( $handle, $style['src'], $deps, WOOKIT_VERSION );
+            wp_register_style( $handle, $style['src'], $deps, STOREKIT_VERSION );
         }
     }
 
@@ -66,20 +66,20 @@ class Assets {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $scripts = [
-            'wookit-magnific-popup' => [
-                'src'       => WOOKIT_ASSETS . '/js/jquery.magnific-popup.min.js',
+            'storekit-magnific-popup' => [
+                'src'       => STOREKIT_ASSETS . '/js/jquery.magnific-popup.min.js',
                 'deps'      => [ 'jquery' ],
                 'version'   => '1.1.0',
                 'in_footer' => true
             ],
-            'wookit-flexslider' => [
-                'src'       => WOOKIT_ASSETS . '/js/jquery.flexslider-min.js',
+            'storekit-flexslider' => [
+                'src'       => STOREKIT_ASSETS . '/js/jquery.flexslider-min.js',
                 'deps'      => [ 'jquery' ],
                 'version'   => '2.7.2',
                 'in_footer' => true
             ],
-            'wookit-frontend' => [
-                'src'       => WOOKIT_ASSETS . '/js/frontend.js',
+            'storekit-frontend' => [
+                'src'       => STOREKIT_ASSETS . '/js/frontend.js',
                 'deps'      => [ 'jquery' ],
                 'version'   => time(),
                 'in_footer' => true
@@ -97,17 +97,17 @@ class Assets {
     public function get_styles() {
 
         $styles = [
-            'wookit-flexslider' => [
-                'src' =>  WOOKIT_ASSETS . '/css/flexslider.css'
+            'storekit-flexslider' => [
+                'src' =>  STOREKIT_ASSETS . '/css/flexslider.css'
             ],
-            'wookit-magnific-popup' => [
-                'src' =>  WOOKIT_ASSETS . '/css/magnific-popup.css'
+            'storekit-magnific-popup' => [
+                'src' =>  STOREKIT_ASSETS . '/css/magnific-popup.css'
             ],
-            'wookit-style' => [
-                'src' =>  WOOKIT_ASSETS . '/css/style.css'
+            'storekit-style' => [
+                'src' =>  STOREKIT_ASSETS . '/css/style.css'
             ],
-            'wookit-frontend' => [
-                'src' =>  WOOKIT_ASSETS . '/css/frontend.css'
+            'storekit-frontend' => [
+                'src' =>  STOREKIT_ASSETS . '/css/frontend.css'
             ]
         ];
 

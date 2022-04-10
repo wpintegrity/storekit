@@ -1,5 +1,5 @@
 <?php
-namespace WooKit;
+namespace StoreKit;
 
 /**
  * Admin Pages Handler
@@ -35,9 +35,9 @@ class Admin {
         global $submenu;
 
         $capability = 'manage_options';
-        $slug       = 'wookit';
+        $slug       = 'storekit';
 
-        $hook = add_menu_page( __( 'WooCommerce Kit', 'wookit' ), __( 'WooCommerce Kit', 'wookit' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-editor-paste-word' );
+        $hook = add_menu_page( __( 'StoreKit', 'storekit' ), __( 'StoreKit', 'storekit' ), $capability, $slug, [ $this, 'plugin_page' ], 'dashicons-editor-paste-word' );
 
         add_action( 'load-' . $hook, [ $this, 'init_hooks'] );
     }
@@ -57,19 +57,19 @@ class Admin {
      * @return void
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'wookit-admin' );
-        wp_enqueue_script( 'wookit-admin' );
+        wp_enqueue_style( 'storekit-admin' );
+        wp_enqueue_script( 'storekit-admin' );
     }
 
     public function get_settings_sections() {
         $sections = array(
             array(
                 'id'    => 'woocommerce',
-                'title' => __( 'WooCommerce Settings', 'wookit' )
+                'title' => __( 'WooCommerce Settings', 'storekit' )
             ),
             array(
                 'id'    => 'dokan',
-                'title' => __( 'Dokan Settings', 'wookit' )
+                'title' => __( 'Dokan Settings', 'storekit' )
             )
         );
         return $sections;
@@ -85,29 +85,29 @@ class Admin {
             'woocommerce' => [
                 [
                     'name'      => 'wc_product_video_checkbox',
-                    'label'     => __( 'Enable Product Video', 'wookit' ),
-                    'desc'      => __( 'This option enables video adding capability in product edit form', 'wookit' ),
+                    'label'     => __( 'Enable Product Video', 'storekit' ),
+                    'desc'      => __( 'This option enables video adding capability in product edit form', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_product_audio_checkbox',
-                    'label'     => __( 'Enable Product Audio', 'wookit' ),
-                    'desc'      => __( 'This option enables audio adding capability in product edit form', 'wookit' ),
+                    'label'     => __( 'Enable Product Audio', 'storekit' ),
+                    'desc'      => __( 'This option enables audio adding capability in product edit form', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_new_customer_reg_email',
-                    'label'     => __( 'Enable New Customer Registration Email', 'wookit' ),
-                    'desc'      => __( 'It will enables the New Customer Registration Email functionality', 'wookit' ),
+                    'label'     => __( 'Enable New Customer Registration Email', 'storekit' ),
+                    'desc'      => __( 'It will enables the New Customer Registration Email functionality', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_clear_cart',
-                    'label'     => __( 'Enable Clear Cart button', 'wookit' ),
-                    'desc'      => __( 'Add a clear cart button on the cart page to clear cart by one click', 'wookit' ),
+                    'label'     => __( 'Enable Clear Cart button', 'storekit' ),
+                    'desc'      => __( 'Add a clear cart button on the cart page to clear cart by one click', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
@@ -115,87 +115,87 @@ class Admin {
             'dokan' => [
                 [
                     'name'    => 'dk_product_video_checkbox',
-                    'label'   => __( 'Disable Product Video', 'wookit' ),
-                    'desc'    => __( 'Disallow vendors from using the product video feature', 'wookit' ),
+                    'label'   => __( 'Disable Product Video', 'storekit' ),
+                    'desc'    => __( 'Disallow vendors from using the product video feature', 'storekit' ),
                     'type'    => 'checkbox',
                     'default' => ''
                 ],
                 [
                     'name'    => 'dk_product_audio_checkbox',
-                    'label'   => __( 'Disable Product Audio', 'wookit' ),
-                    'desc'    => __( 'Disallow vendors from using the product audio feature', 'wookit' ),
+                    'label'   => __( 'Disable Product Audio', 'storekit' ),
+                    'desc'    => __( 'Disallow vendors from using the product audio feature', 'storekit' ),
                     'type'    => 'checkbox',
                     'default' => ''
                 ],
                 [
                     'name'    => 'dk_vendor_upload_size',
                     'size'    => 'small',
-                    'label'   => __( 'Limit File Upload Size', 'wookit' ),
-                    'desc'    => __( 'Limit vendor from uploading file size', 'wookit' ),
+                    'label'   => __( 'Limit File Upload Size', 'storekit' ),
+                    'desc'    => __( 'Limit vendor from uploading file size', 'storekit' ),
                     'type'    => 'text',
                     'default' => '1'
                 ],
                 [
                     'name'    => 'dk_sort_product_by_vendor',
-                    'label'   => __( 'Sort Product by Vendor', 'wookit' ),
-                    'desc'    => __( 'Sort products by vendor name on the cart', 'wookit' ),
+                    'label'   => __( 'Sort Product by Vendor', 'storekit' ),
+                    'desc'    => __( 'Sort products by vendor name on the cart', 'storekit' ),
                     'type'    => 'select',
                     'options' => [
-                        'none'  => __( 'None', 'wookit' ),
-                        'asc'   => __( 'ASC', 'wookit' ),
-                        'desc'  => __( 'DESC', 'wookit' ),
+                        'none'  => __( 'None', 'storekit' ),
+                        'asc'   => __( 'ASC', 'storekit' ),
+                        'desc'  => __( 'DESC', 'storekit' ),
                     ],
                     'default' => 'asc'
                 ],
                 [
                     'name'    => 'dk_sold_by_label',
-                    'label'   => __( 'Sold by label', 'wookit' ),
-                    'desc'    => __( 'Display sold by label on the shop page', 'wookit' ),
+                    'label'   => __( 'Sold by label', 'storekit' ),
+                    'desc'    => __( 'Display sold by label on the shop page', 'storekit' ),
                     'type'    => 'select',
                     'options' => [
-                        'none'          => __( 'None', 'wookit' ),
-                        'product-title' => __( 'After Product Title', 'wookit' ),
-                        'product-price' => __( 'Before Add to Cart Button', 'wookit' ),
-                        'add-to-cart'   => __( 'After Add to Cart Button', 'wookit' ),
+                        'none'          => __( 'None', 'storekit' ),
+                        'product-title' => __( 'After Product Title', 'storekit' ),
+                        'product-price' => __( 'Before Add to Cart Button', 'storekit' ),
+                        'add-to-cart'   => __( 'After Add to Cart Button', 'storekit' ),
                     ],
                     'default' => 'add-to-cart'
                 ],
                 [
                     'name'    => 'dk_vendor_dashboard_widgets',
-                    'label'   => __( 'Hide Vendor Dashboard Widgets', 'wookit' ),
-                    'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'wookit' ),
+                    'label'   => __( 'Hide Vendor Dashboard Widgets', 'storekit' ),
+                    'desc'    => __( 'Hide Vendor Dashboard - Dashboard menu screen widgets', 'storekit' ),
                     'type'    => 'multicheck',
                     'options' => [
-                        'big-counter'   => __( 'Big Counter Widget', 'wookit' ),
-                        'orders'        => __( 'Orders Widget', 'wookit' ),
-                        'products'      => __( 'Products Widget', 'wookit' ),
-                        'reviews'       => __( 'Reviews Widget', 'wookit' ),
-                        'sales-chart'   => __( 'Sales Report Chart Widget', 'wookit' ),
-                        'announcement'  => __( 'Announcement Widget', 'wookit' )
+                        'big-counter'   => __( 'Big Counter Widget', 'storekit' ),
+                        'orders'        => __( 'Orders Widget', 'storekit' ),
+                        'products'      => __( 'Products Widget', 'storekit' ),
+                        'reviews'       => __( 'Reviews Widget', 'storekit' ),
+                        'sales-chart'   => __( 'Sales Report Chart Widget', 'storekit' ),
+                        'announcement'  => __( 'Announcement Widget', 'storekit' )
                     ]
                 ],
                 [
                     'name'    => 'dk_vendor_dashboard_product_form',
-                    'label'   => __( 'Hide Product Form Sections', 'wookit' ),
-                    'desc'    => __( 'Hide Vendor Dashboard - Product Form sections', 'wookit' ),
+                    'label'   => __( 'Hide Product Form Sections', 'storekit' ),
+                    'desc'    => __( 'Hide Vendor Dashboard - Product Form sections', 'storekit' ),
                     'type'    => 'multicheck',
                     'options' => [
-                        'download-virtual'  => __( 'Download/Virtual Checkboxes', 'wookit' ),
-                        'inventory'         => __( 'Inventory', 'wookit' ),
-                        'downloadable'      => __( 'Downloadable', 'wookit' ),
-                        'other-options'     => __( 'Other Options', 'wookit' ),
-                        'shipping-tax'      => __( 'Shipping & Tax', 'wookit' ),
-                        'linked-products'   => __( 'Linked Products', 'wookit' ),
-                        'attributes'        => __( 'Attributes & Variations', 'wookit' ),
-                        'discount-options'  => __( 'Discount Options', 'wookit' ),
-                        'yoast-seo'         => __( 'Products SEO (Yoast SEO)', 'wookit' ),
-                        'rankmath-seo'      => __( 'Products SEO (Rank Math SEO)', 'wookit' ),
-                        'geolocation'       => __( 'Geolocation', 'wookit' ),
-                        'rma'               => __( 'RMA Options', 'wookit' ),
-                        'product-addon'     => __( 'Add-ons', 'wookit' ),
-                        'wholesale'         => __( 'Wholesale', 'wookit' ),
-                        'order-min-max'     => __( 'Min/Max Options', 'wookit' ),
-                        'advertise'         => __( 'Advertise Product', 'wookit' ),
+                        'download-virtual'  => __( 'Download/Virtual Checkboxes', 'storekit' ),
+                        'inventory'         => __( 'Inventory', 'storekit' ),
+                        'downloadable'      => __( 'Downloadable', 'storekit' ),
+                        'other-options'     => __( 'Other Options', 'storekit' ),
+                        'shipping-tax'      => __( 'Shipping & Tax', 'storekit' ),
+                        'linked-products'   => __( 'Linked Products', 'storekit' ),
+                        'attributes'        => __( 'Attributes & Variations', 'storekit' ),
+                        'discount-options'  => __( 'Discount Options', 'storekit' ),
+                        'yoast-seo'         => __( 'Products SEO (Yoast SEO)', 'storekit' ),
+                        'rankmath-seo'      => __( 'Products SEO (Rank Math SEO)', 'storekit' ),
+                        'geolocation'       => __( 'Geolocation', 'storekit' ),
+                        'rma'               => __( 'RMA Options', 'storekit' ),
+                        'product-addon'     => __( 'Add-ons', 'storekit' ),
+                        'wholesale'         => __( 'Wholesale', 'storekit' ),
+                        'order-min-max'     => __( 'Min/Max Options', 'storekit' ),
+                        'advertise'         => __( 'Advertise Product', 'storekit' ),
                     ]
                 ]
             ]
@@ -216,7 +216,7 @@ class Admin {
 
         ?>
 
-        <h1 class="wp-heading-inline"><?php esc_html_e( 'WooCommerce Kit: A Helpfull Toolkit for WooCommerce', 'wookit' ) ?></h1>        
+        <h1 class="wp-heading-inline"><?php esc_html_e( 'WooCommerce Kit: A Helpfull Toolkit for WooCommerce', 'storekit' ) ?></h1>        
 
         <?php
 

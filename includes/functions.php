@@ -9,7 +9,7 @@
  *
  * @return mixed
  */
-function wookit_get_option( $option, $section, $default = '' ) {
+function storekit_get_option( $option, $section, $default = '' ) {
 
     $options = get_option( $section );
 
@@ -22,42 +22,42 @@ function wookit_get_option( $option, $section, $default = '' ) {
 
 /**
  * 
- * Create WooCom Toolkit Custom Product Tab
+ * Create StoreKit Custom Product Tab
  * 
  */
 
-function wookit_product_settings_tabs( $tabs ){
+function storekit_product_settings_tabs( $tabs ){
  
-	$tabs[ 'wookit_product_tab' ] = array(
-		'label'    => __( 'WooKit' ),
-		'target'   => 'wookit_product_data',
+	$tabs[ 'storekit_product_tab' ] = array(
+		'label'    => __( 'storekit' ),
+		'target'   => 'storekit_product_data',
 		'priority' => 99,
 	);
 	return $tabs;
  
 }
-add_filter( 'woocommerce_product_data_tabs', 'wookit_product_settings_tabs' );
+add_filter( 'woocommerce_product_data_tabs', 'storekit_product_settings_tabs' );
 
 /** 
  *
- * Add input fields to the WooCom Toolkit Product Data Tab
+ * Add input fields to the StoreKit Product Data Tab
  *  
  */
-function wookit_product_data() {
+function storekit_product_data() {
     global $woocommerce, $post;
 
-    echo '<div id="wookit_product_data" class="panel woocommerce_options_panel hidden">';
+    echo '<div id="storekit_product_data" class="panel woocommerce_options_panel hidden">';
 
-    $wookit_woocommerce_product_video = wookit_get_option( 'wc_product_video_checkbox', 'woocommerce', 'on' );
-    $wookit_woocommerce_product_audio = wookit_get_option( 'wc_product_audio_checkbox', 'woocommerce', 'on' );
+    $storekit_woocommerce_product_video = storekit_get_option( 'wc_product_video_checkbox', 'woocommerce', 'on' );
+    $storekit_woocommerce_product_audio = storekit_get_option( 'wc_product_audio_checkbox', 'woocommerce', 'on' );
 
-    if( $wookit_woocommerce_product_video == 'on' ){
+    if( $storekit_woocommerce_product_video == 'on' ){
 
-        echo '<div class="options_group wookit_product_video_url_field">';
+        echo '<div class="options_group storekit_product_video_url_field">';
     
         woocommerce_wp_text_input(
             array(
-            'id'          => '_wookit_product_video_url',
+            'id'          => '_storekit_product_video_url',
             'label'       => __( 'Product Video URL', 'woocom-toolkit' ),
             'placeholder' => 'https://www.youtube.com/watch?v=tt2k8PGm-TI',
             'description' => __( 'Insert your YouTube Video URL', 'woocom-toolkit' ),
@@ -69,26 +69,26 @@ function wookit_product_data() {
 
     }
 
-    if( $wookit_woocommerce_product_audio == 'on' ){
+    if( $storekit_woocommerce_product_audio == 'on' ){
 
-        echo '<div class="options_group wookit_product_audio_url_field">';
+        echo '<div class="options_group storekit_product_audio_url_field">';
         
             woocommerce_wp_text_input(
                 array(
-                'id'          => '_wookit_product_audio_title',
-                'label'       => __( 'Product Audio Title', 'wookit' ),
-                'placeholder' => __( 'OneRepublic - Counting Stars', 'wookitt' ),
-                'description' => __( 'Insert your Soundcloud audio/music title', 'wookit' ),
+                'id'          => '_storekit_product_audio_title',
+                'label'       => __( 'Product Audio Title', 'storekit' ),
+                'placeholder' => __( 'OneRepublic - Counting Stars', 'storekit' ),
+                'description' => __( 'Insert your Soundcloud audio/music title', 'storekit' ),
                 'desc_tip'    => 'true'
                 )
             );
 
             woocommerce_wp_text_input(
                 array(
-                'id'          => '_wookit_product_audio_url',
-                'label'       => __( 'Product Audio URL', 'wookit' ),
+                'id'          => '_storekit_product_audio_url',
+                'label'       => __( 'Product Audio URL', 'storekit' ),
                 'placeholder' => 'https://soundcloud.com/interscope/onerepublic-counting-stars',
-                'description' => __( 'Insert your Soundcloud audio/music URL', 'wookit' ),
+                'description' => __( 'Insert your Soundcloud audio/music URL', 'storekit' ),
                 'desc_tip'    => 'true'
                 )
             );
@@ -100,32 +100,32 @@ function wookit_product_data() {
     echo '</div>';
 
 }
-add_action( 'woocommerce_product_data_panels', 'wookit_product_data' );
+add_action( 'woocommerce_product_data_panels', 'storekit_product_data' );
 
 /**
  * 
- * Save WooCom Toolkit Product Data Tab's fields' values
+ * Save StoreKit Product Data Tab's fields' values
  * 
  */
-function wookit_product_data_save( $post_id ) {
-    $wookit_product_video_url_field = $_POST['_wookit_product_video_url'];
-    $wookit_product_audio_title_field = $_POST['_wookit_product_audio_title'];
-    $wookit_product_audio_url_field = $_POST['_wookit_product_audio_url'];
+function storekit_product_data_save( $post_id ) {
+    $storekit_product_video_url_field = $_POST['_storekit_product_video_url'];
+    $storekit_product_audio_title_field = $_POST['_storekit_product_audio_title'];
+    $storekit_product_audio_url_field = $_POST['_storekit_product_audio_url'];
 
-    if ( isset( $wookit_product_video_url_field ) ){
-        update_post_meta( $post_id, '_wookit_product_video_url', wp_kses_post( $wookit_product_video_url_field ) );
+    if ( isset( $storekit_product_video_url_field ) ){
+        update_post_meta( $post_id, '_storekit_product_video_url', wp_kses_post( $storekit_product_video_url_field ) );
     }
 
-    if ( isset( $wookit_product_audio_title_field ) ){
-        update_post_meta( $post_id, '_wookit_product_audio_title', esc_attr( $wookit_product_audio_title_field ) );
+    if ( isset( $storekit_product_audio_title_field ) ){
+        update_post_meta( $post_id, '_storekit_product_audio_title', esc_attr( $storekit_product_audio_title_field ) );
     }
 
-    if ( isset( $wookit_product_audio_url_field ) ){
-        update_post_meta( $post_id, '_wookit_product_audio_url', wp_kses_post( $wookit_product_audio_url_field ) );
+    if ( isset( $storekit_product_audio_url_field ) ){
+        update_post_meta( $post_id, '_storekit_product_audio_url', wp_kses_post( $storekit_product_audio_url_field ) );
     }
 
 }
-add_action( 'woocommerce_process_product_meta', 'wookit_product_data_save' );
+add_action( 'woocommerce_process_product_meta', 'storekit_product_data_save' );
 
 
 /**
@@ -133,23 +133,23 @@ add_action( 'woocommerce_process_product_meta', 'wookit_product_data_save' );
  * Add input fields to the Dokan Vendor Dashboard - edit product form
  * 
  */
-function wookit_dk_product_video_url_field( $post, $post_id ){
-    $wookit_woocommerce_product_video = wookit_get_option( 'wc_product_video_checkbox', 'woocommerce', 'on' );
-    $wookit_dokan_product_video = wookit_get_option( 'dk_product_video_checkbox', 'dokan', 'off' );
+function storekit_dk_product_video_url_field( $post, $post_id ){
+    $storekit_woocommerce_product_video = storekit_get_option( 'wc_product_video_checkbox', 'woocommerce', 'on' );
+    $storekit_dokan_product_video = storekit_get_option( 'dk_product_video_checkbox', 'dokan', 'off' );
 
-    $wookit_woocommerce_product_video = wookit_get_option( 'wc_product_audio_checkbox', 'woocommerce', 'on' );
-    $wookit_dokan_product_video = wookit_get_option( 'dk_product_audio_checkbox', 'dokan', 'off' );
+    $storekit_woocommerce_product_video = storekit_get_option( 'wc_product_audio_checkbox', 'woocommerce', 'on' );
+    $storekit_dokan_product_video = storekit_get_option( 'dk_product_audio_checkbox', 'dokan', 'off' );
 
-    if( $wookit_woocommerce_product_video == 'on' && $wookit_dokan_product_video == 'off' ):
+    if( $storekit_woocommerce_product_video == 'on' && $storekit_dokan_product_video == 'off' ):
     ?>
 
     <div class="dokan-form-group">
-    <label for="_wookit_product_video_url" class="form-label"><?php esc_html_e( 'Product Video URL', 'dokan-lite' ) ?></label>    
+    <label for="_storekit_product_video_url" class="form-label"><?php esc_html_e( 'Product Video URL', 'dokan-lite' ) ?></label>    
 
     <?php
         dokan_post_input_box( 
             $post_id,
-            '_wookit_product_video_url', 
+            '_storekit_product_video_url', 
             [
                 'placeholder'   => 'https://www.youtube.com/watch?v=tt2k8PGm-TI'
             ]
@@ -159,26 +159,26 @@ function wookit_dk_product_video_url_field( $post, $post_id ){
     </div>
     <?php endif;
 
-    if( $wookit_woocommerce_product_video == 'on' && $wookit_dokan_product_video == 'off' ):
+    if( $storekit_woocommerce_product_video == 'on' && $storekit_dokan_product_video == 'off' ):
     ?>
 
     <div class="dokan-form-group">
-    <label for="_wookit_product_audio_title" class="form-label"><?php esc_html_e( 'Product Audio Title', 'dokan-lite' ) ?></label>    
+    <label for="_storekit_product_audio_title" class="form-label"><?php esc_html_e( 'Product Audio Title', 'dokan-lite' ) ?></label>    
     <?php
         dokan_post_input_box( 
             $post_id,
-            '_wookit_product_audio_title', 
+            '_storekit_product_audio_title', 
             [
                 'placeholder'   =>  __( 'OneRepublic - Counting Stars', 'woocom-toolkit' )
             ]
         );
     ?>
 
-    <label for="_wookit_product_audio_url" class="form-label"><?php esc_html_e( 'Product Audio URL', 'dokan-lite' ) ?></label>    
+    <label for="_storekit_product_audio_url" class="form-label"><?php esc_html_e( 'Product Audio URL', 'dokan-lite' ) ?></label>    
     <?php
         dokan_post_input_box( 
             $post_id,
-            '_wookit_product_audio_url', 
+            '_storekit_product_audio_url', 
             [
                 'placeholder'   => 'https://soundcloud.com/interscope/onerepublic-counting-stars'
             ]
@@ -188,31 +188,31 @@ function wookit_dk_product_video_url_field( $post, $post_id ){
     </div>
     <?php endif;
 }
-add_action( 'dokan_product_edit_after_product_tags', 'wookit_dk_product_video_url_field', 10, 2 );
+add_action( 'dokan_product_edit_after_product_tags', 'storekit_dk_product_video_url_field', 10, 2 );
 
 /**
  * 
  * Save Dokan Vendor Dashboard - edit product form's fields' values
  * 
  */
-function wookit_dk_product_video_url_field_save( $post_id, $data ){
-    $wookit_dk_product_video_url_field = $data['_wookit_product_video_url'];
-    $wookit_dk_product_audio_title_field = $data['_wookit_product_audio_title'];
-    $wookit_dk_product_audio_url_field = $data['_wookit_product_audio_url'];
+function storekit_dk_product_video_url_field_save( $post_id, $data ){
+    $storekit_dk_product_video_url_field = $data['_storekit_product_video_url'];
+    $storekit_dk_product_audio_title_field = $data['_storekit_product_audio_title'];
+    $storekit_dk_product_audio_url_field = $data['_storekit_product_audio_url'];
 
-    if( isset( $wookit_dk_product_video_url_field ) ){
-        update_post_meta( $post_id, '_wookit_product_video_url', wp_kses_post( $wookit_dk_product_video_url_field ) );
+    if( isset( $storekit_dk_product_video_url_field ) ){
+        update_post_meta( $post_id, '_storekit_product_video_url', wp_kses_post( $storekit_dk_product_video_url_field ) );
     }
 
-    if( isset( $wookit_dk_product_audio_title_field ) ){
-        update_post_meta( $post_id, '_wookit_product_audio_title', wp_kses_post( $wookit_dk_product_audio_title_field ) );
+    if( isset( $storekit_dk_product_audio_title_field ) ){
+        update_post_meta( $post_id, '_storekit_product_audio_title', wp_kses_post( $storekit_dk_product_audio_title_field ) );
     }
 
-    if( isset( $wookit_dk_product_audio_url_field ) ){
-        update_post_meta( $post_id, '_wookit_product_audio_url', wp_kses_post( $wookit_dk_product_audio_url_field ) );
+    if( isset( $storekit_dk_product_audio_url_field ) ){
+        update_post_meta( $post_id, '_storekit_product_audio_url', wp_kses_post( $storekit_dk_product_audio_url_field ) );
     }
 }
-add_action( 'dokan_product_updated', 'wookit_dk_product_video_url_field_save', 10, 2 );
+add_action( 'dokan_product_updated', 'storekit_dk_product_video_url_field_save', 10, 2 );
 
 /**
  * 
@@ -220,29 +220,29 @@ add_action( 'dokan_product_updated', 'wookit_dk_product_video_url_field_save', 1
  * 
  */
 function remove_vendor_dashboard_vendormenu_widgets(){ 
-    $wookit_dk_vendor_dashboard_widget_options = wookit_get_option( 'dk_vendor_dashboard_widgets', 'dokan', '' );
+    $storekit_dk_vendor_dashboard_widget_options = storekit_get_option( 'dk_vendor_dashboard_widgets', 'dokan', '' );
     
-    if( isset($wookit_dk_vendor_dashboard_widget_options['big-counter']) ){
+    if( isset($storekit_dk_vendor_dashboard_widget_options['big-counter']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_big_counter_widgets', 10 );
     }
 
-    if( isset($wookit_dk_vendor_dashboard_widget_options['orders']) ){
+    if( isset($storekit_dk_vendor_dashboard_widget_options['orders']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_orders_widgets', 15 );
     }
 
-    if( isset($wookit_dk_vendor_dashboard_widget_options['products']) ){
+    if( isset($storekit_dk_vendor_dashboard_widget_options['products']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_products_widgets', 20 );
     }
 
-    if( isset($wookit_dk_vendor_dashboard_widget_options['reviews']) ){
+    if( isset($storekit_dk_vendor_dashboard_widget_options['reviews']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\DokanPro\Dashboard', 'get_review_widget', 16 );
     }
 
-    if( isset($wookit_dk_vendor_dashboard_widget_options['sales-chart']) ){
+    if( isset($storekit_dk_vendor_dashboard_widget_options['sales-chart']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_right_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_sales_report_chart_widget', 10 );
     }
 
-    if( isset($wookit_dk_vendor_dashboard_widget_options['announcement']) ){
+    if( isset($storekit_dk_vendor_dashboard_widget_options['announcement']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_right_widgets', 'WeDevs\DokanPro\Dashboard', 'get_announcement_widget', 12 );
     }
 
@@ -255,69 +255,69 @@ add_action( 'wp_head', 'remove_vendor_dashboard_vendormenu_widgets' );
  * 
  */
 function remove_edit_product_form_fields(){
-    $wookit_dk_product_form_sections = wookit_get_option( 'dk_vendor_dashboard_product_form', 'dokan', '' );
+    $storekit_dk_product_form_sections = storekit_get_option( 'dk_vendor_dashboard_product_form', 'dokan', '' );
 
-    if( isset( $wookit_dk_product_form_sections['download-virtual'] ) ){
+    if( isset( $storekit_dk_product_form_sections['download-virtual'] ) ){
         remove_action( 'dokan_product_edit_after_title', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_download_virtual_template' ], 10, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['inventory'] ) ){
+    if( isset( $storekit_dk_product_form_sections['inventory'] ) ){
         remove_action( 'dokan_product_edit_after_main', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_inventory_template' ], 5, 2 );
     }
     
-    if( isset( $wookit_dk_product_form_sections['downloadable'] ) ){
+    if( isset( $storekit_dk_product_form_sections['downloadable'] ) ){
         remove_action( 'dokan_product_edit_after_main', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_downloadable_template' ], 10, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['other-options'] ) ){
+    if( isset( $storekit_dk_product_form_sections['other-options'] ) ){
         remove_action( 'dokan_product_edit_after_inventory_variants', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_others_template' ], 85, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['shipping-tax'] ) ){
+    if( isset( $storekit_dk_product_form_sections['shipping-tax'] ) ){
         remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_shipping_tax_content' ], 10, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['linked-products'] ) ){
+    if( isset( $storekit_dk_product_form_sections['linked-products'] ) ){
         remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_linked_product_content' ], 15, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['attributes'] ) ){
+    if( isset( $storekit_dk_product_form_sections['attributes'] ) ){
         remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_variations_content' ], 20, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['discount-options'] ) ){
+    if( isset( $storekit_dk_product_form_sections['discount-options'] ) ){
         remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->products, 'load_lot_discount_content' ], 25, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['yoast-seo'] ) ){
+    if( isset( $storekit_dk_product_form_sections['yoast-seo'] ) ){
         remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->product_seo, 'load_product_seo_content' ], 5, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['rankmath-seo'] ) ){
+    if( isset( $storekit_dk_product_form_sections['rankmath-seo'] ) ){
         remove_action( 'dokan_product_edit_after_inventory_variants', [ dokan_pro()->module->rank_math, 'load_product_seo_content' ], 6, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['geolocation'] ) ){
+    if( isset( $storekit_dk_product_form_sections['geolocation'] ) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_main', 'Dokan_Geolocation_Vendor_Dashboard', 'add_product_editor_options', 10 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['rma'] ) ){
+    if( isset( $storekit_dk_product_form_sections['rma'] ) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_inventory_variants', 'Dokan_RMA_Product', 'load_rma_content', 30, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['product-addon'] ) ){
+    if( isset( $storekit_dk_product_form_sections['product-addon'] ) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_main', 'Dokan_Product_Addon_Vendor_Product', 'add_addons_section', 15, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['wholesale'] ) ){
+    if( isset( $storekit_dk_product_form_sections['wholesale'] ) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_inventory_variants', 'Dokan_Wholesale_Vendor', 'load_wholesale_content', 30, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['order-min-max'] ) ){
+    if( isset( $storekit_dk_product_form_sections['order-min-max'] ) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_inventory_variants', 'WeDevs\DokanPro\Modules\OrderMinMax\Vendor', 'load_min_max_meta_box', 31, 2 );
     }
 
-    if( isset( $wookit_dk_product_form_sections['advertise'] ) ){
+    if( isset( $storekit_dk_product_form_sections['advertise'] ) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_product_edit_after_options', 'WeDevs\DokanPro\Modules\ProductAdvertisement\Frontend\Product', 'render_advertise_product_section', 99, 1 );
     }    
 
@@ -330,22 +330,22 @@ add_action( 'wp_head', 'remove_edit_product_form_fields' );
  * Limit vendor file upload size
  * 
  */
-function wookit_vendor_file_upload_size( $size ){
-    $wookit_dk_inputf_size = wookit_get_option( 'dk_vendor_upload_size', 'dokan', '1' );;
+function storekit_vendor_file_upload_size( $size ){
+    $storekit_dk_inputf_size = storekit_get_option( 'dk_vendor_upload_size', 'dokan', '1' );;
 
     if( is_user_logged_in() ){
         $user = wp_get_current_user();
         $roles = ( array ) $user->roles;
 
-        if( in_array( 'seller', $roles ) == true && isset( $wookit_dk_inputf_size ) ){
-            $size = 1048576 * $wookit_dk_inputf_size;
+        if( in_array( 'seller', $roles ) == true && isset( $storekit_dk_inputf_size ) ){
+            $size = 1048576 * $storekit_dk_inputf_size;
         }
     }
 
     return $size;
     
 }
-add_action( 'upload_size_limit', 'wookit_vendor_file_upload_size' );
+add_action( 'upload_size_limit', 'storekit_vendor_file_upload_size' );
 
 /**
  * 
@@ -353,11 +353,11 @@ add_action( 'upload_size_limit', 'wookit_vendor_file_upload_size' );
  * 
  */
 
-function wookit_sort_cart_by_vendor_store_name( $cart ) {
+function storekit_sort_cart_by_vendor_store_name( $cart ) {
 
-    $wookit_dk_sort_product = wookit_get_option( 'dk_sort_product_by_vendor', 'dokan', 'none' );
+    $storekit_dk_sort_product = storekit_get_option( 'dk_sort_product_by_vendor', 'dokan', 'none' );
 
-    if( $wookit_dk_sort_product != 'none' ){
+    if( $storekit_dk_sort_product != 'none' ){
 
         $products_in_cart = array();
     
@@ -366,9 +366,9 @@ function wookit_sort_cart_by_vendor_store_name( $cart ) {
             $products_in_cart[ $key ] = $vendor->get_shop_name();
         }
         
-        if( $wookit_dk_sort_product == 'asc' ){
+        if( $storekit_dk_sort_product == 'asc' ){
             asort( $products_in_cart );
-        } elseif( $wookit_dk_sort_product == 'desc' ){
+        } elseif( $storekit_dk_sort_product == 'desc' ){
             arsort( $products_in_cart );
         }
     
@@ -384,7 +384,7 @@ function wookit_sort_cart_by_vendor_store_name( $cart ) {
  
 };
 
-add_action( 'woocommerce_cart_loaded_from_session', 'wookit_sort_cart_by_vendor_store_name', 100 );
+add_action( 'woocommerce_cart_loaded_from_session', 'storekit_sort_cart_by_vendor_store_name', 100 );
 
 /**
  *   
@@ -392,10 +392,10 @@ add_action( 'woocommerce_cart_loaded_from_session', 'wookit_sort_cart_by_vendor_
  *
  */
 
-function wookit_clear_cart_button(){
-    $wookit_wc_clear_cart = wookit_get_option( 'wc_clear_cart', 'woocommerce', 'on' );
+function storekit_clear_cart_button(){
+    $storekit_wc_clear_cart = storekit_get_option( 'wc_clear_cart', 'woocommerce', 'on' );
 
-    if( $wookit_wc_clear_cart == 'on' ):
+    if( $storekit_wc_clear_cart == 'on' ):
     ?>
 
     <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'woocom-toolkit' ); ?>"><?php esc_html_e( 'Clear cart', 'woocom-toolkit' ); ?></button>
@@ -403,7 +403,7 @@ function wookit_clear_cart_button(){
     <?php
     endif;
 }
-add_action( 'woocommerce_cart_actions', 'wookit_clear_cart_button' );
+add_action( 'woocommerce_cart_actions', 'storekit_clear_cart_button' );
 
 
 /**
@@ -411,11 +411,11 @@ add_action( 'woocommerce_cart_actions', 'wookit_clear_cart_button' );
  * Clear cart session
  *
  */
-function wookit_clear_cart_session(){
+function storekit_clear_cart_session(){
     global $woocommerce;
 
     if( isset( $_REQUEST['clear_cart'] ) ){
         $woocommerce->cart->empty_cart(); 
     }
 }
-add_action( 'init', 'wookit_clear_cart_session' );
+add_action( 'init', 'storekit_clear_cart_session' );

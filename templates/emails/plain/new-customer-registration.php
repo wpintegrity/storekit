@@ -12,14 +12,14 @@ if ( !defined( 'ABSPATH' ) ) {
 echo "= " . esc_html( $email_heading ) . " =\n\n";
 ?>
 
-<?php esc_html_e( 'Hello there,', 'wookit' ); echo " \n";?>
-<?php printf( esc_html( 'A new customer has registered in your %s store', 'wookit' ), esc_html( $data['site_name'] ) ); echo " \n"; ?>
+<?php esc_html_e( 'Hello there,', 'storekit' ); echo " \n";?>
+<?php printf( esc_html( 'A new customer has registered in your %s store', 'storekit' ), esc_html( $data['site_name'] ) ); echo " \n"; ?>
 
 <?php echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n"; ?>
 
-<?php esc_html_e( 'Customer: '. $data['customer_name'], 'wookit' ); echo " \n"; ?>
+<?php esc_html_e( 'Customer: '. $data['customer_name'], 'storekit' ); echo " \n"; ?>
 
-<?php esc_html_e( 'To edit vendor access and details visit : '.$data['customer_edit'], 'wookit' );  ?>
+<?php esc_html_e( 'To edit vendor access and details visit : '.$data['customer_edit'], 'storekit' );  ?>
 <?php
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
