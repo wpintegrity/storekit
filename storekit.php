@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: Toolkit for WooCommerce
-Plugin URI: https://wordpress.org/plugins/toolkit-for-woocommerce
+Plugin Name: StoreKit
+Plugin URI: https://wordpress.org/plugins/storekit
 Description: A Helpful Toolkit WordPress plugin for WooCommerce
 Version: 1.0
 Author: Tanjir Al Mamun
