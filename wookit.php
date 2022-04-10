@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: WooCommerce Kit
-Plugin URI: https://tanjirsdev.com/plugins/woocommerce-kit
+Plugin Name: Toolkit for WooCommerce
+Plugin URI: https://wordpress.org/plugins/toolkit-for-woocommerce
 Description: A Helpful Toolkit WordPress plugin for WooCommerce
-Version: 0.1
+Version: 1.0
 Author: Tanjir Al Mamun
 Author URI: https://tanjirsdev.com
 License: GPL2

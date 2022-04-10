@@ -1,2 +1,2 @@
-# WooCommerce Kit
+# Toolkit for WooCommerce
 A Helpful Toolkit WordPress plugin for WooCommerce
