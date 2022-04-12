@@ -63,8 +63,16 @@ No, it does not have any support with Elementor/Divi at this moment.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Screenshots are stored in the /assets directory.
-2. This is the second screen shot
+1. WooCommerce Settings
+2. Dokan Settings
+3. New Customer Registration Email template
+4. Empty/Clear Cart button
+5. Limit File Upload Size for Vendors
+6. Sort Product by Vendor on the Cart page
+7. Sold by label on the Shop/Product Archive page
+8. Hide Vendor Dashboard Widgets
+9. Hide Product Form Sections
+
 
 == Changelog ==
 
