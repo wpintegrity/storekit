@@ -33,7 +33,7 @@ Below is list of available feature of the StoreKit plugin:
 
 = Dokan Features =
 * Featured Product Video for vendors (YouTube Video Link Support)
-* Product Audio (SoundCloud Audio Link Support)
+* Product Audio for vendors (SoundCloud Audio Link Support)
 * Limit File Upload Size for Vendors
 * Sort Products by Vendors on the Cart/Checkout page
 * Sold by label on the Shop/Product Archive page
