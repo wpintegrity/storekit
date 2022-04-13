@@ -12,16 +12,13 @@ Below is list of available feature of the StoreKit plugin:
 ### Features ###
 
 #### WooCommerce Features 
-- Featured Product Video (YouTube Video Link Support)
-- Product Audio (SoundCloud Audio Link Support)
 - New Customer Registration Email for Admin
 - Empty/Clear Cart button to clear the entire cart by one click
 - Default Product Stock
 - Product Individual Sale by default
+- Hide shipping methods when free shipping is available
 
 #### Dokan Features
-- Featured Product Video for vendors (YouTube Video Link Support)
-- Product Audio for vendors (SoundCloud Audio Link Support)
 - Limit File Upload Size for Vendors
 - Sort Products by Vendors on the Cart/Checkout page
 - Sold by label on the Shop/Product Archive page
@@ -30,21 +27,16 @@ Below is list of available feature of the StoreKit plugin:
 - Default Product Stock for vendors
 - Product Individual Sale by default for vendors
 
-> *Please note that it does not have any page builder **(Elementor, Divi, WP Page Bakery, Site Origin, Oxygen, etc)** support at this moment*.
-
 ### Changelog
 
     v0.1 released!
 
 = v1.0 =
-- **new** [WooCommerce] Featured Product Video (YouTube Video Link Support)
-- **new** [WooCommerce] Product Audio (Soundcloud Audio Link Support)
 - **new** [WooCommerce] New Customer Registration Email for Admin
 - **new** [WooCommerce] Empty/Clear Cart button to clear the entire cart by one click
 - **new** [WooCommerce] Default Product Stock
 - **new** [WooCommerce] Product Individual Sale by default
-- **new** [Dokan] Featured Product Video for vendors (YouTube Video Link Support)
-- **new** [Dokan] Product Audio for vendors (Soundcloud Audio Link Support)
+- **new** [WooCommerce] Hide shipping methods when free shipping is available
 - **new** [Dokan] Limit File Upload Size for Vendors
 - **new** [Dokan] Sort Products by Vendors on the Cart/Checkout page
 - **new** [Dokan] Sold by label on the Shop/Product Archive page
