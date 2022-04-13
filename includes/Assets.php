@@ -66,18 +66,6 @@ class Assets {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $scripts = [
-            'storekit-magnific-popup' => [
-                'src'       => STOREKIT_ASSETS . '/js/jquery.magnific-popup.min.js',
-                'deps'      => [ 'jquery' ],
-                'version'   => '1.1.0',
-                'in_footer' => true
-            ],
-            'storekit-flexslider' => [
-                'src'       => STOREKIT_ASSETS . '/js/jquery.flexslider-min.js',
-                'deps'      => [ 'jquery' ],
-                'version'   => '2.7.2',
-                'in_footer' => true
-            ],
             'storekit-frontend' => [
                 'src'       => STOREKIT_ASSETS . '/js/frontend.js',
                 'deps'      => [ 'jquery' ],
@@ -97,15 +85,6 @@ class Assets {
     public function get_styles() {
 
         $styles = [
-            'storekit-flexslider' => [
-                'src' =>  STOREKIT_ASSETS . '/css/flexslider.css'
-            ],
-            'storekit-magnific-popup' => [
-                'src' =>  STOREKIT_ASSETS . '/css/magnific-popup.css'
-            ],
-            'storekit-style' => [
-                'src' =>  STOREKIT_ASSETS . '/css/style.css'
-            ],
             'storekit-frontend' => [
                 'src' =>  STOREKIT_ASSETS . '/css/frontend.css'
             ]

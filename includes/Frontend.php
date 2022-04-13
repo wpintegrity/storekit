@@ -50,45 +50,6 @@ class Frontend {
     }
 
     /**
-     * 
-     * Override the default product-image.php template file
-     * 
-     */
-    public function storekit_get_template( $located, $template_name, $args, $template_path, $default_path ){
-
-        $storekit_woocommerce_product_video = storekit_get_option( 'wc_product_video_checkbox', 'woocommerce', 'on' );
-
-        if ( 'single-product/product-image.php' == $template_name && $storekit_woocommerce_product_video == 'on') {
-            remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
-
-            $located = STOREKIT_PATH . '/templates/product-gallery.php';
-        }
-
-        return $located;
-    }    
-
-    /**
-     * 
-     * Show soundcloud player on the single product page
-     * 
-     */
-    function storekit_show_soundcloud_player(){
-        global $post;
-        $storekit_sc_title   = get_post_meta( $post->ID, '_storekit_product_audio_title', true );
-        $storekit_sc_url     = get_post_meta( $post->ID, '_storekit_product_audio_url', true );
-
-        if( !empty( $storekit_sc_url ) ):
-        ?>
-
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" class="storekit_soundcloud-player" src="https://w.soundcloud.com/player/?url= <?php echo urlencode( $storekit_sc_url ); ?>"></iframe>
-            
-        <div class="storekit_soundcloud-info"><a href="<?php echo $storekit_sc_url; ?>" title="<?php echo $storekit_sc_title; ?>" target="_blank" style="color: #cccccc; text-decoration: none;"><?php echo $storekit_sc_title; ?></a></div>
-
-        <?php
-        endif;
-    }
-
-    /**
      *   
      * Sold by label on the shop/product loop
      *

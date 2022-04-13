@@ -88,20 +88,6 @@ class Admin {
         $settings_fields = [
             'woocommerce' => [
                 [
-                    'name'      => 'wc_product_video_checkbox',
-                    'label'     => __( 'Enable Product Video', 'storekit' ),
-                    'desc'      => __( 'Allow customers to see product featured video from the single product page', 'storekit' ),
-                    'type'      => 'checkbox',
-                    'default'   => 'on'
-                ],
-                [
-                    'name'      => 'wc_product_audio_checkbox',
-                    'label'     => __( 'Enable Product Audio', 'storekit' ),
-                    'desc'      => __( 'Allow customers to listen to sample audio from the single product page', 'storekit' ),
-                    'type'      => 'checkbox',
-                    'default'   => 'on'
-                ],
-                [
                     'name'      => 'wc_new_customer_reg_email',
                     'label'     => __( 'Enable New Customer Registration Email', 'storekit' ),
                     'desc'      => __( 'Get new customers registration email to the admin email', 'storekit' ),
@@ -132,20 +118,6 @@ class Admin {
                 ],
             ],
             'dokan' => [
-                [
-                    'name'    => 'dk_product_video_checkbox',
-                    'label'   => __( 'Disable Product Video', 'storekit' ),
-                    'desc'    => __( 'Disallow vendors from using the product video feature', 'storekit' ),
-                    'type'    => 'checkbox',
-                    'default' => 'off'
-                ],
-                [
-                    'name'    => 'dk_product_audio_checkbox',
-                    'label'   => __( 'Disable Product Audio', 'storekit' ),
-                    'desc'    => __( 'Disallow vendors from using the product audio feature', 'storekit' ),
-                    'type'    => 'checkbox',
-                    'default' => 'off'
-                ],
                 [
                     'name'    => 'dk_vendor_upload_size',
                     'size'    => 'small',
