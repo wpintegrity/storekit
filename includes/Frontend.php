@@ -8,12 +8,6 @@ class Frontend {
 
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-        add_filter( 'wc_get_template', [ $this, 'storekit_get_template'], 99, 5 );
-
-        $storekit_woocommerce_product_video = storekit_get_option( 'wc_product_audio_checkbox', 'woocommerce', 'on' );
-        if( $storekit_woocommerce_product_video == 'on' ){
-            add_action( 'woocommerce_before_add_to_cart_form', [ $this, 'storekit_show_soundcloud_player' ] );
-        }
 
         $storekit_sold_by_label = storekit_get_option( 'dk_sold_by_label', 'dokan', 'add-to-cart' );
         
