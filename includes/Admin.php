@@ -116,6 +116,13 @@ class Admin {
                     'type'      => 'checkbox',
                     'default'   => 'off'
                 ],
+                [
+                    'name'      => 'wc_hide_free_shipping',
+                    'label'     => __( 'Enable Hide Shipping Methods', 'storekit' ),
+                    'desc'      => __( 'Hide other shipping methods when Free Shipping is available on the cart', 'storekit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'off'
+                ]
             ],
             'dokan' => [
                 [

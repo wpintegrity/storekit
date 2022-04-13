@@ -265,3 +265,28 @@ function default_product_stock_for_vendors( $post_id ){
     }
 }
 add_action( 'dokan_new_product_added', 'default_product_stock_for_vendors' );
+
+/**
+ * 
+ * Hide shipping methods when free shipping is available
+ * 
+ */
+function hide_shipping_when_free_is_available( $rates ) {
+
+    $wc_hide_shipping = storekit_get_option( 'wc_hide_free_shipping', 'woocommerce', 'off' );
+
+    if( $wc_hide_shipping == 'on' ){
+        $free = array();
+
+        foreach ( $rates as $rate_id => $rate ) {
+            if ( 'free_shipping' === $rate->method_id || strpos( $rate->id, 'free_shipping' ) !== false ) {
+                $free[ $rate_id ] = $rate;
+                break;
+            }
+        }
+    }
+    
+	return ! empty( $free ) ? $free : $rates;
+    
+}
+add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 100 );
