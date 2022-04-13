@@ -71,8 +71,8 @@ final class StoreKit {
     public function __construct() {
 
         $this->define_constants();
-        register_activation_hook( __FILE__, array( $this, 'activate' ) );
-        add_action( 'plugins_loaded', array( $this, 'init_plugin' ) );
+        register_activation_hook( __FILE__, [ $this, 'activate' ] );
+        add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
 
     }
 
@@ -188,11 +188,29 @@ final class StoreKit {
      */
     public function init_hooks() {
 
-        add_action( 'init', array( $this, 'init_classes' ) );
+        add_action( 'init', [ $this, 'init_classes' ] );
 
         // Localize our plugin
-        add_action( 'init', array( $this, 'localization_setup' ) );
+        add_action( 'init', [ $this, 'localization_setup' ] );
+
+        // Plugin action links
+        add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), [ $this, 'storekit_action_links'] );
     }
+
+    /**
+	 * Show action links on the plugin screen.
+	 *
+	 * @param mixed $links Plugin Action links.
+	 *
+	 * @return array
+	 */
+	public function storekit_action_links( $links ) {
+		$action_links = [
+			'settings' => '<a href="' . admin_url( 'admin.php?page=storekit' ) . '" aria-label="' . esc_attr__( 'View StoreKit settings', 'storekit' ) . '">' . esc_html__( 'Settings', 'storekit' ) . '</a>',
+        ];
+
+		return array_merge( $action_links, $links );
+	}
 
     /**
      * Instantiate the required classes
