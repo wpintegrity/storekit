@@ -72,7 +72,9 @@ final class StoreKit {
 
         $this->define_constants();
         register_activation_hook( __FILE__, [ $this, 'activate' ] );
-        add_action( 'plugins_loaded', [ $this, 'init_plugin' ] );
+        add_action( 'woocommerce_loaded', [ $this, 'init_plugin' ] );
+
+        add_action( 'plugins_loaded', [ $this, 'woocommerce_not_loaded' ], 11 );
 
     }
 
@@ -255,6 +257,21 @@ final class StoreKit {
             case 'frontend' :
                 return ( ! is_admin() );
         }
+    }
+
+    /**
+     * Handles scenerios when WooCommerce is not active
+     *
+     * @since 1.0.0
+     *
+     * @return void
+     */
+    public function woocommerce_not_loaded() {
+        if ( did_action( 'woocommerce_loaded' ) || ! is_admin() ) {
+            return;
+        }
+
+        require_once STOREKIT_INCLUDES . '/functions.php';
     }
 
 } // StoreKit
