@@ -1,0 +1,322 @@
+# Copyright (C) 2022 Tanjir Al Mamun
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: StoreKit 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/storekit\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-04-13T17:12:41+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: storekit\n"
+
+#. Plugin Name of the plugin
+#: includes/Admin.php:44
+msgid "StoreKit"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/storekit"
+msgstr ""
+
+#. Description of the plugin
+msgid "A Helpful Toolkit WordPress plugin for WooCommerce"
+msgstr ""
+
+#. Author of the plugin
+msgid "Tanjir Al Mamun"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://tanjirsdev.com"
+msgstr ""
+
+#: includes/Admin.php:72
+msgid "WooCommerce Settings"
+msgstr ""
+
+#: includes/Admin.php:76
+msgid "Dokan Settings"
+msgstr ""
+
+#: includes/Admin.php:92
+msgid "Enable New Customer Registration Email"
+msgstr ""
+
+#: includes/Admin.php:93
+msgid "Get new customers registration email to the admin email"
+msgstr ""
+
+#: includes/Admin.php:99
+msgid "Enable Clear Cart button"
+msgstr ""
+
+#: includes/Admin.php:100
+msgid "Add a clear cart button on the cart page to empty the entire cart with one click"
+msgstr ""
+
+#: includes/Admin.php:107
+#: includes/Admin.php:202
+msgid "Default product stock"
+msgstr ""
+
+#: includes/Admin.php:108
+#: includes/Admin.php:203
+msgid "Insert default product stock amount"
+msgstr ""
+
+#: includes/Admin.php:114
+#: includes/Admin.php:209
+msgid "Enable Product Individual Sale"
+msgstr ""
+
+#: includes/Admin.php:115
+#: includes/Admin.php:210
+msgid "Prevent customers from purchasing one product multiple times at a time"
+msgstr ""
+
+#: includes/Admin.php:121
+msgid "Enable Hide Shipping Methods"
+msgstr ""
+
+#: includes/Admin.php:122
+msgid "Hide other shipping methods when Free Shipping is available on the cart"
+msgstr ""
+
+#: includes/Admin.php:131
+msgid "Limit File Upload Size"
+msgstr ""
+
+#: includes/Admin.php:132
+msgid "Limit vendor from uploading file size"
+msgstr ""
+
+#: includes/Admin.php:138
+msgid "Sort Product by Vendor"
+msgstr ""
+
+#: includes/Admin.php:139
+msgid "Sort products by vendor name on the cart"
+msgstr ""
+
+#: includes/Admin.php:142
+#: includes/Admin.php:154
+msgid "None"
+msgstr ""
+
+#: includes/Admin.php:143
+msgid "ASC"
+msgstr ""
+
+#: includes/Admin.php:144
+msgid "DESC"
+msgstr ""
+
+#: includes/Admin.php:150
+msgid "Sold by label"
+msgstr ""
+
+#: includes/Admin.php:151
+msgid "Display sold by label on the shop page"
+msgstr ""
+
+#: includes/Admin.php:155
+msgid "After Product Title"
+msgstr ""
+
+#: includes/Admin.php:156
+msgid "Before Add to Cart Button"
+msgstr ""
+
+#: includes/Admin.php:157
+msgid "After Add to Cart Button"
+msgstr ""
+
+#: includes/Admin.php:163
+msgid "Hide Vendor Dashboard Widgets"
+msgstr ""
+
+#: includes/Admin.php:164
+msgid "Hide Vendor Dashboard - Dashboard menu screen widgets"
+msgstr ""
+
+#: includes/Admin.php:167
+msgid "Big Counter Widget"
+msgstr ""
+
+#: includes/Admin.php:168
+msgid "Orders Widget"
+msgstr ""
+
+#: includes/Admin.php:169
+msgid "Products Widget"
+msgstr ""
+
+#: includes/Admin.php:170
+msgid "Reviews Widget"
+msgstr ""
+
+#: includes/Admin.php:171
+msgid "Sales Report Chart Widget"
+msgstr ""
+
+#: includes/Admin.php:172
+msgid "Announcement Widget"
+msgstr ""
+
+#: includes/Admin.php:177
+msgid "Hide Product Form Sections"
+msgstr ""
+
+#: includes/Admin.php:178
+msgid "Hide Vendor Dashboard - Product Form sections"
+msgstr ""
+
+#: includes/Admin.php:181
+msgid "Download/Virtual Checkboxes"
+msgstr ""
+
+#: includes/Admin.php:182
+msgid "Inventory"
+msgstr ""
+
+#: includes/Admin.php:183
+msgid "Downloadable"
+msgstr ""
+
+#: includes/Admin.php:184
+msgid "Other Options"
+msgstr ""
+
+#: includes/Admin.php:185
+msgid "Shipping & Tax"
+msgstr ""
+
+#: includes/Admin.php:186
+msgid "Linked Products"
+msgstr ""
+
+#: includes/Admin.php:187
+msgid "Attributes & Variations"
+msgstr ""
+
+#: includes/Admin.php:188
+msgid "Discount Options"
+msgstr ""
+
+#: includes/Admin.php:189
+msgid "Products SEO (Yoast SEO)"
+msgstr ""
+
+#: includes/Admin.php:190
+msgid "Products SEO (Rank Math SEO)"
+msgstr ""
+
+#: includes/Admin.php:191
+msgid "Geolocation"
+msgstr ""
+
+#: includes/Admin.php:192
+msgid "RMA Options"
+msgstr ""
+
+#: includes/Admin.php:193
+msgid "Add-ons"
+msgstr ""
+
+#: includes/Admin.php:194
+msgid "Wholesale"
+msgstr ""
+
+#: includes/Admin.php:195
+msgid "Min/Max Options"
+msgstr ""
+
+#: includes/Admin.php:196
+msgid "Advertise Product"
+msgstr ""
+
+#: includes/Admin.php:232
+msgid "StoreKit: A Helpfull Toolkit for WooCommerce"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:18
+msgid "New Customer Registration"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:19
+msgid "These emails are sent to chosen recipient(s) when a new customer registers in the store"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:41
+msgid "[{site_name}] A New customer has registered"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:51
+msgid "New Customer Registered - {customer_name}"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:130
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:132
+msgid "Enable this email notification"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:136
+msgid "Recipient(s)"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:138
+msgid "Enter recipients (comma separated) for this email. Defaults to %s."
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:144
+msgid "Subject"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:151
+msgid "Email heading"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:158
+msgid "Email type"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:160
+msgid "Choose which format of email to send."
+msgstr ""
+
+#: includes/functions.php:207
+msgid "Clear cart"
+msgstr ""
+
+#: templates/emails/new-customer-registration.php:15
+#: templates/emails/plain/new-customer-registration.php:15
+msgid "Hello there,"
+msgstr ""
+
+#: templates/emails/new-customer-registration.php:20
+msgid "Customer Details:"
+msgstr ""
+
+#: templates/emails/new-customer-registration.php:26
+msgid "Customer:"
+msgstr ""
+
+#: templates/emails/new-customer-registration.php:32
+msgid "To edit customer access and details <a href=\"%s\">Click Here</a>"
+msgstr ""
+
+#: templates/emails/plain/new-customer-registration.php:20
+msgid "Customer: "
+msgstr ""
+
+#: templates/emails/plain/new-customer-registration.php:22
+msgid "To edit vendor access and details visit : "
+msgstr ""
