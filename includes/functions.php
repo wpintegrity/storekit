@@ -292,25 +292,27 @@ function hide_shipping_when_free_is_available( $rates ) {
 add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 100 );
 
 /**
- * Called when WooCommerce is inactive or running and out-of-date version to display an inactive notice.
+ * Handle when WooCommerce is not installed or activated
  *
- * @since 1.2
+ * @since 1.0.0
  */
-function woocommerce_inactive_notice() {
+function woocommerce_not_active_notice(){
     if ( current_user_can( 'activate_plugins' ) ) {
+        $has_woocommerce = class_exists( 'WooCommerce' );
+        $woocommerce_installed = in_array( 'woocommerce/woocommerce.php', array_keys( get_plugins() ), true );
+
         $admin_notice_content = '';
 
-        $has_woocommerce = class_exists( 'WooCommerce' );;
-        $woocommerce_installed = in_array( 'woocommerce/woocommerce.php', array_keys( get_plugins() ), true );;
-
-        if( ! $has_woocommerce ){
-        $install_url  = wp_nonce_url( add_query_arg( array( 'action' => 'install-plugin', 'plugin' => 'woocommerce' ), admin_url( 'update.php' ) ), 'install-plugin_woocommerce' );
-        // translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
-        $text         = sprintf( esc_html__( '%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s install WooCommerce &raquo;%6$s',  'storekit' ), '<strong>', '</strong>', '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>', '<a href="' .  esc_url( $install_url ) . '">', '</a>' );
-        } elseif ( $woocommerce_installed ) {
-            $install_url = wp_nonce_url( add_query_arg( array( 'action' => 'activate', 'plugin' => urlencode( 'woocommerce/woocommerce.php' ) ), admin_url( 'plugins.php' ) ), 'activate-plugin_woocommerce/woocommerce.php' );
+        if ( ! $has_woocommerce ){
+            $install_url  = wp_nonce_url( add_query_arg( array( 'action' => 'install-plugin', 'plugin' => 'woocommerce' ), admin_url( 'update.php' ) ), 'install-plugin_woocommerce' );
             // translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
-            $text        = sprintf( esc_html__( '%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s activate WooCommerce &raquo;%6$s',  'dokan-lite' ), '<strong>', '</strong>', '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>', '<a href="' .  esc_url( $install_url ) . '">', '</a>' );
+            $admin_notice_content         = sprintf( esc_html__( '%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s install WooCommerce &raquo;%6$s',  'storekit' ), '<strong>', '</strong>', '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>', '<a href="' .  esc_url( $install_url ) . '">', '</a>' );
+
+                if ( $woocommerce_installed ) {
+                    $install_url = wp_nonce_url( add_query_arg( array( 'action' => 'activate', 'plugin' => urlencode( 'woocommerce/woocommerce.php' ) ), admin_url( 'plugins.php' ) ), 'activate-plugin_woocommerce/woocommerce.php' );
+                    // translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
+                    $admin_notice_content        = sprintf( esc_html__( '%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s activate WooCommerce &raquo;%6$s',  'storekit' ), '<strong>', '</strong>', '<a href="https://wordpress.org/plugins/woocommerce/">', '</a>', '<a href="' .  esc_url( $install_url ) . '">', '</a>' );
+                }
         }
 
         if ( $admin_notice_content ) {
@@ -320,3 +322,4 @@ function woocommerce_inactive_notice() {
         }
     }
 }
+add_action( 'admin_notices', 'woocommerce_not_active_notice' );
