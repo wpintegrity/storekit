@@ -56,14 +56,14 @@ jq( document ).ready( function(){
             var set_yt_video_featured_img       = jq( 'li.youtube-popup img' ).attr( 'src', get_yt_video_featured_img_src );
             
             jq( 'li.youtube-popup' ).attr( 'data-thumb', get_yt_video_featured_img_src );
-            jq( 'ol.flex-control-nav.flex-control-thumbs img:eq(0)' ).attr( 'src', get_yt_video_featured_img_src );   
+            jq( 'ol.flex-control-nav.flex-control-thumbs img:eq(0)' ).attr( 'src', get_yt_video_featured_img_src ); 
 
             /**
              * 
              * Adjust Slider Control Thumbnail for YouTube Video Image 
              * 
              */
-            if( set_yt_video_featured_img ){
+            if( set_yt_video_featured_img.length > 0 ){
 
                 setTimeout( function(){
                     var sliderThumbHeight  = jq( '.flex-control-thumbs img:eq(1)' ).height();
@@ -73,7 +73,7 @@ jq( document ).ready( function(){
                         'object-fit': 'cover',
                     });
 
-                }, 50 )
+                }, 100 )
                 
             }
         }
