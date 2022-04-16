@@ -11,7 +11,7 @@ class Frontend {
 
         $storekit_sold_by_label = storekit_get_option( 'dk_sold_by_label', 'dokan', 'add-to-cart' );
         
-        if( $storekit_sold_by_label != 'none' && $storekit_sold_by_label == 'add-to-cart' ){
+        if( $storekit_sold_by_label != 'none' && $storekit_sold_by_label == 'add-to-cart' && class_exists('WeDevs_Dokan') ){
             add_action( 'woocommerce_after_shop_loop_item', [ $this, 'storekit_sold_by_product' ] );
         } elseif ( $storekit_sold_by_label != 'none' && $storekit_sold_by_label == 'product-price' ){
             add_action( 'woocommerce_after_shop_loop_item_title', [ $this, 'storekit_sold_by_product' ] );

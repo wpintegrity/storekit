@@ -66,16 +66,22 @@ class Admin {
     }
 
     public function get_settings_sections() {
-        $sections = array(
-            array(
-                'id'    => 'woocommerce',
-                'title' => __( 'WooCommerce Settings', 'storekit' )
-            ),
-            array(
-                'id'    => 'dokan',
-                'title' => __( 'Dokan Settings', 'storekit' )
-            )
-        );
+        $sections = [];
+
+        $sections['woocommerce'] = [
+          'id'    => 'woocommerce',
+          'title' => __( 'WooCommerce Settings', 'storekit' )
+        ];
+
+        if( class_exists('WeDevs_Dokan') ){
+
+          $sections['dokan'] = [
+            'id'    => 'dokan',
+            'title' => __( 'Dokan Settings', 'storekit' )
+          ];
+
+        }
+
         return $sections;
     }
 
