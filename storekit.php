@@ -262,6 +262,39 @@ final class StoreKit {
     }
 
     /**
+     * Check whether woocommerce is installed and active
+     *
+     * @since 1.0.1
+     *
+     * @return bool
+     */
+    public function has_woocommerce() {
+        return class_exists( 'WooCommerce' );
+    }
+
+    /**
+     * Check whether dokan is installed and active
+     *
+     * @since 1.0.1
+     *
+     * @return bool
+     */
+    public function has_dokan() {
+        return class_exists( 'WeDevs_Dokan' );
+    }
+
+    /**
+     * Check whether woocommerce is installed
+     *
+     * @since 1.0.1
+     *
+     * @return bool
+     */
+    public function is_woocommerce_installed() {
+        return in_array( 'woocommerce/woocommerce.php', array_keys( get_plugins() ), true );
+    }
+
+    /**
      * Handles scenerios when WooCommerce is not active
      *
      * @since 1.0.0
