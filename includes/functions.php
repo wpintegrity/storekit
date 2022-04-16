@@ -232,17 +232,13 @@ add_action( 'wp_head', 'storekit_clear_cart_session' );
  * 
  */
 function default_product_stock( $post_id ){
-    $product_stock = storekit_get_option( 'wc_default_product_stock', 'woocommerce', '0' );
-    $sold_individually = storekit_get_option( 'wc_product_sold_individually', 'woocommerce', 'off' );
+    $product_stock = storekit_get_option( 'wc_default_product_stock', 'woocommerce', '' );
 
     if( $product_stock > 0 ){
         update_post_meta( $post_id, '_manage_stock', 'yes' );
         update_post_meta( $post_id, '_stock', $product_stock );
     }
 
-    if( $sold_individually == 'on' ){
-        update_post_meta( $post_id, '_sold_individually', 'yes' );
-    }
 }
 add_action( 'save_post_product', 'default_product_stock' );
 
@@ -252,19 +248,38 @@ add_action( 'save_post_product', 'default_product_stock' );
  * 
  */
 function default_product_stock_for_vendors( $post_id ){
-    $dk_product_stock = storekit_get_option( 'dk_default_product_stock', 'dokan', '0' );
-    $dk_sold_individually = storekit_get_option( 'dk_product_sold_individually', 'dokan', 'off' );
+    $dk_product_stock = storekit_get_option( 'dk_default_product_stock', 'dokan', '' );
 
     if( $dk_product_stock > 0 ){
         update_post_meta( $post_id, '_manage_stock', 'yes' );
         update_post_meta( $post_id, '_stock', $dk_product_stock );
     }
 
-    if( $dk_sold_individually == 'on' ){
-        update_post_meta( $post_id, '_sold_individually', 'yes' );
-    }
 }
 add_action( 'dokan_new_product_added', 'default_product_stock_for_vendors' );
+
+/**
+ * 
+ * Product Sold Individually
+ * 
+ */
+function storekit_product_sold_individually( $individually, $product ){
+    $wc_sold_individually = storekit_get_option( 'wc_product_sold_individually', 'woocommerce', 'off' );
+    $dk_sold_individually = storekit_get_option( 'dk_product_sold_individually', 'dokan', 'off' );
+
+    $vendor = dokan_get_vendor_by_product( $product->get_id() );
+    $user = get_userdata( $vendor->id );
+    $user_roles = $user->roles;
+    
+    if( in_array( 'seller', $user_roles ) && $dk_sold_individually == 'on' ){    
+        $individually = true;
+    } elseif( in_array( 'administrator', $user_roles ) && $wc_sold_individually == 'on' ){
+        $individually = true;
+    }
+    
+    return $individually;
+}
+add_filter( 'woocommerce_is_sold_individually', 'storekit_product_sold_individually', 10, 2 );  
 
 /**
  * 
