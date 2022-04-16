@@ -27,6 +27,10 @@ function storekit_get_option( $option, $section, $default = '' ) {
  */
 function remove_vendor_dashboard_vendormenu_widgets(){ 
     $storekit_dk_vendor_dashboard_widget_options = storekit_get_option( 'dk_vendor_dashboard_widgets', 'dokan', '' );
+
+    if( ! storekit()->has_dokan() ){
+        return;
+    }
     
     if( isset($storekit_dk_vendor_dashboard_widget_options['big-counter']) ){
         dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\Dokan\Dashboard\Templates\Dashboard', 'get_big_counter_widgets', 10 );
@@ -62,6 +66,10 @@ add_action( 'wp_head', 'remove_vendor_dashboard_vendormenu_widgets' );
  */
 function remove_edit_product_form_fields(){
     $storekit_dk_product_form_sections = storekit_get_option( 'dk_vendor_dashboard_product_form', 'dokan', '' );
+
+    if( ! storekit()->has_dokan() ){
+        return;
+    }
 
     if( isset( $storekit_dk_product_form_sections['download-virtual'] ) ){
         remove_action( 'dokan_product_edit_after_title', [ 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_download_virtual_template' ], 10, 2 );
@@ -137,7 +145,11 @@ add_action( 'wp_head', 'remove_edit_product_form_fields' );
  * 
  */
 function storekit_vendor_file_upload_size( $size ){
-    $storekit_dk_inputf_size = storekit_get_option( 'dk_vendor_upload_size', 'dokan', '1' );;
+    $storekit_dk_inputf_size = storekit_get_option( 'dk_vendor_upload_size', 'dokan', '1' );
+
+    if( ! storekit()->has_dokan() ){
+        return;
+    }
 
     if( is_user_logged_in() ){
         $user = wp_get_current_user();
@@ -163,7 +175,11 @@ function storekit_sort_cart_by_vendor_store_name( $cart ) {
 
     $storekit_dk_sort_product = storekit_get_option( 'dk_sort_product_by_vendor', 'dokan', 'none' );
 
-    if( $storekit_dk_sort_product != 'none' && class_exists( 'WeDevs_Dokan' ) ){
+    if( ! storekit()->has_dokan() ){
+        return;
+    }
+
+    if( $storekit_dk_sort_product != 'none' ){
 
         $products_in_cart = array();
     
