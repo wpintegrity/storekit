@@ -297,7 +297,7 @@ final class StoreKit {
     /**
      * Handles scenerios when WooCommerce is not active
      *
-     * @since 1.0.0
+     * @since 1.0
      *
      * @return void
      */

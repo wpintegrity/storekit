@@ -41,6 +41,8 @@ class Frontend {
     /**
      *   
      * Sold by label on the shop/product loop
+     * 
+     * @since 1.0
      *
      */
     function storekit_sold_by_product(){

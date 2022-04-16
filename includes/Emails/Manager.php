@@ -45,7 +45,7 @@ class Manager {
     /**
      * Set template override directory for StoreKit Emails
      *
-     * @since 0.1
+     * @since 1.0
      *
      * @param string $template_dir
      *
@@ -70,7 +70,7 @@ class Manager {
     /**
      * Register StoreKit Email actions for WC
      *
-     * @since 0.1
+     * @since 1.0
      *
      * @param array $actions
      *

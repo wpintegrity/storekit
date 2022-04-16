@@ -34,7 +34,7 @@ class NewCustomer extends WC_Email {
     /**
      * Get email subject.
      *
-     * @since  3.1.0
+     * @since  1.0
      * @return string
      */
     public function get_default_subject() {
@@ -44,7 +44,7 @@ class NewCustomer extends WC_Email {
     /**
      * Get email heading.
      *
-     * @since  3.1.0
+     * @since  1.0
      * @return string
      */
     public function get_default_heading() {

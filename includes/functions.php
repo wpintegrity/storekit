@@ -63,6 +63,8 @@ add_action( 'wp_head', 'remove_vendor_dashboard_vendormenu_widgets' );
  * 
  * Vendor dashboard's Edit product form's section remove function
  * 
+ * @since 1.0
+ * 
  */
 function remove_edit_product_form_fields(){
     $storekit_dk_product_form_sections = storekit_get_option( 'dk_vendor_dashboard_product_form', 'dokan', '' );
@@ -143,6 +145,8 @@ add_action( 'wp_head', 'remove_edit_product_form_fields' );
  * 
  * Limit vendor file upload size
  * 
+ * @since 1.0
+ * 
  */
 function storekit_vendor_file_upload_size( $size ){
     $storekit_dk_inputf_size = storekit_get_option( 'dk_vendor_upload_size', 'dokan', '1' );
@@ -168,6 +172,8 @@ add_action( 'upload_size_limit', 'storekit_vendor_file_upload_size' );
 /**
  * 
  * Sort products by vendor on the cart
+ * 
+ * @since 1.0
  * 
  */
 
@@ -211,6 +217,8 @@ add_action( 'woocommerce_cart_loaded_from_session', 'storekit_sort_cart_by_vendo
 /**
  *   
  * Clear cart button to clear/empty cart 
+ * 
+ * @since 1.0
  *
  */
 
@@ -231,6 +239,8 @@ add_action( 'woocommerce_cart_actions', 'storekit_clear_cart_button' );
 /**
  *   
  * Clear cart session
+ * 
+ * @since 1.0
  *
  */
 function storekit_clear_cart_session(){
@@ -245,6 +255,8 @@ add_action( 'wp_head', 'storekit_clear_cart_session' );
 /**
  * 
  * Default Product Stock
+ * 
+ * @since 1.0
  * 
  */
 function default_product_stock( $post_id ){
@@ -265,6 +277,8 @@ add_action( 'save_post_product', 'default_product_stock' );
 /**
  * 
  * Default Product Stock for Dokan Vendors
+ * 
+ * @since 1.0
  * 
  */
 function default_product_stock_for_vendors( $post_id ){
@@ -315,6 +329,8 @@ add_filter( 'woocommerce_is_sold_individually', 'storekit_product_sold_individua
  * 
  * Hide shipping methods when free shipping is available
  * 
+ * @since 1.0
+ * 
  */
 function hide_shipping_when_free_is_available( $rates ) {
 
@@ -339,7 +355,8 @@ add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available',
 /**
  * Handle when WooCommerce is not installed or activated
  *
- * @since 1.0.0
+ * @since 1.0
+ * 
  */
 function woocommerce_not_active_notice(){
     if ( current_user_can( 'activate_plugins' ) ) {

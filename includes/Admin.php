@@ -45,6 +45,11 @@ class Admin {
 
     }
 
+    /**
+     * Returns all the settings menu
+     *
+     * @return array settings menu
+     */
     public function get_settings_sections() {
         $sections = [];
 
