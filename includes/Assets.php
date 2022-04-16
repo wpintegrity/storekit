@@ -69,7 +69,7 @@ class Assets {
             'storekit-frontend' => [
                 'src'       => STOREKIT_ASSETS . '/js/frontend.js',
                 'deps'      => [ 'jquery' ],
-                'version'   => time(),
+                'version'   => '1.0',
                 'in_footer' => true
             ]
         ];
