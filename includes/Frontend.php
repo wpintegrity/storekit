@@ -20,7 +20,7 @@ class Frontend {
             } elseif ( $storekit_sold_by_label != 'none' && $storekit_sold_by_label == 'product-title' ){
                 add_action( 'woocommerce_shop_loop_item_title', [ $this, 'storekit_sold_by_product' ] );
             }
-            
+
         }
     }
 
@@ -35,14 +35,6 @@ class Frontend {
     public function enqueue_scripts( $atts, $content = '' ) {
         wp_enqueue_style( 'storekit-frontend' );
         wp_enqueue_script( 'storekit-frontend' );
-
-        if( is_product() ){
-            wp_enqueue_style( 'storekit-magnific-popup' );
-            wp_enqueue_script( 'storekit-magnific-popup' );
-
-            wp_enqueue_style( 'storekit-flexslider' );
-            wp_enqueue_script( 'storekit-flexslider' );
-        }
 
     }
 
