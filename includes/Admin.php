@@ -112,8 +112,8 @@ class Admin {
                     'size'      => 'small',
                     'label'     => __( 'Default product stock', 'storekit' ),
                     'desc'      => __( 'Insert default product stock amount', 'storekit' ),
-                    'type'      => 'text',
-                    'default'   => '0'
+                    'type'      => 'number',
+                    'default'   => ''
                 ],
                 [
                     'name'      => 'wc_product_sold_individually',
@@ -136,7 +136,7 @@ class Admin {
                     'size'    => 'small',
                     'label'   => __( 'Limit File Upload Size', 'storekit' ),
                     'desc'    => __( 'Limit vendor from uploading file size', 'storekit' ),
-                    'type'    => 'text',
+                    'type'    => 'number',
                     'default' => '1'
                 ],
                 [
@@ -207,8 +207,8 @@ class Admin {
                     'size'      => 'small',
                     'label'     => __( 'Default product stock', 'storekit' ),
                     'desc'      => __( 'Insert default product stock amount', 'storekit' ),
-                    'type'      => 'text',
-                    'default'   => '0'
+                    'type'      => 'number',
+                    'default'   => ''
                 ],
                 [
                     'name'      => 'dk_product_sold_individually',
