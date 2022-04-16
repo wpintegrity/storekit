@@ -234,7 +234,11 @@ add_action( 'wp_head', 'storekit_clear_cart_session' );
 function default_product_stock( $post_id ){
     $product_stock = storekit_get_option( 'wc_default_product_stock', 'woocommerce', '' );
 
-    if( $product_stock > 0 ){
+    $post_author    = get_post_field( 'post_author', $post_id );
+    $user           = get_userdata( $post_author );
+    $user_roles     = $user->roles;
+
+    if( $product_stock > 0 && in_array( 'administrator', $user_roles ) ){
         update_post_meta( $post_id, '_manage_stock', 'yes' );
         update_post_meta( $post_id, '_stock', $product_stock );
     }
@@ -250,7 +254,11 @@ add_action( 'save_post_product', 'default_product_stock' );
 function default_product_stock_for_vendors( $post_id ){
     $dk_product_stock = storekit_get_option( 'dk_default_product_stock', 'dokan', '' );
 
-    if( $dk_product_stock > 0 ){
+    $post_author    = get_post_field( 'post_author', $post_id );
+    $user           = get_userdata( $post_author );
+    $user_roles     = $user->roles;
+
+    if( $dk_product_stock > 0 && in_array( 'seller', $user_roles )){
         update_post_meta( $post_id, '_manage_stock', 'yes' );
         update_post_meta( $post_id, '_stock', $dk_product_stock );
     }
