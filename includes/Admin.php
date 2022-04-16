@@ -43,26 +43,6 @@ class Admin {
 
         $hook = add_menu_page( __( 'StoreKit', 'storekit' ), __( 'StoreKit', 'storekit' ), $capability, $slug, [ $this, 'plugin_page' ], $storekit_icon_data_uri );
 
-        add_action( 'load-' . $hook, [ $this, 'init_hooks'] );
-    }
-
-    /**
-     * Initialize our hooks for the admin page
-     *
-     * @return void
-     */
-    public function init_hooks() {
-        add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-    }
-
-    /**
-     * Load scripts and styles
-     *
-     * @return void
-     */
-    public function enqueue_scripts() {
-        wp_enqueue_style( 'storekit-admin' );
-        wp_enqueue_script( 'storekit-admin' );
     }
 
     public function get_settings_sections() {
@@ -73,7 +53,7 @@ class Admin {
           'title' => __( 'WooCommerce Settings', 'storekit' )
         ];
 
-        if( class_exists('WeDevs_Dokan') ){
+        if( storekit()->has_dokan() ){
 
           $sections['dokan'] = [
             'id'    => 'dokan',
