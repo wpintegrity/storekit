@@ -29,7 +29,9 @@ Below is list of available feature of the StoreKit plugin:
 
 ### Changelog
 
-    v0.1 released!
+= v1.0.1 =
+- **fixed** Products were not showing on the shop page without Dokan plugin
+- **enhancement** Product sold individual feature will work for all products when enabled
 
 = v1.0 =
 - **new** [WooCommerce] New Customer Registration Email for Admin
@@ -44,3 +46,6 @@ Below is list of available feature of the StoreKit plugin:
 - **new** [Dokan] Hide Edit Product Form/Page sections
 - **new** [Dokan] Default Product Stock for vendors
 - **new** [Dokan] Product Individual Sale by default for vendors
+
+= v0.1 =
+released!

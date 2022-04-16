@@ -3,12 +3,12 @@
  * Plugin Name: StoreKit
  * Plugin URI: https://wordpress.org/plugins/storekit
  * Description: A Helpful Toolkit WordPress plugin for WooCommerce
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Tanjir Al Mamun
  * Author URI: https://tanjirsdev.com
  * Text Domain: storekit
  * WC requires at least: 3.0
- * WC tested up to: 6.4.0
+ * WC tested up to: 6.4.1
  * Domain Path: /languages
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -55,7 +55,7 @@ final class StoreKit {
      *
      * @var string
      */
-    public $version = '1.0';
+    public $version = '1.0.1';
 
     /**
      * Holds various class instances

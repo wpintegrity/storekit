@@ -4,9 +4,9 @@ Donate link:
 Tags: WooCommerce, Dokan, Tools, Tookit, Kit, WooCommerce Toolkit, Toolkit for WooCommerce, Woo, WooThemes, e-commerce, multi-vendor, multivendor marketplace, WooCommerce Multivendor Marketplace
 Requires at least: 4.7
 Tested up to: 5.9.3
-Stable tag: 1.0
+Stable tag: 1.0.1
 WC requires at least: 6.0
-WC tested up to: 6.4.0
+WC tested up to: 6.4.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,7 +64,9 @@ e.g.
 
 == Changelog ==
 
-    v0.1 released!
+= v1.0.1 =
+- **fixed** Products were not showing on the shop page without Dokan plugin
+- **enhancement** Product sold individual feature will work for all products when enabled
 
 = v1.0 =
 - **new** [WooCommerce] New Customer Registration Email for Admin
@@ -79,3 +81,6 @@ e.g.
 - **new** [Dokan] Hide Edit Product Form/Page sections
 - **new** [Dokan] Default Product Stock for vendors
 - **new** [Dokan] Product Individual Sale by default for vendors
+
+= v0.1 =
+released!
