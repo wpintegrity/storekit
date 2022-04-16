@@ -286,6 +286,8 @@ add_action( 'dokan_new_product_added', 'default_product_stock_for_vendors' );
  * 
  * Product Sold Individually
  * 
+ * @since 1.0.1
+ * 
  */
 function storekit_product_sold_individually( $individually, $product ){
     $wc_sold_individually = storekit_get_option( 'wc_product_sold_individually', 'woocommerce', 'off' );
@@ -295,9 +297,13 @@ function storekit_product_sold_individually( $individually, $product ){
     $user           = get_userdata( $post_author );
     $user_roles     = $user->roles;
     
-    if( in_array( 'seller', $user_roles ) && $dk_sold_individually == 'on' ){    
-        $individually = true;
-    } elseif( in_array( 'administrator', $user_roles ) && $wc_sold_individually == 'on' ){
+    if( storekit()->has_dokan() ){
+        if( in_array( 'seller', $user_roles ) && $dk_sold_individually == 'on' ){    
+            $individually = true;
+        } elseif( in_array( 'administrator', $user_roles ) && $wc_sold_individually == 'on' ){
+            $individually = true;
+        }
+    } elseif( $wc_sold_individually == 'on' ){
         $individually = true;
     }
     
