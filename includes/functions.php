@@ -163,7 +163,7 @@ function storekit_sort_cart_by_vendor_store_name( $cart ) {
 
     $storekit_dk_sort_product = storekit_get_option( 'dk_sort_product_by_vendor', 'dokan', 'none' );
 
-    if( $storekit_dk_sort_product != 'none' ){
+    if( $storekit_dk_sort_product != 'none' && class_exists( 'WeDevs_Dokan' ) ){
 
         $products_in_cart = array();
     
@@ -267,9 +267,9 @@ function storekit_product_sold_individually( $individually, $product ){
     $wc_sold_individually = storekit_get_option( 'wc_product_sold_individually', 'woocommerce', 'off' );
     $dk_sold_individually = storekit_get_option( 'dk_product_sold_individually', 'dokan', 'off' );
 
-    $vendor = dokan_get_vendor_by_product( $product->get_id() );
-    $user = get_userdata( $vendor->id );
-    $user_roles = $user->roles;
+    $post_author    = get_post_field( 'post_author', $product->get_id() );
+    $user           = get_userdata( $post_author );
+    $user_roles     = $user->roles;
     
     if( in_array( 'seller', $user_roles ) && $dk_sold_individually == 'on' ){    
         $individually = true;
