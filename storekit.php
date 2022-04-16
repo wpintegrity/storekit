@@ -311,4 +311,16 @@ final class StoreKit {
 
 } // StoreKit
 
-$storekit = StoreKit::init();
+/**
+ * Load StoreKit Plugin when all plugins loaded
+ *
+ * @since 1.0.1
+ * 
+ * @return StoreKit
+ */
+function storekit() {
+    return StoreKit::init();
+}
+
+// Lets Go....
+storekit();
