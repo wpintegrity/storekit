@@ -113,6 +113,18 @@ class Admin {
                     'desc'      => __( 'Hide other shipping methods when Free Shipping is available on the cart', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'off'
+                ],
+                [
+                    'name'      => 'wc_terms_n_condition',
+                    'label'     => __( 'Enable Terms & Condition', 'storekit' ),
+                    'desc'      => __( 'Add Terms & Condition checkbox on the My Account registration form', 'storekit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'off'
+                ],
+                [
+                    'name'      => 'wc_terms_n_condition_page',
+                    'label'     => __( 'Select Terms & Condition Page', 'storekit' ),
+                    'type'      => 'pages'                    
                 ]
             ],
             'dokan' => [

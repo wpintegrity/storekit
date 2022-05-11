@@ -353,6 +353,43 @@ function hide_shipping_when_free_is_available( $rates ) {
 add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 100 );
 
 /**
+ * 
+ * Add Terms & Condition checkbox on the My Account registration form
+ * 
+ * @since 1.1
+ * 
+ */
+function storekit_terms_condition(){
+    $wc_tnc         = storekit_get_option( 'wc_terms_n_condition', 'woocommerce', 'off' );
+    $wc_tnc_page    = storekit_get_option( 'wc_terms_n_condition_page', 'woocommerce', '' );
+
+    if( $wc_tnc == 'on' ):
+    ?>
+    <div class="storekit_wc_tnc">
+        <input type="checkbox" id="storekit_tnc" name="storekit_tnc"> 
+        <label for="storekit_tnc"><?php echo wp_kses_post( sprintf( __( 'I have read and agree to the <a target="_blank" href="%s">Terms &amp; Conditions</a>.', 'storekit' ), get_permalink( $wc_tnc_page ) )); ?></label>
+    </div>
+    <?php
+    endif;
+}
+add_action( 'woocommerce_register_form', 'storekit_terms_condition' );
+
+/**
+ * 
+ * Make an error when Terms and condition field is not checked
+ * 
+ * @since 1.1
+ * 
+ */
+function terms_and_conditions_validation( $username, $email, $validation_errors ) {
+    if ( ! isset( $_POST['storekit_tnc'] ) ){
+        $validation_errors->add( 'terms_error', __( 'Terms and condition field is required', 'storekit' ) );
+    }
+    return $validation_errors;
+}
+add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 3 );
+
+/**
  * Handle when WooCommerce is not installed or activated
  *
  * @since 1.0
