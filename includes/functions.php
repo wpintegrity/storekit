@@ -367,7 +367,12 @@ function storekit_terms_condition(){
     ?>
     <div class="storekit_wc_tnc">
         <input type="checkbox" id="storekit_tnc" name="storekit_tnc"> 
-        <label for="storekit_tnc"><?php echo wp_kses_post( sprintf( __( 'I have read and agree to the <a target="_blank" href="%s">Terms &amp; Conditions</a>.', 'storekit' ), get_permalink( $wc_tnc_page ) )); ?></label>
+        <label for="storekit_tnc">
+            <?php 
+                /* translators: %s terms & condition permalink url */
+                echo wp_kses_post( sprintf( __( 'I have read and agree to the <a target="_blank" href="%s">Terms &amp; Conditions</a>.', 'storekit' ), get_permalink( $wc_tnc_page ) )); 
+            ?>
+        </label>
     </div>
     <?php
     endif;

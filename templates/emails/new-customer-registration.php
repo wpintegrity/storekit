@@ -29,7 +29,10 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
     </li>
 </ul>
 <p>
-    <?php echo wp_kses_post( sprintf( __( 'To edit customer access and details <a href="%s">Click Here</a>', 'storekit' ), esc_url( $data['customer_edit'] ) ) ); ?>
+    <?php 
+        /* translators: %s user/customer edit URL */
+        echo wp_kses_post( sprintf( __( 'To edit customer access and details <a href="%s">Click Here</a>', 'storekit' ), esc_url( $data['customer_edit'] ) ) ); 
+    ?>
 </p>
 
 <?php

@@ -135,6 +135,7 @@ class NewCustomer extends WC_Email {
             'recipient' => array(
                 'title'         => __( 'Recipient(s)', 'storekit' ),
                 'type'          => 'text',
+                /* translators: %s admin email */
                 'description'   => sprintf( __( 'Enter recipients (comma separated) for this email. Defaults to %s.', 'storekit' ), '<code>' . esc_attr( get_option( 'admin_email' ) ) . '</code>' ),
                 'placeholder'   => '',
                 'default'       => '',
