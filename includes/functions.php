@@ -356,7 +356,7 @@ add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available',
  * 
  * Add Terms & Condition checkbox on the My Account registration form
  * 
- * @since 1.1
+ * @since 2.0
  * 
  */
 function storekit_terms_condition(){
@@ -383,7 +383,7 @@ add_action( 'woocommerce_register_form', 'storekit_terms_condition' );
  * 
  * Make an error when Terms and condition field is not checked
  * 
- * @since 1.1
+ * @since 2.0
  * 
  */
 function terms_and_conditions_validation( $username, $email, $validation_errors ) {
@@ -393,6 +393,61 @@ function terms_and_conditions_validation( $username, $email, $validation_errors 
     return $validation_errors;
 }
 add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 3 );
+
+/**
+ * We're adding a new text input field to the General tab of the product data meta box
+ * 
+ * @since 2.0
+ * 
+ */
+function storekit_video_url_field(){
+
+    echo '<div class="options_group">';
+ 
+	woocommerce_wp_text_input( [
+		'id'      => 'storekit_video_url',
+		'value'   => get_post_meta( get_the_ID(), 'storekit_video_url', true ),
+		'label'   => 'Video URL',
+		'desc_tip' => true,
+	] );
+ 
+	echo '</div>';
+
+}
+add_action( 'woocommerce_product_options_general_product_data', 'storekit_video_url_field' );
+
+/**
+ * If the user has entered a value for the custom field, save it to the database.
+ * 
+ * @param id The post ID.
+ * @param post The post object.
+ */
+function save_storekit_video_url_field( $id, $post ){
+    if( !empty($_POST['storekit_video_url']) ){
+        update_post_meta( $id, 'storekit_video_url', $_POST['storekit_video_url'] );
+    }
+}
+add_action( 'woocommerce_process_product_meta', 'save_storekit_video_url_field', 10, 2 );
+
+/**
+ * If the template being loaded is the product image template, load the product gallery template
+ * instead
+ * 
+ * @param located The path of the file that WooCommerce was going to use.
+ * @param template_name The name of the template (ex: single-product/product-image.php)
+ * @param args (array) Arguments passed to the template.
+ * @param template_path The path to the template file.
+ * @param default_path The default path to the template file.
+ * 
+ * @return The product gallery template.
+ */
+function storekit_product_gallery_template( $located, $template_name, $args, $template_path, $default_path ) {
+    if ( 'single-product/product-image.php' == $template_name ) {
+        $located = STOREKIT_PATH . '/templates/product-gallery.php';
+    }
+    return $located;
+}
+add_filter( 'wc_get_template', 'storekit_product_gallery_template', 10, 5 );
 
 /**
  * Handle when WooCommerce is not installed or activated

@@ -1,6 +1,6 @@
 /**
 *
-* Dokan Shop Page Loop Sold by
+* CSS for Dokan sold by section
 *
 */
 .storekit_sold_by_wrapper {
@@ -29,7 +29,112 @@
     color: #ffc239;
 }
 
+/* 
+ *
+ * WooCommerce Terms and Conditions checkbox.
+ * 
+ */
 .storekit_wc_tnc{
     margin: 8px 0;
 }
+
+/* 
+ * 
+ * CSS for the product gallery. 
+ *
+ */
+#storekit-product-gallery {
+    position: relative;
+}
+
+@media (min-width: 480px){
+    #storekit-product-gallery {
+        float: left;
+        width: 48%;
+    }
+}
+#storekit-product-gallery .flexslider {
+    border: 2px solid #eee;
+    padding: 5px;
+    box-shadow: unset;
+}
+#storekit-product-gallery .flex-control-thumbs {
+    margin: 0;
+}
+#storekit-product-gallery .flex-control-thumbs li {
+    border: 2px solid #eee;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#storekit-product-gallery li.featured-video iframe {
+    width: 100%;
+}
+
+.flex-direction-nav .flex-prev,
+.flex-direction-nav .flex-next {
+    overflow: visible;
+    top: 40%;
+}
+
+#storekit-product-gallery .flexslider a{
+    cursor: default;
+}
+#storekit-product-gallery .storekit-gallery_trigger {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    font-size: 2em;
+    z-index: 9;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    text-indent: -9999px;
+    border-radius: 100%;
+    box-sizing: content-box;
+}
+#storekit-product-gallery .storekit-gallery_trigger::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    box-sizing: content-box;
+}
+#storekit-product-gallery .storekit-gallery_trigger::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 8px;
+    background: #000;
+    border-radius: 6px;
+    position: absolute;
+    top: 19px;
+    left: 22px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: content-box;
+}
+
+.pswp__zoom-wrap {
+    text-align: center;
+}
+.storekit-video-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+}
+@media(max-width: 480px){
+    .storekit-video-wrapper iframe{
+        width: 300px;
+        height: 300px;
+    }
+}
+
 

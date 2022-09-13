@@ -63,13 +63,12 @@ class Assets {
      * @return array
      */
     public function get_scripts() {
-        $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $scripts = [
             'storekit-frontend' => [
                 'src'       => STOREKIT_ASSETS . '/js/frontend.js',
-                'deps'      => [ 'jquery' ],
-                'version'   => '1.0',
+                'deps'      => [ 'jquery', 'flexslider', 'photoswipe', 'zoom' ],
+                'version'   => '2.0',
                 'in_footer' => true
             ]
         ];
