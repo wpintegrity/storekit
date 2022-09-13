@@ -125,6 +125,13 @@ class Admin {
                     'name'      => 'wc_terms_n_condition_page',
                     'label'     => __( 'Select Terms & Condition Page', 'storekit' ),
                     'type'      => 'pages'                    
+                ],
+                [
+                    'name'      => 'wc_featured_video',
+                    'label'     => __( 'Featured Video', 'storekit' ),
+                    'desc'      => __( 'Enable Product Featured Video on the Single Product Page', 'storekit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'on'
                 ]
             ],
             'dokan' => [
@@ -214,6 +221,13 @@ class Admin {
                     'type'      => 'checkbox',
                     'default'   => 'off'
                 ],
+                [
+                    'name'      => 'dk_featured_video',
+                    'label'     => __( 'Featured Video', 'storekit' ),
+                    'desc'      => __( 'Enable Product Featured Video for Vendors', 'storekit' ),
+                    'type'      => 'checkbox',
+                    'default'   => 'on'
+                ]
             ]
         ];
 

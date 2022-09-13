@@ -400,18 +400,25 @@ add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 
  * @since 2.0
  * 
  */
+
 function storekit_video_url_field(){
 
-    echo '<div class="options_group">';
- 
-	woocommerce_wp_text_input( [
-		'id'      => 'storekit_video_url',
-		'value'   => get_post_meta( get_the_ID(), 'storekit_video_url', true ),
-		'label'   => 'Video URL',
-		'desc_tip' => true,
-	] );
- 
-	echo '</div>';
+    $wc_featured_video  = storekit_get_option( 'wc_featured_video', 'woocommerce', 'on' );
+
+    if( $wc_featured_video == 'on' ){
+
+        echo '<div class="options_group">';
+
+        woocommerce_wp_text_input( [
+            'id'      => 'storekit_video_url',
+            'value'   => get_post_meta( get_the_ID(), 'storekit_video_url', true ),
+            'label'   => 'Video URL',
+            'desc_tip' => true,
+        ] );
+
+        echo '</div>';
+
+    }
 
 }
 add_action( 'woocommerce_product_options_general_product_data', 'storekit_video_url_field' );
@@ -441,13 +448,21 @@ add_action( 'woocommerce_process_product_meta', 'save_storekit_video_url_field',
  * 
  * @return The product gallery template.
  */
-function storekit_product_gallery_template( $located, $template_name, $args, $template_path, $default_path ) {
-    if ( 'single-product/product-image.php' == $template_name ) {
-        $located = STOREKIT_PATH . '/templates/product-gallery.php';
+$wc_featured_video  = storekit_get_option( 'wc_featured_video', 'woocommerce', 'on' );
+$dk_featured_video  = storekit_get_option( 'dk_featured_video', 'dokan', 'on' );
+
+if( $wc_featured_video == 'on' || $dk_featured_video == 'on' ){
+    
+    function storekit_product_gallery_template( $located, $template_name, $args, $template_path, $default_path ) {
+        if ( 'single-product/product-image.php' == $template_name ) {
+            $located = STOREKIT_PATH . '/templates/product-gallery.php';
+        }
+        return $located;
     }
-    return $located;
+    add_filter( 'wc_get_template', 'storekit_product_gallery_template', 10, 5 );
+
 }
-add_filter( 'wc_get_template', 'storekit_product_gallery_template', 10, 5 );
+
 
 /**
  * Handle when WooCommerce is not installed or activated
