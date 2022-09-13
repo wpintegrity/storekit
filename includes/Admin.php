@@ -80,14 +80,14 @@ class Admin {
             'woocommerce' => [
                 [
                     'name'      => 'wc_new_customer_reg_email',
-                    'label'     => __( 'Enable New Customer Registration Email', 'storekit' ),
+                    'label'     => __( 'New Customer Registration Email', 'storekit' ),
                     'desc'      => __( 'Get new customers registration email to the admin email', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ],
                 [
                     'name'      => 'wc_clear_cart',
-                    'label'     => __( 'Enable Clear Cart button', 'storekit' ),
+                    'label'     => __( 'Clear Cart button', 'storekit' ),
                     'desc'      => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
@@ -102,21 +102,21 @@ class Admin {
                 ],
                 [
                     'name'      => 'wc_product_sold_individually',
-                    'label'     => __( 'Enable Product Individual Sale', 'storekit' ),
+                    'label'     => __( 'Product Individual Sale', 'storekit' ),
                     'desc'      => __( 'Prevent customers from purchasing one product multiple times at a time', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'off'
                 ],
                 [
                     'name'      => 'wc_hide_free_shipping',
-                    'label'     => __( 'Enable Hide Shipping Methods', 'storekit' ),
+                    'label'     => __( 'Hide Shipping Methods', 'storekit' ),
                     'desc'      => __( 'Hide other shipping methods when Free Shipping is available on the cart', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'off'
                 ],
                 [
                     'name'      => 'wc_terms_n_condition',
-                    'label'     => __( 'Enable Terms & Condition', 'storekit' ),
+                    'label'     => __( 'Terms & Condition', 'storekit' ),
                     'desc'      => __( 'Add Terms & Condition checkbox on the My Account registration form', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'off'
@@ -127,8 +127,8 @@ class Admin {
                     'type'      => 'pages'                    
                 ],
                 [
-                    'name'      => 'wc_featured_video',
-                    'label'     => __( 'Featured Video', 'storekit' ),
+                    'name'      => 'wc_product_featured_video',
+                    'label'     => __( 'Product Featured Video', 'storekit' ),
                     'desc'      => __( 'Enable Product Featured Video on the Single Product Page', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
@@ -210,21 +210,21 @@ class Admin {
                     'name'      => 'dk_default_product_stock',
                     'size'      => 'small',
                     'label'     => __( 'Default product stock', 'storekit' ),
-                    'desc'      => __( 'Insert default product stock amount', 'storekit' ),
+                    'desc'      => __( 'Insert default product stock amount during product creation of a vendor', 'storekit' ),
                     'type'      => 'number',
                     'default'   => ''
                 ],
                 [
                     'name'      => 'dk_product_sold_individually',
-                    'label'     => __( 'Enable Product Individual Sale', 'storekit' ),
-                    'desc'      => __( 'Prevent customers from purchasing one product multiple times at a time', 'storekit' ),
+                    'label'     => __( 'Product Individual Sale', 'storekit' ),
+                    'desc'      => __( 'Prevent customers from purchasing vendors\' one product multiple times at a time', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'off'
                 ],
                 [
-                    'name'      => 'dk_featured_video',
-                    'label'     => __( 'Featured Video', 'storekit' ),
-                    'desc'      => __( 'Enable Product Featured Video for Vendors', 'storekit' ),
+                    'name'      => 'dk_product_featured_video',
+                    'label'     => __( 'Product Featured Video', 'storekit' ),
+                    'desc'      => __( 'Allow Vendors to add Product Featured Video URL', 'storekit' ),
                     'type'      => 'checkbox',
                     'default'   => 'on'
                 ]

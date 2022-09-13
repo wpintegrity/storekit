@@ -23,9 +23,9 @@ class Frontend {
 
         }
 
-        $wc_product_video = storekit_get_option( 'wc_featured_video', 'woocommerce', 'on' );
-        $dk_featured_video  = storekit_get_option( 'dk_featured_video', 'dokan', 'on' );
-        if( $wc_product_video == 'on' || $dk_featured_video == 'on' ){
+        $wc_product_featured_video  = storekit_get_option( 'wc_product_featured_video', 'woocommerce', 'on' );
+        $dk_product_featured_video  = storekit_get_option( 'dk_product_featured_video', 'dokan', 'on' );
+        if( $wc_product_featured_video == 'on' || $dk_product_featured_video == 'on' ){
             add_filter( 'wc_get_template', [ $this, 'storekit_product_gallery_template'], 99, 5 );
         }
     }

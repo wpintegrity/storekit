@@ -400,11 +400,11 @@ add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 
  * @since 2.0
  * 
  */
-function storekit_video_url_field(){
+function storekit_product_video_url_field(){
 
-    $wc_featured_video  = storekit_get_option( 'wc_featured_video', 'woocommerce', 'on' );
+    $wc_product_featured_video  = storekit_get_option( 'wc_product_featured_video', 'woocommerce', 'on' );
 
-    if( $wc_featured_video == 'on' ){
+    if( $wc_product_featured_video == 'on' ){
 
         echo '<div class="options_group">';
 
@@ -420,7 +420,7 @@ function storekit_video_url_field(){
     }
 
 }
-add_action( 'woocommerce_product_options_general_product_data', 'storekit_video_url_field' );
+add_action( 'woocommerce_product_options_general_product_data', 'storekit_product_video_url_field' );
 
 /**
  * If the user has entered a value for the custom field, save it to the database.
@@ -428,19 +428,19 @@ add_action( 'woocommerce_product_options_general_product_data', 'storekit_video_
  * @param id The post ID.
  * @param post The post object.
  */
-function save_storekit_video_url_field( $id, $post ){
+function save_storekit_product_video_url( $id, $post ){
     if( !empty($_POST['storekit_video_url']) ){
         update_post_meta( $id, 'storekit_video_url', $_POST['storekit_video_url'] );
     }
 }
-add_action( 'woocommerce_process_product_meta', 'save_storekit_video_url_field', 10, 2 );
+add_action( 'woocommerce_process_product_meta', 'save_storekit_product_video_url', 10, 2 );
 
 /**
  * It adds a new field to the add new product page in the vendor dashboard
  */
 function storekit_vendor_add_product_video_url(){
-    $dk_product_video = storekit_get_option( 'dk_featured_video', 'dokan', 'on' );
-    if( $dk_product_video == 'on' ):
+    $dk_product_featured_video = storekit_get_option( 'dk_product_featured_video', 'dokan', 'on' );
+    if( $dk_product_featured_video == 'on' ):
     ?>
         <div class="dokan-form-group">
             <label for="storekit-video-url" class="dokan-form-label"><?php esc_html_e( 'Product Video URL', 'storekit' ); ?></label>
@@ -457,8 +457,8 @@ add_action( 'dokan_new_product_after_product_tags', 'storekit_vendor_add_product
  * @param post_id The post ID of the product.
  */
 function storekit_vendor_edit_product_video_url( $post, $post_id ){
-    $dk_product_video = storekit_get_option( 'dk_featured_video', 'dokan', 'on' );
-    if( $dk_product_video == 'on' ):
+    $dk_product_featured_video = storekit_get_option( 'dk_product_featured_video', 'dokan', 'on' );
+    if( $dk_product_featured_video == 'on' ):
     ?>
 
     <div class="dokan-form-group">
