@@ -400,7 +400,6 @@ add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 
  * @since 2.0
  * 
  */
-
 function storekit_video_url_field(){
 
     $wc_featured_video  = storekit_get_option( 'wc_featured_video', 'woocommerce', 'on' );
@@ -437,31 +436,64 @@ function save_storekit_video_url_field( $id, $post ){
 add_action( 'woocommerce_process_product_meta', 'save_storekit_video_url_field', 10, 2 );
 
 /**
- * If the template being loaded is the product image template, load the product gallery template
- * instead
- * 
- * @param located The path of the file that WooCommerce was going to use.
- * @param template_name The name of the template (ex: single-product/product-image.php)
- * @param args (array) Arguments passed to the template.
- * @param template_path The path to the template file.
- * @param default_path The default path to the template file.
- * 
- * @return The product gallery template.
+ * It adds a new field to the add new product page in the vendor dashboard
  */
-$wc_featured_video  = storekit_get_option( 'wc_featured_video', 'woocommerce', 'on' );
-$dk_featured_video  = storekit_get_option( 'dk_featured_video', 'dokan', 'on' );
-
-if( $wc_featured_video == 'on' || $dk_featured_video == 'on' ){
-    
-    function storekit_product_gallery_template( $located, $template_name, $args, $template_path, $default_path ) {
-        if ( 'single-product/product-image.php' == $template_name ) {
-            $located = STOREKIT_PATH . '/templates/product-gallery.php';
-        }
-        return $located;
-    }
-    add_filter( 'wc_get_template', 'storekit_product_gallery_template', 10, 5 );
-
+function storekit_vendor_add_product_video_url(){
+    $dk_product_video = storekit_get_option( 'dk_featured_video', 'dokan', 'on' );
+    if( $dk_product_video == 'on' ):
+    ?>
+        <div class="dokan-form-group">
+            <label for="storekit-video-url" class="dokan-form-label"><?php esc_html_e( 'Product Video URL', 'storekit' ); ?></label>
+            <input class="dokan-form-control" name="storekit_video_url" id="storekit-video-url" type="text" placeholder="<?php esc_attr_e( 'Enter Video URL', 'storekit' ); ?>" value="<?php echo esc_attr( dokan_posted_input( 'storekit_video_url' ) ); ?>">
+        </div>
+    <?php endif;
 }
+add_action( 'dokan_new_product_after_product_tags', 'storekit_vendor_add_product_video_url' );
+
+/**
+ * It adds a new input field to the product edit page in the vendor dashboard
+ * 
+ * @param post The post object
+ * @param post_id The post ID of the product.
+ */
+function storekit_vendor_edit_product_video_url( $post, $post_id ){
+    $dk_product_video = storekit_get_option( 'dk_featured_video', 'dokan', 'on' );
+    if( $dk_product_video == 'on' ):
+    ?>
+
+    <div class="dokan-form-group">
+    <label for="storekit_video_url" class="form-label"><?php esc_html_e( 'Product Video URL', 'storekit' ) ?></label>    
+
+    <?php
+        dokan_post_input_box( 
+            $post_id,
+            'storekit_video_url', 
+            [
+                'placeholder'   => __( 'Enter Video URL', 'storekit' )
+            ]
+        );
+    ?>
+
+    </div>
+    <?php endif;
+}
+add_action( 'dokan_product_edit_after_product_tags', 'storekit_vendor_edit_product_video_url', 10, 2 );
+
+/**
+ * Save the vendor featured video url field value
+ * 
+ * @param post_id The ID of the post being saved.
+ * @param data The data that is being saved.
+ */
+function storekit_dk_product_video_url_save( $post_id, $data ){
+    $dk_product_video_url = $data['storekit_video_url'];
+
+    if( isset( $dk_product_video_url ) ){
+        update_post_meta( $post_id, 'storekit_video_url', wp_kses_post( $dk_product_video_url ) );
+    }
+}
+add_action( 'dokan_new_product_added', 'storekit_dk_product_video_url_save', 10, 2 );
+add_action( 'dokan_product_updated', 'storekit_dk_product_video_url_save', 10, 2 );
 
 
 /**
