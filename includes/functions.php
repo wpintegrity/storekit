@@ -352,9 +352,9 @@ function hide_shipping_when_free_is_available( $rates ) {
 }
 add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 100 );
 
+
 /**
- * 
- * Add Terms & Condition checkbox on the My Account registration form
+ * It adds a checkbox to the registration form that the user must check to register
  * 
  * @since 2.0
  * 
@@ -379,18 +379,22 @@ function storekit_terms_condition(){
 }
 add_action( 'woocommerce_register_form', 'storekit_terms_condition' );
 
+
 /**
- * 
- * Make an error when Terms and condition field is not checked
+ * If the terms and conditions checkbox is not checked, add an error to the registration form
  * 
  * @since 2.0
+ * @param username The username that the user is trying to register with.
+ * @param email The email address of the user being registered.
+ * @param errors The errors object.
  * 
+ * @return the errors object.
  */
-function terms_and_conditions_validation( $username, $email, $validation_errors ) {
+function terms_and_conditions_validation( $username, $email, $errors ) {
     if ( ! isset( $_POST['storekit_tnc'] ) ){
-        $validation_errors->add( 'terms_error', __( 'Terms and condition field is required', 'storekit' ) );
+        $errors->add( 'terms_error', __( 'Please read and accept the terms and conditions before registration', 'storekit' ) );
     }
-    return $validation_errors;
+    return $errors;
 }
 add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 3 );
 
@@ -406,13 +410,14 @@ function storekit_product_video_url_field(){
 
     if( $wc_product_featured_video == 'on' ){
 
-        echo '<div class="options_group">';
+        echo '<div class="options_group storekit-product_feature_video">';
 
         woocommerce_wp_text_input( [
-            'id'      => 'storekit_video_url',
-            'value'   => get_post_meta( get_the_ID(), 'storekit_video_url', true ),
-            'label'   => 'Video URL',
-            'desc_tip' => true,
+            'id'            => 'storekit_video_url',
+            'value'         => get_post_meta( get_the_ID(), 'storekit_video_url', true ),
+            'label'         => __( 'Product Video URL', 'storekit' ),
+            'description'   => __( 'YouTube Video URL', 'storekit' ),
+            'desc_tip'      => true,
         ] );
 
         echo '</div>';
