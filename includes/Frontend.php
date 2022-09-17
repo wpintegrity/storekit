@@ -22,12 +22,6 @@ class Frontend {
             }
 
         }
-
-        $wc_product_featured_video  = storekit_get_option( 'wc_product_featured_video', 'woocommerce', 'on' );
-        $dk_product_featured_video  = storekit_get_option( 'dk_product_featured_video', 'dokan', 'on' );
-        if( $wc_product_featured_video == 'on' || $dk_product_featured_video == 'on' ){
-            add_filter( 'wc_get_template', [ $this, 'storekit_product_gallery_template'], 99, 5 );
-        }
     }
 
     /**
@@ -71,29 +65,6 @@ class Frontend {
 
         <?php
 
-    }
-
-    /**
-     * If the template being loaded is the product image template, load the product gallery template
-     * instead
-     * 
-     * @param located The path of the file that WooCommerce was going to use.
-     * @param template_name The name of the template (ex: single-product/product-image.php)
-     * @param args (array) Arguments passed to the template.
-     * @param template_path The path to the template file.
-     * @param default_path The default path to the template file.
-     * 
-     * @return The product gallery template.
-     * 
-     * @since 2.0
-     * 
-     */
-
-    function storekit_product_gallery_template( $located, $template_name, $args, $template_path, $default_path ) {
-        if ( 'single-product/product-image.php' == $template_name ) {
-            $located = STOREKIT_PATH . '/templates/product-gallery.php';
-        }
-        return $located;
     }
 
 }

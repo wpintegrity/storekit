@@ -21,25 +21,7 @@ class Assets {
      * @return void
      */
     public function register() {
-        $this->register_scripts( $this->get_scripts() );
         $this->register_styles( $this->get_styles() );
-    }
-
-    /**
-     * Register scripts
-     *
-     * @param  array $scripts
-     *
-     * @return void
-     */
-    private function register_scripts( $scripts ) {
-        foreach ( $scripts as $handle => $script ) {
-            $deps      = isset( $script['deps'] ) ? $script['deps'] : false;
-            $in_footer = isset( $script['in_footer'] ) ? $script['in_footer'] : false;
-            $version   = isset( $script['version'] ) ? $script['version'] : STOREKIT_VERSION;
-
-            wp_register_script( $handle, $script['src'], $deps, $version, $in_footer );
-        }
     }
 
     /**
@@ -55,25 +37,6 @@ class Assets {
 
             wp_register_style( $handle, $style['src'], $deps, STOREKIT_VERSION );
         }
-    }
-
-    /**
-     * Get all registered scripts
-     *
-     * @return array
-     */
-    public function get_scripts() {
-
-        $scripts = [
-            'storekit-frontend' => [
-                'src'       => STOREKIT_ASSETS . '/js/frontend.js',
-                'deps'      => [ 'jquery', 'flexslider', 'photoswipe', 'zoom' ],
-                'version'   => '2.0',
-                'in_footer' => true
-            ]
-        ];
-
-        return $scripts;
     }
 
     /**
