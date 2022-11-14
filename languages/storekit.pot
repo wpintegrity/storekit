@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: StoreKit 1.0.1\n"
+"Project-Id-Version: StoreKit 1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/storekit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-05-11T18:09:34+00:00\n"
+"POT-Creation-Date: 2022-11-14T15:03:57+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: storekit\n"
@@ -44,7 +44,7 @@ msgid "Dokan Settings"
 msgstr ""
 
 #: includes/Admin.php:83
-msgid "Enable New Customer Registration Email"
+msgid "New Customer Registration Email"
 msgstr ""
 
 #: includes/Admin.php:84
@@ -52,7 +52,7 @@ msgid "Get new customers registration email to the admin email"
 msgstr ""
 
 #: includes/Admin.php:90
-msgid "Enable Clear Cart button"
+msgid "Clear Cart button"
 msgstr ""
 
 #: includes/Admin.php:91
@@ -65,22 +65,20 @@ msgid "Default product stock"
 msgstr ""
 
 #: includes/Admin.php:99
-#: includes/Admin.php:206
 msgid "Insert default product stock amount"
 msgstr ""
 
 #: includes/Admin.php:105
 #: includes/Admin.php:212
-msgid "Enable Product Individual Sale"
+msgid "Product Individual Sale"
 msgstr ""
 
 #: includes/Admin.php:106
-#: includes/Admin.php:213
 msgid "Prevent customers from purchasing one product multiple times at a time"
 msgstr ""
 
 #: includes/Admin.php:112
-msgid "Enable Hide Shipping Methods"
+msgid "Hide Shipping Methods"
 msgstr ""
 
 #: includes/Admin.php:113
@@ -88,7 +86,7 @@ msgid "Hide other shipping methods when Free Shipping is available on the cart"
 msgstr ""
 
 #: includes/Admin.php:119
-msgid "Enable Terms & Condition"
+msgid "Terms & Condition"
 msgstr ""
 
 #: includes/Admin.php:120
@@ -252,6 +250,14 @@ msgstr ""
 msgid "Advertise Product"
 msgstr ""
 
+#: includes/Admin.php:206
+msgid "Insert default product stock amount during product creation of a vendor"
+msgstr ""
+
+#: includes/Admin.php:213
+msgid "Prevent customers from purchasing vendors' one product multiple times at a time"
+msgstr ""
+
 #: includes/Admin.php:235
 msgid "StoreKit: A Helpfull Toolkit for WooCommerce"
 msgstr ""
@@ -314,17 +320,17 @@ msgstr ""
 msgid "I have read and agree to the <a target=\"_blank\" href=\"%s\">Terms &amp; Conditions</a>."
 msgstr ""
 
-#: includes/functions.php:391
-msgid "Terms and condition field is required"
+#: includes/functions.php:395
+msgid "Please read and accept the terms and conditions before registration"
 msgstr ""
 
 #. translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
-#: includes/functions.php:411
+#: includes/functions.php:415
 msgid "%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s install WooCommerce &raquo;%6$s"
 msgstr ""
 
 #. translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
-#: includes/functions.php:416
+#: includes/functions.php:420
 msgid "%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s activate WooCommerce &raquo;%6$s"
 msgstr ""
 
