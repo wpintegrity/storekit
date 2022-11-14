@@ -17,6 +17,7 @@ Below is list of available feature of the StoreKit plugin:
 - Default Product Stock
 - Product Individual Sale by default
 - Hide shipping methods when free shipping is available
+- Terms & Condition checkbox on the My Account Registration Form
 
 #### Dokan Features
 - Limit File Upload Size for Vendors
@@ -28,6 +29,10 @@ Below is list of available feature of the StoreKit plugin:
 - Product Individual Sale by default for vendors
 
 ### Changelog
+
+= v1.1 =
+- **new** Added Terms & Condition feature on the My Account Registration Form
+- **enhancement** Compatibility check with WordPress 6.1 and WooCommerce 7.1.0
 
 = v1.0.1 =
 - **fixed** Products were not showing on the shop page without Dokan plugin
