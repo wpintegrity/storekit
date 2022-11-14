@@ -3,10 +3,10 @@ Contributors: tanjiralmamun
 Donate link: 
 Tags: WooCommerce, Dokan, Tools, Tookit, Kit, WooCommerce Toolkit, Toolkit for WooCommerce, Woo, WooThemes, e-commerce, multi-vendor, multivendor marketplace, WooCommerce Multivendor Marketplace
 Requires at least: 4.7
-Tested up to: 5.9.3
-Stable tag: 1.0.1
+Tested up to: 6.1
+Stable tag: 1.1
 WC requires at least: 6.0
-WC tested up to: 6.4.1
+WC tested up to: 7.1.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -29,6 +29,7 @@ Below is list of available feature of the StoreKit plugin:
 * Default Product Stock
 * Product Individual Sale by default
 * Hide shipping methods when free shipping is available
+* Terms & Condition checkbox on the My Account Registration Form
 
 = Dokan Features =
 * Limit File Upload Size for Vendors
@@ -63,6 +64,10 @@ e.g.
 
 
 == Changelog ==
+
+= v1.0.1 =
+- **new** Added Terms & Condition feature on the My Account Registration Form
+- **enhancement** Compatibility check with WordPress 6.1 and WooCommerce 7.1.0
 
 = v1.0.1 =
 - **fixed** Products were not showing on the shop page without Dokan plugin
