@@ -65,7 +65,7 @@ e.g.
 
 == Changelog ==
 
-= v1.0.1 =
+= v1.1 =
 - **new** Added Terms & Condition feature on the My Account Registration Form
 - **enhancement** Compatibility check with WordPress 6.1 and WooCommerce 7.1.0
 
