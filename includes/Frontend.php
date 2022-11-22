@@ -34,7 +34,10 @@ class Frontend {
      */
     public function enqueue_scripts( $atts, $content = '' ) {
         wp_enqueue_style( 'storekit-frontend' );
-        wp_enqueue_script( 'storekit-frontend' );
+        
+        if( is_account_page() ){
+            wp_enqueue_script( 'storekit-frontend' );
+        }
 
     }
 
