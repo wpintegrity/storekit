@@ -390,13 +390,25 @@ add_action( 'woocommerce_register_form', 'storekit_terms_condition' );
  * 
  * @return the errors object.
  */
-function terms_and_conditions_validation( $username, $email, $errors ) {
-    if ( ! isset( $_POST['storekit_tnc'] ) ){
+function terms_and_conditions_validation( $errors ) {
+    $nonce_value = isset( $_POST['_wpnonce'] ) ? wp_unslash( $_POST['_wpnonce'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	$nonce_value = isset( $_POST['woocommerce-register-nonce'] ) ? wp_unslash( $_POST['woocommerce-register-nonce'] ) : $nonce_value; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+
+	if ( ! isset( $_POST['role'] ) || 'customer' !== $_POST['role']  || ! wp_verify_nonce( $nonce_value, 'woocommerce-register' ) ) {
+        return $errors;
+    }
+
+    if ( 'off' === storekit_get_option( 'wc_terms_n_condition', 'woocommerce', 'off' ) ) {
+        return $errors;
+    }
+
+    if ( empty( $_POST['storekit_tnc'] ) ) {
         $errors->add( 'terms_error', __( 'Please read and accept the terms and conditions before registration', 'storekit' ) );
     }
+
     return $errors;
 }
-add_action( 'woocommerce_register_post', 'terms_and_conditions_validation', 20, 3 );
+add_action( 'woocommerce_process_registration_errors', 'terms_and_conditions_validation', 10 );
 
 /**
  * Handle when WooCommerce is not installed or activated
