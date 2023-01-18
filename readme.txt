@@ -4,7 +4,7 @@ Donate link:
 Tags: WooCommerce, Dokan, Tools, Tookit, Kit, WooCommerce Toolkit, Toolkit for WooCommerce, Woo, WooThemes, e-commerce, multi-vendor, multivendor marketplace, WooCommerce Multivendor Marketplace
 Requires at least: 4.7
 Tested up to: 6.1
-Stable tag: 1.0.1
+Stable tag: 1.1.1
 WC requires at least: 6.0
 WC tested up to: 7.3.0
 Requires PHP: 7.4
@@ -64,7 +64,7 @@ e.g.
 
 
 == Changelog ==
-= v1.0.1 =
+= v1.1.1 =
 - **fix** Fixed Terms & Condition feature issue with Dokan Vendor Registration form
 - **enhancement** Compatibility check with WooCommerce 7.3.0
 

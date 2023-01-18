@@ -29,7 +29,7 @@ Below is list of available feature of the StoreKit plugin:
 - Product Individual Sale by default for vendors
 
 ### Changelog
-= v1.0.1 =
+= v1.1.1 =
 - **fix** Fixed Terms & Condition feature with Dokan Vendor Registration form
 - **enhancement** Compatibility check with WooCommerce 7.3.0
 
