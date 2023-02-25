@@ -377,7 +377,7 @@ function storekit_terms_condition(){
     <?php
     endif;
 }
-add_action( 'woocommerce_register_form', 'storekit_terms_condition' );
+add_action( 'woocommerce_register_form', 'storekit_terms_condition', 9 );
 
 
 /**
