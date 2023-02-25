@@ -4,9 +4,9 @@ Donate link:
 Tags: WooCommerce, Dokan, Tools, Tookit, Kit, WooCommerce Toolkit, Toolkit for WooCommerce, Woo, WooThemes, e-commerce, multi-vendor, multivendor marketplace, WooCommerce Multivendor Marketplace
 Requires at least: 4.7
 Tested up to: 6.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 WC requires at least: 6.0
-WC tested up to: 7.3.0
+WC tested up to: 7.4.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,6 +64,11 @@ e.g.
 
 
 == Changelog ==
+= v1.1.2 =
+- **enhancement** Change the Terms & Condition checkbox position when Dokan is activated
+- **enhancement** Disable file upload limit when the setting field is empty/0
+- **enhancement** Compatibility check with WooCommerce 7.4.0
+
 = v1.1.1 =
 - **fix** Fixed Terms & Condition feature issue with Dokan Vendor Registration form
 - **enhancement** Compatibility check with WooCommerce 7.3.0

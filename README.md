@@ -29,6 +29,11 @@ Below is list of available feature of the StoreKit plugin:
 - Product Individual Sale by default for vendors
 
 ### Changelog
+= v1.1.2 =
+- **enhancement** Change the Terms & Condition checkbox position when Dokan is activated
+- **enhancement** Disable file upload limit when the setting field is empty/0
+- **enhancement** Compatibility check with WooCommerce 7.4.0
+
 = v1.1.1 =
 - **fix** Fixed Terms & Condition feature with Dokan Vendor Registration form
 - **enhancement** Compatibility check with WooCommerce 7.3.0
