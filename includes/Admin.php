@@ -132,7 +132,7 @@ class Admin {
                     'name'    => 'dk_vendor_upload_size',
                     'size'    => 'small',
                     'label'   => __( 'Limit File Upload Size', 'storekit' ),
-                    'desc'    => __( 'Limit vendor from uploading file size', 'storekit' ),
+                    'desc'    => __( 'Limit vendor from uploading file size. Keep empty/put 0 disable', 'storekit' ),
                     'type'    => 'number',
                     'default' => '1'
                 ],

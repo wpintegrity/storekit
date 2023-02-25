@@ -159,7 +159,7 @@ function storekit_vendor_file_upload_size( $size ){
         $user = wp_get_current_user();
         $roles = ( array ) $user->roles;
 
-        if( in_array( 'seller', $roles ) == true && isset( $storekit_dk_inputf_size ) ){
+        if( in_array( 'seller', $roles ) == true && !empty( $storekit_dk_inputf_size ) ){
             $size = 1048576 * $storekit_dk_inputf_size;
         }
     }
@@ -167,7 +167,7 @@ function storekit_vendor_file_upload_size( $size ){
     return $size;
     
 }
-add_action( 'upload_size_limit', 'storekit_vendor_file_upload_size' );
+add_filter( 'upload_size_limit', 'storekit_vendor_file_upload_size' );
 
 /**
  * 
