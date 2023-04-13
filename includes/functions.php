@@ -45,7 +45,7 @@ function remove_vendor_dashboard_vendormenu_widgets(){
     }
 
     if( isset($storekit_dk_vendor_dashboard_widget_options['reviews']) ){
-        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\DokanPro\Dashboard', 'get_review_widget', 16 );
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_left_widgets', 'WeDevs\DokanPro\Dashboard\Dashboard', 'get_review_widget', 16 );
     }
 
     if( isset($storekit_dk_vendor_dashboard_widget_options['sales-chart']) ){
@@ -53,7 +53,7 @@ function remove_vendor_dashboard_vendormenu_widgets(){
     }
 
     if( isset($storekit_dk_vendor_dashboard_widget_options['announcement']) ){
-        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_right_widgets', 'WeDevs\DokanPro\Dashboard', 'get_announcement_widget', 12 );
+        dokan_remove_hook_for_anonymous_class( 'dokan_dashboard_right_widgets', 'WeDevs\DokanPro\Dashboard\Dashboard', 'get_announcement_widget', 12 );
     }
 
 }
