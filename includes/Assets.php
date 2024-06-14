@@ -1,5 +1,5 @@
 <?php
-namespace StoreKit;
+namespace WpIntegrity\StoreKit;
 
 /**
  * Scripts and Styles Class
@@ -63,10 +63,14 @@ class Assets {
      * @return array
      */
     public function get_styles() {
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
         $styles = [
+            'storekit-admin'    => [
+                'src' => STOREKIT_ASSETS . '/css/admin'. $suffix .'.css'
+            ],
             'storekit-frontend' => [
-                'src' =>  STOREKIT_ASSETS . '/css/frontend.css'
+                'src' =>  STOREKIT_ASSETS . '/css/frontend'. $suffix .'.css'
             ]
         ];
 
@@ -78,10 +82,16 @@ class Assets {
      *
      * @return array
      */
-    public function get_scripts(){
+    public function get_scripts() {
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
         $scripts = [
+            'storekit-admin'    => [
+                'src'       => STOREKIT_ASSETS . '/js/admin'. $suffix .'.js',
+                'in_footer' => true
+            ],
             'storekit-frontend' => [
-                'src'       => STOREKIT_ASSETS . '/js/frontend.js',
+                'src'       => STOREKIT_ASSETS . '/js/frontend'. $suffix .'.js',
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true
             ]

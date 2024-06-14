@@ -1,11 +1,14 @@
 <?php
-namespace StoreKit;
+namespace WpIntegrity\StoreKit\Features;
 
 /**
  * Frontend Pages Handler
  */
-class Frontend {
+class Features {
 
+    /**
+     * Class constructor
+     */
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 

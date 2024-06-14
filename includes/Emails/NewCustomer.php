@@ -1,6 +1,6 @@
 <?php
 
-namespace StoreKit\Emails;
+namespace WpIntegrity\StoreKit\Emails;
 
 use WC_Email;
 

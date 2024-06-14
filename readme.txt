@@ -1,12 +1,12 @@
 === StoreKit ===
-Contributors: tanjiralmamun
+Contributors: wpintegrity
 Donate link: 
 Tags: WooCommerce, Dokan, Tools, Tookit, Kit, WooCommerce Toolkit, Toolkit for WooCommerce, Woo, WooThemes, e-commerce, multi-vendor, multivendor marketplace, WooCommerce Multivendor Marketplace
-Requires at least: 4.7
-Tested up to: 6.1
-Stable tag: 1.1.2
+Requires at least: 6.4
+Tested up to: 6.5
+Stable tag: 2.0.0
 WC requires at least: 6.0
-WC tested up to: 7.4.0
+WC tested up to: 8.9.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html

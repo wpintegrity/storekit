@@ -1,5 +1,7 @@
 <?php
-namespace StoreKit\Emails;
+namespace WpIntegrity\StoreKit\Emails;
+
+use WpIntegrity\StoreKit\Options;
 /**
  * Handles email sending
  */
@@ -10,14 +12,14 @@ class Manager {
 	 */
 	public function __construct() {
 
-        $storekit_new_cus_reg_option = storekit_get_option( 'wc_new_customer_reg_email', 'woocommerce', 'on' );
+        $new_customer_registration_email = Options::get_option( 'new_customer_registration_email', 'woocommerce', false );
 
-        if( $storekit_new_cus_reg_option == 'on' ){
-	        add_filter( 'woocommerce_email_classes', array( $this, 'load_storekit_emails' ), 99 );
+        if( $new_customer_registration_email === true ){
+	        add_filter( 'woocommerce_email_classes', [ $this, 'load_storekit_emails' ], 99 );
         }
 
-        add_filter( 'woocommerce_template_directory', array( $this, 'set_email_template_directory' ), 15, 2 );
-        add_filter( 'woocommerce_email_actions', array( $this, 'register_email_actions' ) );
+        add_filter( 'woocommerce_template_directory', [ $this, 'set_email_template_directory' ], 15, 2 );
+        add_filter( 'woocommerce_email_actions', [ $this, 'register_email_actions' ] );
 		
 	}
 	

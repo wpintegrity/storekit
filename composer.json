@@ -1,0 +1,21 @@
+{
+    "name": "wpintegrity/storekit",
+    "description": "A helpful toolkit plugin for WooCommerce. Powered by WordPress.",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "WpIntegrity\\StoreKit\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WPIntegrity",
+            "email": "info.wpintegrity@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "freemius/wordpress-sdk": "dev-master"
+    }
+}
