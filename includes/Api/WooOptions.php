@@ -43,7 +43,7 @@ class WooOptions extends Settings {
             'terms_conditions_page_id'        => '',
             'external_product_new_tab'        => '',
             'manage_profile_avatar'           => '',
-            'my_account_admin_menu'           => '',
+            'my_account_admin_menu'           => true,
         ];
 
         $settings = $this->get_settings( $default_settings );
@@ -68,7 +68,7 @@ class WooOptions extends Settings {
             'terms_conditions_page_id'        => '',
             'external_product_new_tab'        => '',
             'manage_profile_avatar'           => '',
-            'my_account_admin_menu'           => '',
+            'my_account_admin_menu'           => true,
         ];
 
         $response = $this->update_settings( $params, $default_settings );
