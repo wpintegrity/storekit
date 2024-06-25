@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { List, ListItem, ListItemButton, ListItemContent } from '@mui/joy';
+import useCheckStatus from '../hooks/useCheckStatus';
 
 const Menus = ({ selectedOption, setSelectedOption }) => {
+    const isDokanActive = useCheckStatus( 'plugin', 'dokan-lite/dokan.php' );
 
     return (
         <List
@@ -18,14 +20,16 @@ const Menus = ({ selectedOption, setSelectedOption }) => {
                     <ListItemContent>WooCommerce</ListItemContent>
                 </ListItemButton>
             </ListItem>
-            <ListItem>
-                <ListItemButton
-                    selected={ selectedOption === 'Dokan' }
-                    onClick={ () => setSelectedOption( 'Dokan' ) }
-                >
-                    <ListItemContent>Dokan</ListItemContent>
-                </ListItemButton>
-            </ListItem>
+            { isDokanActive && (
+                <ListItem>
+                    <ListItemButton
+                        selected={ selectedOption === 'Dokan' }
+                        onClick={ () => setSelectedOption( 'Dokan' ) }
+                    >
+                        <ListItemContent>Dokan</ListItemContent>
+                    </ListItemButton>
+                </ListItem>
+            ) }
         </List>
     );
 }
