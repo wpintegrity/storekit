@@ -6,12 +6,20 @@ use WP_REST_Response;
 use WP_REST_Request;
 
 class DokanOptions extends Settings {
+    /**
+     * Class constructor
+     */
     public function __construct() {
         $this->namespace = 'storekit/v1';
         $this->rest_base = 'dokan-settings';
         $this->options_key = 'storekit_dokan_settings';
     }
 
+    /**
+     * Register Dokan REST API route
+     *
+     * @return void
+     */
     public function register_routes() {
         register_rest_route(
             $this->namespace,
@@ -31,7 +39,7 @@ class DokanOptions extends Settings {
             ]
         );
     }
-
+    
     public function get_items( $request ) {
         $default_settings = [
             'limit_file_upload_size'        => '',

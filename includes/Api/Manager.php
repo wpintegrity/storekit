@@ -18,12 +18,18 @@ class Manager {
     public function __construct() {
         $this->classes = [
             WooOptions::class,
-            DokanOptions::class
+            DokanOptions::class,
+            CheckStatus::class
         ];
         
         add_action( 'rest_api_init', [ $this, 'register_apis'] );
     }
 
+    /**
+     * Initialize API Classes
+     *
+     * @return void
+     */
     public function register_apis() {
         foreach( $this->classes as $class ) {
             $object = new $class;
