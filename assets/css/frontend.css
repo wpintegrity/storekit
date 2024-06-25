@@ -46,6 +46,8 @@
 }
 .storekit-profile-picture .storekit-avatar-image {
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 .storekit-profile-picture .storekit-avatar-image > img {
   width: 80px;
@@ -58,7 +60,7 @@
 .storekit-profile-picture #delete-icon {
   position: absolute;
   bottom: 0;
-  right: 20px;
+  right: 10px;
   cursor: pointer;
 }
 .storekit-profile-picture #pen-icon img,

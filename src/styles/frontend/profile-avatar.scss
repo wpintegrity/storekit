@@ -33,6 +33,8 @@
     /* Avatar image style */
     .storekit-avatar-image {
         position: relative;
+        display: flex;
+        justify-content: center;
 
         > img {
             width: 80px;
@@ -48,7 +50,7 @@
     #delete-icon {
         position: absolute;
         bottom: 0;
-        right: 20px;
+        right: 10px;
         cursor: pointer;
 
         img {
