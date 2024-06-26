@@ -1,10 +1,11 @@
 <?php
 namespace WpIntegrity\StoreKit\Features;
 
+use WpIntegrity\StoreKit\Options;
 /**
  * Frontend Pages Handler
  */
-class Features {
+class Frontend {
 
     /**
      * Class constructor
@@ -12,7 +13,7 @@ class Features {
     public function __construct() {
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
-        $storekit_sold_by_label = storekit_get_option( 'dk_sold_by_label', 'dokan', 'add-to-cart' );
+        $storekit_sold_by_label = Options::get_option( 'sold_by_label', 'dokan', 'none' );
         
         if( storekit()->has_dokan() ){
 

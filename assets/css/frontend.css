@@ -139,3 +139,35 @@
   display: block;
   margin-top: 10px;
 }
+/*!*********************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/frontend/sold-by-label.scss ***!
+  \*********************************************************************************************************************************/
+/**
+* Sold by label feature
+*/
+.storekit_sold_by_wrapper {
+  padding: 5px 0;
+}
+.storekit_sold_by_wrapper img {
+  display: inline-block !important;
+  margin: 0 !important;
+  width: 25px !important;
+  border-radius: 50%;
+  vertical-align: bottom;
+}
+.storekit_sold_by_wrapper a {
+  display: inline-block !important;
+}
+
+.storekit_store_rating {
+  padding: 5px 0;
+}
+.storekit_store_rating .dashicons-star-empty {
+  font-size: 15px;
+  color: #e0e0e0;
+}
+.storekit_store_rating .dashicons-star-filled,
+.storekit_store_rating .dashicons-star-half {
+  font-size: 15px;
+  color: #ffc239;
+}

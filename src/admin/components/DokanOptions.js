@@ -136,9 +136,9 @@ const DokanOptions = () => {
                 </FormControl>
                 <Select
                     placeholder="Choose one..."
-                    name='sold_by_label_options'
-                    value={settings.sold_by_label_options}
-                    onChange={onSelectChange('sold_by_label_options')}
+                    name='sold_by_label'
+                    value={settings.sold_by_label}
+                    onChange={onSelectChange('sold_by_label')}
                 >
                     
                     { sold_by_label_options.map(option => (

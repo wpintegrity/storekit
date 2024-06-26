@@ -37,7 +37,7 @@ eval("jQuery(document).ready(function ($) {\n  $('.vendor-customer-registration 
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _profile_avatar_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./profile-avatar.scss */ \"./src/styles/frontend/profile-avatar.scss\");\n\n\n//# sourceURL=webpack://storekit/./src/styles/frontend/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _profile_avatar_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./profile-avatar.scss */ \"./src/styles/frontend/profile-avatar.scss\");\n/* harmony import */ var _sold_by_label_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sold-by-label.scss */ \"./src/styles/frontend/sold-by-label.scss\");\n\n\n\n//# sourceURL=webpack://storekit/./src/styles/frontend/main.js?");
 
 /***/ }),
 
@@ -70,6 +70,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://storekit/./src/styles/frontend/profile-avatar.scss?");
+
+/***/ }),
+
+/***/ "./src/styles/frontend/sold-by-label.scss":
+/*!************************************************!*\
+  !*** ./src/styles/frontend/sold-by-label.scss ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://storekit/./src/styles/frontend/sold-by-label.scss?");
 
 /***/ })
 

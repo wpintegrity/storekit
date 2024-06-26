@@ -20,6 +20,7 @@ class Manager {
         new Notices();
         new Products();
         new Miscellaneous();
+        new Frontend();
 
         if( Options::get_option( 'manage_profile_avatar', 'woocommerce' ) === true ) {
             new ProfileAvatar();
