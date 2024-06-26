@@ -57,7 +57,6 @@ class DokanOptions extends Settings {
                 'download_virtual'      => false,
                 'inventory'             => false,
                 'downloadable'          => false,
-                'other_options'         => false,
                 'shipping_tax'          => false,
                 'linked_products'       => false,
                 'attributes'            => false,
@@ -103,7 +102,6 @@ class DokanOptions extends Settings {
                 'download_virtual'      => false,
                 'inventory'             => false,
                 'downloadable'          => false,
-                'other_options'         => false,
                 'shipping_tax'          => false,
                 'linked_products'       => false,
                 'attributes'            => false,
@@ -238,11 +236,6 @@ class DokanOptions extends Settings {
                         ],
                         'downloadable' => [
                             'description' => esc_html__( 'Downloadable.' ),
-                            'type'        => 'boolean',
-                            'context'     => [ 'view', 'edit' ],
-                        ],
-                        'other_options' => [
-                            'description' => esc_html__( 'Other Options.' ),
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
                         ],

@@ -11,9 +11,8 @@ class Manager {
      * Class constructor
      */
     public function __construct() {
-        new Options();
         new VendorDashboard();
-        new Upload();
+        // new Upload();
         // new Cart();
         new Stock();
         new Shipping();

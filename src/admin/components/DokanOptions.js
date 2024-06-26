@@ -24,7 +24,6 @@ const DokanOptions = () => {
             download_virtual     : false,
             inventory            : false,
             downloadable         : false,
-            other_options        : false,
             shipping_tax         : false,
             linked_products      : false,
             attributes           : false,
@@ -323,21 +322,6 @@ const DokanOptions = () => {
                         }
                     >
                         Downloadable
-                    </Typography>
-
-                    <Typography
-                        level='body-sm' 
-                        component={'label'}
-                        endDecorator={
-                            <Switch
-                                size='sm'
-                                name='other_options'
-                                checked={Boolean(settings.hide_product_form_sections.other_options)}
-                                onChange={onSwitchChange('hide_product_form_sections', 'other_options')}
-                            />
-                        }
-                    >
-                        Other Options
                     </Typography>
 
                     { isDokanProActive && (

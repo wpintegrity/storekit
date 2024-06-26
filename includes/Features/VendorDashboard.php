@@ -69,11 +69,10 @@ class VendorDashboard {
         $hooks = [
             'download_virtual' => ['dokan_product_edit_after_title','WeDevs\Dokan\Dashboard\Templates\Products', 'load_download_virtual_template', 10, 2],
             'inventory'        => ['dokan_product_edit_after_main', 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_inventory_template', 5, 2],
-            'downloadable'     => ['dokan_product_edit_after_main', 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_downloadable_template', 10, 2],
-            'other_options'    => ['dokan_product_edit_after_inventory_variants', 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_others_template', 85, 2]
+            'downloadable'     => ['dokan_product_edit_after_main', 'WeDevs\Dokan\Dashboard\Templates\Products', 'load_downloadable_template', 10, 2]
         ];
 
-        $use_remove_action = [ 'download_virtual', 'inventory', 'downloadable', 'other_options' ];
+        $use_remove_action = [ 'download_virtual', 'inventory', 'downloadable' ];
 
         // Hooks available only in Dokan Pro and Merge the Pro hooks if Dokan Pro is active
         if ( is_plugin_active('dokan-pro/dokan-pro.php') ) {

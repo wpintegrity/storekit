@@ -25,8 +25,9 @@ class Stock {
      * 
      * @since 1.0
      */
-    function default_product_stock( $post_id ){
-        $product_stock = Options::get_option( 'default_product_stock', 'woocommerce', '' );
+    public function default_product_stock( $post_id ){
+        $product_stock = Options::get_option( 'default_product_stock', 'woocommerce' );
+
         $post_author = get_post_field( 'post_author', $post_id );
         $user = get_userdata( $post_author );
         $user_roles = $user->roles;
@@ -44,15 +45,16 @@ class Stock {
      * 
      * @since 1.0
      */
-    function default_product_stock_for_vendors( $post_id ) {
-        $dk_product_stock = Options::get_option('default_product_stock', 'dokan', '');
-        $post_author = get_post_field('post_author', $post_id);
-        $user = get_userdata($post_author);
-        $user_roles = $user->roles;
+    public function default_product_stock_for_vendors( $post_id ) {
+        $dokan_product_stock = Options::get_option( 'default_product_stock', 'dokan' );
 
-        if ($dk_product_stock > 0 && in_array('seller', $user_roles)) {
+        $post_author         = get_post_field( 'post_author', $post_id );
+        $user                = get_userdata( $post_author );
+        $user_roles          = $user->roles;
+
+        if ( $dokan_product_stock > 0 && in_array( 'seller', $user_roles ) ) {
             update_post_meta($post_id, '_manage_stock', 'yes');
-            update_post_meta($post_id, '_stock', $dk_product_stock);
+            update_post_meta($post_id, '_stock', $dokan_product_stock );
         }
     }
 
@@ -61,20 +63,21 @@ class Stock {
      * 
      * @since 1.0.1
      */
-    function storekit_product_sold_individually( $individually, $product ) {
-        $wc_sold_individually = Options::get_option( 'product_individual_sale', 'woocommerce', false );
-        $dk_sold_individually = Options::get_option( 'product_individual_sale', 'dokan', false );
-        $post_author = get_post_field('post_author', $product->get_id());
-        $user = get_userdata($post_author);
-        $user_roles = $user->roles;
+    public function storekit_product_sold_individually( $individually, $product ) {
+        $woo_sold_individually   = Options::get_option( 'product_individual_sale', 'woocommerce', false );
+        $dokan_sold_individually = Options::get_option( 'product_individual_sale', 'dokan', false );
+        
+        $post_author             = get_post_field( 'post_author', $product->get_id() );
+        $user                    = get_userdata( $post_author );
+        $user_roles              = $user->roles;
         
         if ( storekit()->has_dokan() ) {
-            if ( in_array('seller', $user_roles) && $dk_sold_individually == true ) {    
+            if ( in_array('seller', $user_roles) && $dokan_sold_individually == true ) {    
                 $individually = true;
-            } elseif ( in_array('administrator', $user_roles) && $wc_sold_individually == true ) {
+            } elseif ( in_array('administrator', $user_roles) && $woo_sold_individually == true ) {
                 $individually = true;
             }
-        } elseif ( $wc_sold_individually == true ) {
+        } elseif ( $woo_sold_individually == true ) {
             $individually = true;
         }
         
