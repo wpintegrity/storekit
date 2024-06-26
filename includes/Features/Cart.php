@@ -44,7 +44,7 @@ class Cart {
      *
      * @param WC_Cart $cart
      */
-    public function sort_cart_by_vendor_store_name() {
+    public function sort_cart_by_vendor_store_name( $cart ) {
         if( ! storekit()->has_dokan() ){
             return;
         }

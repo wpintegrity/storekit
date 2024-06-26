@@ -13,7 +13,7 @@ class Manager {
     public function __construct() {
         new VendorDashboard();
         new Upload();
-        // new Cart();
+        new Cart();
         new Stock();
         new Shipping();
         new Registration();
