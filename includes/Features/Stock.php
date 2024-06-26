@@ -28,9 +28,9 @@ class Stock {
     public function default_product_stock( $post_id ){
         $product_stock = Options::get_option( 'default_product_stock', 'woocommerce' );
 
-        $post_author = get_post_field( 'post_author', $post_id );
-        $user = get_userdata( $post_author );
-        $user_roles = $user->roles;
+        $post_author   = get_post_field( 'post_author', $post_id );
+        $user          = get_userdata( $post_author );
+        $user_roles    = $user->roles;
 
         if( $product_stock > 0 && in_array( 'administrator', $user_roles ) ){
             update_post_meta( $post_id, '_manage_stock', 'yes' );
