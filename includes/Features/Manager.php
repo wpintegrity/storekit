@@ -14,7 +14,7 @@ class Manager {
         new Options();
         new VendorDashboard();
         new Upload();
-        new Cart();
+        // new Cart();
         new Stock();
         new Shipping();
         new Registration();

@@ -39,7 +39,7 @@ class DokanOptions extends Settings {
             ]
         );
     }
-    
+
     public function get_items( $request ) {
         $default_settings = [
             'limit_file_upload_size'        => '',
@@ -57,18 +57,18 @@ class DokanOptions extends Settings {
                 'download_virtual'      => false,
                 'inventory'             => false,
                 'downloadable'          => false,
-                'other'                 => false,
+                'other_options'         => false,
                 'shipping_tax'          => false,
                 'linked_products'       => false,
                 'attributes'            => false,
-                'discount'              => false,
+                'discount_options'      => false,
                 'products_seo_yoast'    => false,
                 'products_seo_rankmath' => false,
                 'geolocation'           => false,
                 'rma_options'           => false,
-                'addons'                => false,
+                'product_addons'        => false,
                 'wholesale'             => false,
-                'mixmax'                => false,
+                'order_minmax'          => false,
                 'advertise'             => false,
             ],
             'default_product_stock'         => '',
@@ -103,18 +103,18 @@ class DokanOptions extends Settings {
                 'download_virtual'      => false,
                 'inventory'             => false,
                 'downloadable'          => false,
-                'other'                 => false,
+                'other_options'         => false,
                 'shipping_tax'          => false,
                 'linked_products'       => false,
                 'attributes'            => false,
-                'discount'              => false,
+                'discount_options'      => false,
                 'products_seo_yoast'    => false,
                 'products_seo_rankmath' => false,
                 'geolocation'           => false,
                 'rma_options'           => false,
-                'addons'                => false,
+                'product_addons'        => false,
                 'wholesale'             => false,
-                'mixmax'                => false,
+                'order_mixmax'          => false,
                 'advertise'             => false,
             ],
             'default_product_stock'         => '',
@@ -241,7 +241,7 @@ class DokanOptions extends Settings {
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
                         ],
-                        'other' => [
+                        'other_options' => [
                             'description' => esc_html__( 'Other Options.' ),
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
@@ -261,7 +261,7 @@ class DokanOptions extends Settings {
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
                         ],
-                        'discount' => [
+                        'discount_options' => [
                             'description' => esc_html__( 'Discount Options.' ),
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
@@ -286,7 +286,7 @@ class DokanOptions extends Settings {
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
                         ],
-                        'addons' => [
+                        'product_addons' => [
                             'description' => esc_html__( 'Add-ons.' ),
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
@@ -296,7 +296,7 @@ class DokanOptions extends Settings {
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
                         ],
-                        'min_max' => [
+                        'order_minmax' => [
                             'description' => esc_html__( 'Min/Max Options.' ),
                             'type'        => 'boolean',
                             'context'     => [ 'view', 'edit' ],
@@ -309,7 +309,7 @@ class DokanOptions extends Settings {
                     ]
                 ],
                 'default_product_stock' => [
-                    'description' => esc_html__( 'Default product stock.' ),
+                    'description' => esc_html__( 'Default Product Stock.' ),
                     'type'        => 'integer',
                     'context'     => [ 'view', 'edit' ],
                 ],
