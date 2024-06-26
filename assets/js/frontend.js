@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var crop
   \***************************************************/
 /***/ (() => {
 
-eval("jQuery(document).ready(function ($) {\n  $('.vendor-customer-registration input[value=\"seller\"]').on('change', function () {\n    $('.storekit_wc_tnc').hide();\n  });\n  $('.vendor-customer-registration input[value=\"customer\"]').on('change', function () {\n    $('.storekit_wc_tnc').show();\n  });\n});\n\n//# sourceURL=webpack://storekit/./src/frontend/storekit-terms-conditions.js?");
+eval("jQuery(document).ready(function ($) {\n  $('.vendor-customer-registration input[value=\"seller\"]').on('change', function () {\n    $('.storekit_wc_tnc').hide();\n  });\n  $('.vendor-customer-registration input[value=\"customer\"]').on('change', function () {\n    $('.storekit_wc_tnc').show();\n  });\n  var storekit_tnc_check = $('#storekit_terms_conditions');\n  if (storekit_tnc_check.length > 0) {\n    var submitButton = $('.woocommerce-form-register__submit');\n    submitButton.prop('disabled', true);\n    storekit_tnc_check.on('change', function () {\n      if ($(this).is(':checked')) {\n        submitButton.prop('disabled', false);\n      } else {\n        submitButton.prop('disabled', true);\n      }\n    });\n  }\n});\n\n//# sourceURL=webpack://storekit/./src/frontend/storekit-terms-conditions.js?");
 
 /***/ }),
 

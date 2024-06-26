@@ -21,7 +21,7 @@ class Registration {
     /**
      * Add a checkbox to the registration form that the user must check to register
      * 
-     * @since 2.0
+     * @since 1.1.2
      */
     public function terms_conditions() {
         $terms_conditions      = Options::get_option( 'terms_conditions', 'woocommerce', false );
@@ -29,7 +29,7 @@ class Registration {
 
         if ( $terms_conditions ): ?>
             <div class="storekit_wc_tnc">
-                <input type="checkbox" id="storekit_terms_conditions" name="storekit_terms_conditions"> 
+                <input type="checkbox" id="storekit_terms_conditions" name="storekit_terms_conditions" required> 
                 <label for="storekit_terms_conditions">
                     <?php 
                         /* translators: %s terms & condition permalink url */
@@ -43,13 +43,17 @@ class Registration {
     /**
      * Validate the terms and conditions checkbox during registration
      * 
-     * @since 2.0
+     * @since 1.1.2
      * @param WP_Error $errors
      * @return WP_Error
      */
-    public function terms_and_conditions_validation( $errors, $username, $email ) {
+    public function terms_and_conditions_validation( $errors ) {
         $nonce_value = isset($_POST['_wpnonce']) ? wp_unslash($_POST['_wpnonce']) : '';
         $nonce_value = isset($_POST['woocommerce-register-nonce']) ? wp_unslash($_POST['woocommerce-register-nonce']) : $nonce_value;
+
+        if ( ! isset( $_POST['role'] ) || 'customer' !== $_POST['role']  || ! wp_verify_nonce( $nonce_value, 'woocommerce-register' ) ) {
+            return $errors;
+        }
 
         if ( !wp_verify_nonce( $nonce_value, 'woocommerce-register' ) ) {
             error_log('Nonce verification failed.');
