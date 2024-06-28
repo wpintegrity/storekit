@@ -1,5 +1,4 @@
 <?php
-
 namespace WpIntegrity\StoreKit;
 
 class Options {

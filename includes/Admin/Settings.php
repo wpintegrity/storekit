@@ -2,12 +2,21 @@
 namespace WpIntegrity\StoreKit\Admin;
 
 /**
- * Admin Pages Handler
+ * Admin Pages Handler Class
+ *
+ * Handles the creation and management of the admin pages for the StoreKit plugin.
+ *
+ * @since 2.0.0
  */
 class Settings {
 
-    private $settings_api;
-
+    /**
+     * Class constructor
+     *
+     * Initializes the admin menu action.
+     *
+     * @since 1.0.0
+     */
     public function __construct() {
         add_action( 'admin_menu', [ $this, 'admin_menu' ] );
     }
@@ -15,11 +24,12 @@ class Settings {
     /**
      * Register our menu page
      *
+     * Adds a new menu page for StoreKit in the WordPress admin dashboard.
+     *
+     * @since 1.0.0
      * @return void
      */
     public function admin_menu() {
-        global $submenu;
-
         $capability = 'manage_options';
         $slug       = 'storekit';
 
@@ -27,14 +37,24 @@ class Settings {
 
         $storekit_icon_data_uri = 'data:image/svg+xml;base64,' . $storekit_icon_base64;
 
-        $hook = add_menu_page( __( 'StoreKit', 'storekit' ), __( 'StoreKit', 'storekit' ), $capability, $slug, [ $this, 'render_settings_page' ], $storekit_icon_data_uri );
+        add_menu_page( 
+            __( 'StoreKit', 'storekit' ), 
+            __( 'StoreKit', 'storekit' ), 
+            $capability, 
+            $slug, 
+            [ $this, 'render_settings_page' ], 
+            $storekit_icon_data_uri 
+        );
 
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
     }
 
     /**
      * Render Plugin's Menu Page
-     * 
+     *
+     * Outputs the content for the StoreKit settings page.
+     *
+     * @since 2.0.0
      * @return void
      */
     public function render_settings_page() {
@@ -42,8 +62,11 @@ class Settings {
     }
 
     /**
-     * Enqueue scripts
-     * 
+     * Enqueue scripts and styles
+     *
+     * Enqueues the necessary scripts and styles for the StoreKit admin page.
+     *
+     * @since 2.0.0
      * @return void
      */
     public function enqueue_scripts() {
@@ -53,6 +76,6 @@ class Settings {
         // Localize script to pass nonce to JavaScript
         wp_localize_script( 'storekit-admin', 'storekitApiSettings', array(
             'nonce' => wp_create_nonce( 'wp_rest' ),
-        ));
+        ) );
     }
 }

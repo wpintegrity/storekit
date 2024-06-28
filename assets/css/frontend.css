@@ -41,7 +41,7 @@
   margin: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.storekit-profile-picture label .selected {
+.storekit-profile-picture label.selected {
   background-color: #e1dee4;
 }
 .storekit-profile-picture .storekit-avatar-image {

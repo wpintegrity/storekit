@@ -4,13 +4,22 @@ namespace WpIntegrity\StoreKit\Features;
 use WpIntegrity\StoreKit\Options;
 
 /**
- * Features Manager Class
+ * Features Manager Class.
+ *
+ * Initializes and manages various StoreKit features.
+ *
+ * @since 2.0.0
  */
 class Manager {
     /**
-     * Class constructor
+     * Class constructor.
+     *
+     * Instantiates various feature classes.
+     *
+     * @since 2.0.0
      */
     public function __construct() {
+        // Initialize core features
         new VendorDashboard();
         new Upload();
         new Cart();
@@ -22,7 +31,8 @@ class Manager {
         new Miscellaneous();
         new Frontend();
 
-        if( Options::get_option( 'manage_profile_avatar', 'woocommerce' ) === true ) {
+        // Conditionally initialize the Profile Avatar feature
+        if ( Options::get_option( 'manage_profile_avatar', 'woocommerce' ) === true ) {
             new ProfileAvatar();
         }
     }

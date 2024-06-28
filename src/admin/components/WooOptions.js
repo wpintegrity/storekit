@@ -59,7 +59,7 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Clear Cart button</FormLabel>
+                    <FormLabel>Clear Cart Button</FormLabel>
                     <FormHelperText>Add a clear cart button on the cart page to empty the entire cart with one click</FormHelperText>
                 </FormControl>
                 <Switch
@@ -78,7 +78,7 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Default product stock</FormLabel>
+                    <FormLabel>Default Product Stock</FormLabel>
                     <FormHelperText>Insert default product stock amount</FormHelperText>
                 </FormControl>
                 <Input
