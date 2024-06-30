@@ -8,7 +8,7 @@
     "build": "wp-scripts build",
     "start": "wp-scripts start",
     "plugin-zip": "wp-scripts plugin-zip",
-    "makepot": "wp i18n make-pot --domain='storekit' --exclude='node_modules' . --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/wpintegrity/storekit/issues\"}' --file-comment=\"Copyright (c) $(date +'%Y') WPIntegrity. All Rights Reserved.\" languages/storekit.pot",
+    "makepot": "wp i18n make-pot --domain='storekit' --exclude='node_modules,vendor' . --headers='{\"Report-Msgid-Bugs-To\":\"https://github.com/wpintegrity/storekit/issues\"}' --file-comment=\"Copyright (c) $(date +'%Y') WPIntegrity. All Rights Reserved.\" languages/storekit.pot",
     "zip": "node dist/zip",
     "version": "node dist/version-replace",
     "release": "composer i && composer du -o && npm run build && npm run makepot && npm run version && npm run zip"

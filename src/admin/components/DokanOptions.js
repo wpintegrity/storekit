@@ -21,6 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 import useSettings from '../hooks/useSettings';
 import { handleSwitchChange, handleInputChange, handleSelectChange } from '../utils/inputHandlers';
 import useCheckStatus from '../hooks/useCheckStatus';
+import { __ } from '@wordpress/i18n'; // Importing the translation function
 
 /**
  * DokanOptions component
@@ -69,16 +70,16 @@ const DokanOptions = () => {
     const isDokanProActive = useCheckStatus('plugin', 'dokan-pro/dokan-pro.php');
 
     const sort_product_by_vendor_options = [
-        { value: '', label: 'None' },
-        { value: 'asc', label: 'Ascending' },
-        { value: 'desc', label: 'Descending' }
+        { value: '', label: __('None', 'storekit') },
+        { value: 'asc', label: __('Ascending', 'storekit') },
+        { value: 'desc', label: __('Descending', 'storekit') }
     ];
     
     const sold_by_label_options = [
-        { value: '', label: 'None' },
-        { value: 'product-title', label: 'After Product Title' },
-        { value: 'product-price', label: 'Before Add to Cart Button' },
-        { value: 'add-to-cart', label: 'After Add to Cart Button' }
+        { value: '', label: __('None', 'storekit') },
+        { value: 'product-title', label: __('After Product Title', 'storekit') },
+        { value: 'product-price', label: __('Before Add to Cart Button', 'storekit') },
+        { value: 'add-to-cart', label: __('After Add to Cart Button', 'storekit') }
     ];
 
     const onSwitchChange = handleSwitchChange(setSettings);
@@ -95,7 +96,7 @@ const DokanOptions = () => {
         updateSettings(settings);
     };
     
-    return(
+    return (
         <form noValidate onSubmit={handleSubmit}>
             <Stack
                 direction={'row'}
@@ -104,8 +105,8 @@ const DokanOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Limit File Upload Size</FormLabel>
-                    <FormHelperText>Limit vendor from uploading file size</FormHelperText>
+                    <FormLabel>{ __('Limit File Upload Size', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Limit vendor from uploading file size', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Input
                     variant="outlined"
@@ -132,11 +133,11 @@ const DokanOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Sort Product by Vendor</FormLabel>
-                    <FormHelperText>Sort products by vendor name on the cart</FormHelperText>
+                    <FormLabel>{ __('Sort Product by Vendor', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Sort products by vendor name on the cart', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Select
-                    placeholder="Choose one..."
+                    placeholder={ __('Choose one...', 'storekit') }
                     name='sort_product_by_vendor'
                     value={settings.sort_product_by_vendor}
                     onChange={onSelectChange('sort_product_by_vendor')}
@@ -157,11 +158,11 @@ const DokanOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Sort by Label</FormLabel>
-                    <FormHelperText>Display sold by label on the shop page</FormHelperText>
+                    <FormLabel>{ __('Sort by Label', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Display sold by label on the shop page', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Select
-                    placeholder="Choose one..."
+                    placeholder={ __('Choose one...', 'storekit') }
                     name='sold_by_label'
                     value={settings.sold_by_label}
                     onChange={onSelectChange('sold_by_label')}
@@ -180,8 +181,8 @@ const DokanOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl sx={{ pb: 1 }}>
-                    <FormLabel>Hide Vendor Dashboard Widgets</FormLabel>
-                    <FormHelperText>Hide Vendor Dashboard - Dashboard menu screen widgets</FormHelperText>
+                    <FormLabel>{ __('Hide Vendor Dashboard Widgets', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Hide Vendor Dashboard - Dashboard menu screen widgets', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Card>
                     <Stack
@@ -201,7 +202,7 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Big Counter
+                            { __('Big Counter', 'storekit') }
                         </Typography>
                         <Typography
                             level='body-sm'
@@ -215,7 +216,7 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Orders
+                            { __('Orders', 'storekit') }
                         </Typography>
                         <Typography
                             level='body-sm'
@@ -229,7 +230,7 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Products
+                            { __('Products', 'storekit') }
                         </Typography>
                         <Typography
                             level='body-sm'
@@ -243,7 +244,7 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Sales Report Chart
+                            { __('Sales Report Chart', 'storekit') }
                         </Typography>
 
                         {isDokanProActive && (  
@@ -260,7 +261,7 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Reviews
+                                    { __('Reviews', 'storekit') }
                                 </Typography>
                                 <Typography
                                     level='body-sm'
@@ -274,7 +275,7 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Announcement
+                                    { __('Announcement', 'storekit') }
                                 </Typography>
                             </>
                         )}
@@ -288,8 +289,8 @@ const DokanOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl sx={{ pb: 1 }}>
-                    <FormLabel>Hide Product Form Sections</FormLabel>
-                    <FormHelperText>Hide Vendor Dashboard - Product Form sections</FormHelperText>
+                    <FormLabel>{ __('Hide Product Form Sections', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Hide Vendor Dashboard - Product Form sections', 'storekit') }</FormHelperText>
                 </FormControl>
 
                 <Card>
@@ -298,7 +299,7 @@ const DokanOptions = () => {
                         spacing={1}
                         sx={{ width: "80%", m: "auto" }}
                     >
-                        <Typography
+                        <Typography 
                             level='body-sm'
                             component={'label'}
                             endDecorator={
@@ -310,10 +311,9 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Downloads & Virtual Checkboxes
+                            { __('Downloadable & Virtual Checkbox', 'storekit') }
                         </Typography>
-
-                        <Typography
+                        <Typography 
                             level='body-sm'
                             component={'label'}
                             endDecorator={
@@ -325,10 +325,9 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Inventory
+                            { __('Inventory', 'storekit') }
                         </Typography>
-                        
-                        <Typography
+                        <Typography 
                             level='body-sm'
                             component={'label'}
                             endDecorator={
@@ -340,10 +339,10 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Downloadable
+                            { __('Downloadable', 'storekit') }
                         </Typography>
 
-                        <Typography
+                        <Typography 
                             level='body-sm'
                             component={'label'}
                             endDecorator={
@@ -355,10 +354,10 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Shipping & Tax
+                            { __('Shipping & Tax', 'storekit') }
                         </Typography>
 
-                        <Typography
+                        <Typography 
                             level='body-sm'
                             component={'label'}
                             endDecorator={
@@ -370,10 +369,9 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Linked Products
+                            { __('Linked Products', 'storekit') }
                         </Typography>
-
-                        <Typography
+                        <Typography 
                             level='body-sm'
                             component={'label'}
                             endDecorator={
@@ -385,27 +383,26 @@ const DokanOptions = () => {
                                 />
                             }
                         >
-                            Attributes
-                        </Typography>
-
-                        <Typography
-                            level='body-sm'
-                            component={'label'}
-                            endDecorator={
-                                <Switch
-                                    size='sm'
-                                    name='discount_options_section'
-                                    checked={Boolean(settings.hide_product_form_sections.discount_options)}
-                                    onChange={onSwitchChange('hide_product_form_sections', 'discount_options')}
-                                />
-                            }
-                        >
-                            Discount Options
+                            { __('Attributes', 'storekit') }
                         </Typography>
 
                         {isDokanProActive && (  
                             <>
-                                <Typography
+                                <Typography 
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='discount_options_section'
+                                            checked={Boolean(settings.hide_product_form_sections.discount_options)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'discount_options')}
+                                        />
+                                    }
+                                >
+                                    { __('Discount Options', 'storekit') }
+                                </Typography>
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -417,10 +414,10 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Products SEO - Yoast
+                                    { __('Products SEO (Yoast)', 'storekit') }
                                 </Typography>
 
-                                <Typography
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -432,10 +429,10 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Products SEO - Rankmath
+                                    { __('Products SEO (RankMath)', 'storekit') }
                                 </Typography>
 
-                                <Typography
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -447,10 +444,10 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Geolocation
+                                    { __('Geolocation', 'storekit') }
                                 </Typography>
 
-                                <Typography
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -462,10 +459,10 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    RMA Options
+                                    { __('RMA Options', 'storekit') }
                                 </Typography>
 
-                                <Typography
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -477,10 +474,10 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Product Addons
+                                    { __('Product Addons', 'storekit') }
                                 </Typography>
 
-                                <Typography
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -492,10 +489,10 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Wholesale
+                                    { __('Wholesale', 'storekit') }
                                 </Typography>
 
-                                <Typography
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -507,10 +504,10 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Order Min/Max
+                                    { __('Order Min/Max', 'storekit') }
                                 </Typography>
 
-                                <Typography
+                                <Typography 
                                     level='body-sm'
                                     component={'label'}
                                     endDecorator={
@@ -522,10 +519,11 @@ const DokanOptions = () => {
                                         />
                                     }
                                 >
-                                    Advertise
+                                    { __('Advertise', 'storekit') }
                                 </Typography>
-                            </>
-                        )}
+                        </>
+                    )}
+
                     </Stack>
                 </Card>
             </Stack>
@@ -538,8 +536,8 @@ const DokanOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Default Product Stock</FormLabel>
-                    <FormHelperText>Default product stock for vendor's new product</FormHelperText>
+                    <FormLabel>{ __('Default Product Stock', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Set default product stock quantity to vendor\'s new product', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Input
                     variant="outlined"
@@ -560,17 +558,17 @@ const DokanOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Product Individual Sale</FormLabel>
-                    <FormHelperText>Allow only one item to be bought in a single order</FormHelperText>
+                    <FormLabel>{ __('Product Individual Sale', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Allow only one item to be bought in a single order', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Select
-                    placeholder="Choose one..."
+                    placeholder={ __('Choose one...', 'storekit') }
                     name='product_individual_sale'
                     value={settings.product_individual_sale}
                     onChange={onSelectChange('product_individual_sale')}
                 >
-                    <Option value="no">No</Option>
-                    <Option value="yes">Yes</Option>
+                    <Option value="no">{ __('No', 'storekit') }</Option>
+                    <Option value="yes">{ __('Yes', 'storekit') }</Option>
                 </Select>
             </Stack>
 
@@ -587,7 +585,9 @@ const DokanOptions = () => {
                         p: '15px 0 0'
                     }}
                 >
-                    <Button type='submit'>Save Changes</Button>
+                    <Button type="submit">
+                        { __('Save Changes', 'storekit') }
+                    </Button>
                 </CardActions>
             </CardOverflow>
 

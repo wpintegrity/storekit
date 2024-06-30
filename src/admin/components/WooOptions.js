@@ -15,6 +15,7 @@ import {
 } from '@mui/joy';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { __ } from '@wordpress/i18n';
 
 import useSettings from '../hooks/useSettings';
 import { handleSwitchChange, handleInputChange, handleSelectChange } from '../utils/inputHandlers';
@@ -75,8 +76,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>New Customer Registration Email</FormLabel>
-                    <FormHelperText>Get new customers registration email to the admin email</FormHelperText>
+                    <FormLabel>{ __('New Customer Registration Email', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Get new customers registration email to the admin email', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Switch
                     size='lg'
@@ -95,8 +96,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Clear Cart Button</FormLabel>
-                    <FormHelperText>Add a clear cart button on the cart page to empty the entire cart with one click</FormHelperText>
+                    <FormLabel>{ __('Clear Cart Button', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Add a clear cart button on the cart page to empty the entire cart with one click', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Switch
                     size='lg'
@@ -115,8 +116,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Default Product Stock</FormLabel>
-                    <FormHelperText>Insert default product stock amount</FormHelperText>
+                    <FormLabel>{ __('Default Product Stock', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Insert default product stock amount', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Input
                     variant="outlined"
@@ -138,17 +139,17 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Product Individual Sale</FormLabel>
-                    <FormHelperText>Allow only one item to be bought in a single order</FormHelperText>
+                    <FormLabel>{ __('Product Individual Sale', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Allow only one item to be bought in a single order', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Select
-                    placeholder="Choose one..."
+                    placeholder={ __('Choose one...', 'storekit') }
                     name='product_individual_sale'
                     value={settings.product_individual_sale}
                     onChange={onSelectChange('product_individual_sale')}
                 >
-                    <Option value="no">No</Option>
-                    <Option value="yes">Yes</Option>
+                    <Option value="no">{ __('No', 'storekit') }</Option>
+                    <Option value="yes">{ __('Yes', 'storekit') }</Option>
                 </Select>
             </Stack>
             <Divider />
@@ -161,8 +162,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Hide Shipping Methods</FormLabel>
-                    <FormHelperText>Hide other shipping methods when Free Shipping is available on the cart</FormHelperText>
+                    <FormLabel>{ __('Hide Shipping Methods', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Hide other shipping methods when Free Shipping is available on the cart', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Switch
                     size='lg'
@@ -181,8 +182,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Terms & Conditions</FormLabel>
-                    <FormHelperText>Add Terms & Condition checkbox on the My Account registration form</FormHelperText>
+                    <FormLabel>{ __('Terms & Conditions', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Add Terms & Condition checkbox on the My Account registration form', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Switch
                     size='lg'
@@ -203,16 +204,16 @@ const WooOptions = () => {
                     sx={{ my: 1 }}
                 >
                     <FormControl>
-                        <FormLabel>Select Terms & Condition Page</FormLabel>
+                        <FormLabel>{ __('Select Terms & Condition Page', 'storekit') }</FormLabel>
                     </FormControl>
                     <Select
-                        placeholder="Choose one..."
+                        placeholder={ __('Choose one...', 'storekit') }
                         name='terms_conditions_page_id'
                         value={settings.terms_conditions_page_id}
                         onChange={onSelectChange('terms_conditions_page_id')}
                     >
                         {pages && pages.map(page => (
-                            <Option key={page.id} value={page.id}>{page.title && page.title.rendered}</Option>
+                            <Option key={page.id} value={page.id}>{ page.title && page.title.rendered }</Option>
                         ))}
                     </Select>
                 </Stack>
@@ -228,8 +229,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>External Product New Tab</FormLabel>
-                    <FormHelperText>Open External/Affiliate Type Products on a new tab</FormHelperText>
+                    <FormLabel>{ __('External Product New Tab', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Open External/Affiliate Type Products on a new tab', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Switch
                     size='lg'
@@ -248,8 +249,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>Profile Picture</FormLabel>
-                    <FormHelperText>Allow users to add custom profile picture from the My Account &gt; Account details page</FormHelperText>
+                    <FormLabel>{ __('Profile Picture', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Allow users to add custom profile picture from the My Account > Account details page', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Switch
                     size='lg'
@@ -268,8 +269,8 @@ const WooOptions = () => {
                 sx={{ my: 1 }}
             >
                 <FormControl>
-                    <FormLabel>My Account Menu</FormLabel>
-                    <FormHelperText>Add My Account Page to the Admin Bar Menu</FormHelperText>
+                    <FormLabel>{ __('My Account Menu', 'storekit') }</FormLabel>
+                    <FormHelperText>{ __('Add My Account Page to the Admin Bar Menu', 'storekit') }</FormHelperText>
                 </FormControl>
                 <Switch
                     size='lg'
@@ -293,7 +294,7 @@ const WooOptions = () => {
                         p: '15px 0 0'
                     }}
                 >
-                    <Button type='submit'>Save Changes</Button>
+                    <Button type='submit'>{ __('Save Changes', 'storekit') }</Button>
                     <ToastContainer autoClose={2000} />
                 </CardActions>
             </CardOverflow>
