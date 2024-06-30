@@ -4,7 +4,7 @@
   "description": "A helpful toolkit plugin for WooCommerce. Powered by WordPress.",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf./dist/*.zip",
+    "clean": "rm ./dist/*.zip",
     "build": "wp-scripts build",
     "start": "wp-scripts start",
     "plugin-zip": "wp-scripts plugin-zip",
