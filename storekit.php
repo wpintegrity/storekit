@@ -3,50 +3,28 @@
  * Plugin Name: StoreKit
  * Plugin URI: https://wordpress.org/plugins/storekit
  * Description: A Helpful Toolkit WordPress plugin for WooCommerce
- * Version: 1.1.2
- * Author: Tanjir Al Mamun
- * Author URI: https://tanjirsdev.com
+ * Version: 2.0.0
+ * Author: WPIntegrity
+ * Author URI: https://wpintegrity.com/
  * Text Domain: storekit
- * WC requires at least: 6.0
- * WC tested up to: 7.3
+ * Requires Plugins: woocommerce
+ * WC requires at least: 8.0.0
+ * WC tested up to: 9.0.0
  * Domain Path: /languages
  * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-/**
- * Copyright (c) 2022 Tanjir Al Mamun (email: contact.tanjir@gmail.com). All rights reserved.
- *
- * Released under the GPL license
- * http://www.opensource.org/licenses/gpl-license.php
- *
- * This is an add-on for WordPress
- * http://wordpress.org/
- *
- * **********************************************************************
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- * **********************************************************************
- */
-
-// don't call the file directly
-if ( !defined( 'ABSPATH' ) ) exit;
+// Prevent direct access to this file.
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 /**
  * StoreKit class
  *
- * @class StoreKit The class that holds the entire StoreKit plugin
+ * @class StoreKit
+ * @version 2.0.0
  */
 final class StoreKit {
 
@@ -55,42 +33,50 @@ final class StoreKit {
      *
      * @var string
      */
-    public $version = '1.1.2';
+    const VERSION = '2.0.0';
 
     /**
      * Holds various class instances
      *
      * @var array
      */
-    private $container = array();
+    private $container = [];
 
     /**
      * Constructor for the StoreKit class
      *
-     * Sets up all the appropriate hooks and actions
-     * within our plugin.
+     * Sets up all the appropriate hooks and actions within our plugin.
      */
     public function __construct() {
+        require_once __DIR__ . '/vendor/autoload.php';
 
         $this->define_constants();
+
         register_activation_hook( __FILE__, [ $this, 'activate' ] );
+
+        // Hooks for initializing the plugin
+        add_action( 'before_woocommerce_init', [ $this, 'declare_woocommerce_hpos_compatibility' ] );
         add_action( 'woocommerce_loaded', [ $this, 'init_plugin' ] );
 
-        add_action( 'plugins_loaded', [ $this, 'woocommerce_not_loaded' ], 11 );
+        // Initialize Freemius tracker
+        $this->init_freemius_tracker();
 
+        // Hook to handle scenarios when WooCommerce is not loaded
+        add_action( 'plugins_loaded', [ $this, 'woocommerce_not_loaded' ], 11 );
     }
 
     /**
      * Initializes the StoreKit() class
      *
-     * Checks for an existing StoreKit() instance
-     * and if it doesn't find one, creates it.
+     * Checks for an existing StoreKit() instance and if it doesn't find one, creates it.
+     *
+     * @return StoreKit
      */
     public static function init() {
         static $instance = false;
 
         if ( ! $instance ) {
-            $instance = new StoreKit();
+            $instance = new self();
         }
 
         return $instance;
@@ -99,8 +85,7 @@ final class StoreKit {
     /**
      * Magic getter to bypass referencing plugin.
      *
-     * @param $prop
-     *
+     * @param string $prop Property name.
      * @return mixed
      */
     public function __get( $prop ) {
@@ -114,45 +99,44 @@ final class StoreKit {
     /**
      * Magic isset to bypass referencing plugin.
      *
-     * @param $prop
-     *
-     * @return mixed
+     * @param string $prop Property name.
+     * @return bool
      */
     public function __isset( $prop ) {
         return isset( $this->{$prop} ) || isset( $this->container[ $prop ] );
     }
 
     /**
-     * Define the constants
+     * Define the constants used by the plugin.
      *
      * @return void
      */
-    public function define_constants() {
-        define( 'STOREKIT_VERSION', $this->version );
+    private function define_constants() {
+        define( 'STOREKIT_VERSION', self::VERSION );
         define( 'STOREKIT_FILE', __FILE__ );
-        define( 'STOREKIT_PATH', dirname( STOREKIT_FILE ) );
+        define( 'STOREKIT_PATH', __DIR__ );
         define( 'STOREKIT_INCLUDES', STOREKIT_PATH . '/includes' );
         define( 'STOREKIT_URL', plugins_url( '', STOREKIT_FILE ) );
         define( 'STOREKIT_ASSETS', STOREKIT_URL . '/assets' );
     }
 
     /**
-     * Load the plugin after all plugis are loaded
+     * Initializes the plugin after all plugins are loaded.
      *
      * @return void
      */
     public function init_plugin() {
-        $this->includes();
         $this->init_hooks();
     }
 
     /**
-     * Placeholder for activation function
+     * Placeholder for activation function.
      *
-     * Nothing being called here yet.
+     * Performs tasks on plugin activation.
+     *
+     * @return void
      */
     public function activate() {
-
         $installed = get_option( 'storekit_installed' );
 
         if ( ! $installed ) {
@@ -163,109 +147,94 @@ final class StoreKit {
     }
 
     /**
-     * Include the required files
+     * Initialize the hooks for the plugin.
      *
      * @return void
      */
-    public function includes() {
-
-        require_once STOREKIT_INCLUDES . '/Assets.php';
-
-        if ( $this->is_request( 'admin' ) ) {
-            require_once STOREKIT_INCLUDES . '/Admin.php';
-            require_once STOREKIT_INCLUDES . '/class.settings-api.php';
-        }
-
-        if ( $this->is_request( 'frontend' ) ) {
-            require_once STOREKIT_INCLUDES . '/Frontend.php';
-        }
-
-        require_once STOREKIT_INCLUDES . '/functions.php';
-        require_once STOREKIT_INCLUDES . '/Emails/Manager.php';
-
-    }
-
-    /**
-     * Initialize the hooks
-     *
-     * @return void
-     */
-    public function init_hooks() {
-
+    private function init_hooks() {
         add_action( 'init', [ $this, 'init_classes' ] );
 
         // Localize our plugin
         add_action( 'init', [ $this, 'localization_setup' ] );
 
-        // Plugin action links
-        add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), [ $this, 'storekit_action_links'] );
+        // Add action links on the plugin screen
+        add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), [ $this, 'storekit_action_links' ] );
     }
 
     /**
-	 * Show action links on the plugin screen.
-	 *
-	 * @param mixed $links Plugin Action links.
-	 *
-	 * @return array
-	 */
-	public function storekit_action_links( $links ) {
-		$action_links = [
-			'settings' => '<a href="' . admin_url( 'admin.php?page=storekit' ) . '" aria-label="' . esc_attr__( 'View StoreKit settings', 'storekit' ) . '">' . esc_html__( 'Settings', 'storekit' ) . '</a>',
+     * Show action links on the plugin screen.
+     *
+     * @param array $links Plugin action links.
+     * @return array
+     */
+    public function storekit_action_links( $links ) {
+        $action_links = [
+            'settings' => '<a href="' . admin_url( 'admin.php?page=storekit' ) . '" aria-label="' . esc_attr__( 'View StoreKit settings', 'storekit' ) . '">' . esc_html__( 'Settings', 'storekit' ) . '</a>',
         ];
 
-		return array_merge( $action_links, $links );
-	}
+        return array_merge( $action_links, $links );
+    }
 
     /**
-     * Instantiate the required classes
+     * Initialize the Freemius tracker for the plugin.
+     *
+     * @return void
+     */
+    public function init_freemius_tracker() {
+        $this->container['tracker'] = new \WpIntegrity\StoreKit\Tracker();
+    }
+
+    /**
+     * Instantiate the required classes for the plugin.
      *
      * @return void
      */
     public function init_classes() {
+        $this->container['assets']    = new WpIntegrity\StoreKit\Assets();
+        $this->container['api']       = new WpIntegrity\StoreKit\Api\Manager();
 
-        if ( $this->is_request( 'admin' ) ) {
-            $this->container['admin']       = new StoreKit\Admin();
+        if ( is_admin() ) {
+            $this->container['admin'] = new WpIntegrity\StoreKit\Admin\Manager();
         }
-
-        if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend']    = new StoreKit\Frontend();
-        }
-
-        $this->container['assets']          = new StoreKit\Assets();
-        $this->container['emails']          = new StoreKit\Emails\Manager();
+        
+        $this->container['features'] = new WpIntegrity\StoreKit\Features\Manager();
+        $this->container['emails']   = new WpIntegrity\StoreKit\Emails\Manager();
     }
 
     /**
-     * Initialize plugin for localization
+     * Initialize plugin for localization.
      *
-     * @uses load_plugin_textdomain()
+     * @return void
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'storekit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        $locale = determine_locale();
+
+        /**
+		 * Filter to adjust the StoreKit locale to use for translations.
+		 */
+		$locale = apply_filters( 'plugin_locale', $locale, 'storekit' ); // phpcs:ignore StoreKit.Commenting.CommentHooks.MissingSinceComment
+
+        unload_textdomain( 'storekit' );
+		load_textdomain( 'storekit', WP_LANG_DIR . '/storekit/storekit-' . $locale . '.mo' );
+        load_plugin_textdomain( 'storekit', false, dirname( plugin_basename( STOREKIT_FILE ) ) . '/languages/' );
     }
 
     /**
-     * What type of request is this?
+     * Add High Performance Order Storage Support for WooCommerce.
      *
-     * @param  string $type admin or frontend.
-     *
-     * @return bool
+     * @since 2.0.0
+     * @return void
      */
-    private function is_request( $type ) {
-        switch ( $type ) {
-            case 'admin' :
-                return is_admin();
-
-            case 'frontend' :
-                return ( ! is_admin() );
+    public function declare_woocommerce_hpos_compatibility() {
+        if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
         }
     }
 
     /**
-     * Check whether woocommerce is installed and active
+     * Check whether WooCommerce is installed and active.
      *
      * @since 1.0.1
-     *
      * @return bool
      */
     public function has_woocommerce() {
@@ -273,10 +242,9 @@ final class StoreKit {
     }
 
     /**
-     * Check whether dokan is installed and active
+     * Check whether Dokan is installed and active.
      *
      * @since 1.0.1
-     *
      * @return bool
      */
     public function has_dokan() {
@@ -284,10 +252,9 @@ final class StoreKit {
     }
 
     /**
-     * Check whether woocommerce is installed
+     * Check whether WooCommerce is installed.
      *
      * @since 1.0.1
-     *
      * @return bool
      */
     public function is_woocommerce_installed() {
@@ -295,32 +262,26 @@ final class StoreKit {
     }
 
     /**
-     * Handles scenerios when WooCommerce is not active
+     * Handles scenarios when WooCommerce is not active.
      *
-     * @since 1.0
-     *
+     * @since 1.0.0
      * @return void
      */
     public function woocommerce_not_loaded() {
         if ( did_action( 'woocommerce_loaded' ) || ! is_admin() ) {
             return;
         }
-
-        require_once STOREKIT_INCLUDES . '/functions.php';
     }
-
-} // StoreKit
+}
 
 /**
- * Load StoreKit Plugin when all plugins loaded
+ * Load StoreKit Plugin when all plugins are loaded.
  *
- * @since 1.0.1
- * 
  * @return StoreKit
  */
 function storekit() {
     return StoreKit::init();
 }
 
-// Lets Go....
+// Initialize StoreKit plugin
 storekit();

@@ -1,344 +1,312 @@
-# Copyright (C) 2022 Tanjir Al Mamun
-# This file is distributed under the GPL2.
+# Copyright (c) 2024 WPIntegrity. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: StoreKit 1.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/storekit\n"
+"Project-Id-Version: StoreKit 2.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/wpintegrity/storekit/issues/new/choose\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-11-14T15:03:57+00:00\n"
+"POT-Creation-Date: 2024-06-30T07:54:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: storekit\n"
 
 #. Plugin Name of the plugin
-#: includes/Admin.php:44
+#: storekit.php
+#: includes/Admin/Settings.php:41
+#: includes/Admin/Settings.php:42
 msgid "StoreKit"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: storekit.php
 msgid "https://wordpress.org/plugins/storekit"
 msgstr ""
 
 #. Description of the plugin
+#: storekit.php
 msgid "A Helpful Toolkit WordPress plugin for WooCommerce"
 msgstr ""
 
 #. Author of the plugin
-msgid "Tanjir Al Mamun"
+#: storekit.php
+msgid "WPIntegrity"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://tanjirsdev.com"
+#: storekit.php
+msgid "https://wpintegrity.com/"
 msgstr ""
 
-#: includes/Admin.php:58
-msgid "WooCommerce Settings"
+#: includes/Api/Base.php:33
+msgid "You do not have permissions to access this endpoint."
 msgstr ""
 
-#: includes/Admin.php:65
-msgid "Dokan Settings"
+#: includes/Api/DokanOptions.php:205
+msgid "Limit File Upload Size."
 msgstr ""
 
-#: includes/Admin.php:83
-msgid "New Customer Registration Email"
+#: includes/Api/DokanOptions.php:210
+msgid "Sort Product by Vendor."
 msgstr ""
 
-#: includes/Admin.php:84
-msgid "Get new customers registration email to the admin email"
+#: includes/Api/DokanOptions.php:215
+msgid "Sold by label."
 msgstr ""
 
-#: includes/Admin.php:90
-msgid "Clear Cart button"
+#: includes/Api/DokanOptions.php:220
+msgid "Hide Vendor Dashboard Widgets."
 msgstr ""
 
-#: includes/Admin.php:91
-msgid "Add a clear cart button on the cart page to empty the entire cart with one click"
+#: includes/Api/DokanOptions.php:225
+msgid "Big Counter."
 msgstr ""
 
-#: includes/Admin.php:98
-#: includes/Admin.php:205
-msgid "Default product stock"
+#: includes/Api/DokanOptions.php:230
+msgid "Orders."
 msgstr ""
 
-#: includes/Admin.php:99
-msgid "Insert default product stock amount"
+#: includes/Api/DokanOptions.php:235
+msgid "Products."
 msgstr ""
 
-#: includes/Admin.php:105
-#: includes/Admin.php:212
-msgid "Product Individual Sale"
+#: includes/Api/DokanOptions.php:240
+msgid "Reviews."
 msgstr ""
 
-#: includes/Admin.php:106
-msgid "Prevent customers from purchasing one product multiple times at a time"
+#: includes/Api/DokanOptions.php:245
+msgid "Sales Report Chart."
 msgstr ""
 
-#: includes/Admin.php:112
-msgid "Hide Shipping Methods"
+#: includes/Api/DokanOptions.php:250
+msgid "Announcement."
 msgstr ""
 
-#: includes/Admin.php:113
-msgid "Hide other shipping methods when Free Shipping is available on the cart"
+#: includes/Api/DokanOptions.php:257
+msgid "Hide Product Form Sections."
 msgstr ""
 
-#: includes/Admin.php:119
-msgid "Terms & Condition"
+#: includes/Api/DokanOptions.php:262
+msgid "Downloads & Virtual Checkboxes."
 msgstr ""
 
-#: includes/Admin.php:120
-msgid "Add Terms & Condition checkbox on the My Account registration form"
+#: includes/Api/DokanOptions.php:267
+msgid "Inventory."
 msgstr ""
 
-#: includes/Admin.php:126
-msgid "Select Terms & Condition Page"
+#: includes/Api/DokanOptions.php:272
+msgid "Downloadable."
 msgstr ""
 
-#: includes/Admin.php:134
-msgid "Limit File Upload Size"
+#: includes/Api/DokanOptions.php:277
+msgid "Shipping & Tax."
 msgstr ""
 
-#: includes/Admin.php:135
-msgid "Limit vendor from uploading file size"
+#: includes/Api/DokanOptions.php:282
+msgid "Linked Products."
 msgstr ""
 
-#: includes/Admin.php:141
-msgid "Sort Product by Vendor"
+#: includes/Api/DokanOptions.php:287
+msgid "Attributes & Variations."
 msgstr ""
 
-#: includes/Admin.php:142
-msgid "Sort products by vendor name on the cart"
+#: includes/Api/DokanOptions.php:292
+msgid "Discount Options."
 msgstr ""
 
-#: includes/Admin.php:145
-#: includes/Admin.php:157
-msgid "None"
+#: includes/Api/DokanOptions.php:297
+msgid "Product SEO (Yoast)."
 msgstr ""
 
-#: includes/Admin.php:146
-msgid "ASC"
+#: includes/Api/DokanOptions.php:302
+msgid "Product SEO (RankMath)."
 msgstr ""
 
-#: includes/Admin.php:147
-msgid "DESC"
+#: includes/Api/DokanOptions.php:307
+msgid "Geolocation."
 msgstr ""
 
-#: includes/Admin.php:153
-msgid "Sold by label"
+#: includes/Api/DokanOptions.php:312
+msgid "RMA Options."
 msgstr ""
 
-#: includes/Admin.php:154
-msgid "Display sold by label on the shop page"
+#: includes/Api/DokanOptions.php:317
+msgid "Add-ons."
 msgstr ""
 
-#: includes/Admin.php:158
-msgid "After Product Title"
+#: includes/Api/DokanOptions.php:322
+msgid "Wholesale."
 msgstr ""
 
-#: includes/Admin.php:159
-msgid "Before Add to Cart Button"
+#: includes/Api/DokanOptions.php:327
+msgid "Min/Max Options."
 msgstr ""
 
-#: includes/Admin.php:160
-msgid "After Add to Cart Button"
+#: includes/Api/DokanOptions.php:332
+msgid "Advertise Product."
 msgstr ""
 
-#: includes/Admin.php:166
-msgid "Hide Vendor Dashboard Widgets"
+#: includes/Api/DokanOptions.php:339
+msgid "Default Product Stock."
 msgstr ""
 
-#: includes/Admin.php:167
-msgid "Hide Vendor Dashboard - Dashboard menu screen widgets"
+#: includes/Api/DokanOptions.php:344
+msgid "Product Individual Sale."
 msgstr ""
 
-#: includes/Admin.php:170
-msgid "Big Counter Widget"
+#: includes/Api/WooOptions.php:165
+msgid "New customer registration email setting."
 msgstr ""
 
-#: includes/Admin.php:171
-msgid "Orders Widget"
+#: includes/Api/WooOptions.php:170
+msgid "Clear cart button setting."
 msgstr ""
 
-#: includes/Admin.php:172
-msgid "Products Widget"
+#: includes/Api/WooOptions.php:175
+msgid "Default product stock setting."
 msgstr ""
 
-#: includes/Admin.php:173
-msgid "Reviews Widget"
+#: includes/Api/WooOptions.php:180
+msgid "Product individual sale setting."
 msgstr ""
 
-#: includes/Admin.php:174
-msgid "Sales Report Chart Widget"
+#: includes/Api/WooOptions.php:185
+msgid "Hide shipping methods setting."
 msgstr ""
 
-#: includes/Admin.php:175
-msgid "Announcement Widget"
+#: includes/Api/WooOptions.php:190
+msgid "Terms and conditions setting."
 msgstr ""
 
-#: includes/Admin.php:180
-msgid "Hide Product Form Sections"
+#: includes/Api/WooOptions.php:195
+msgid "Terms and conditions page ID setting."
 msgstr ""
 
-#: includes/Admin.php:181
-msgid "Hide Vendor Dashboard - Product Form sections"
+#: includes/Api/WooOptions.php:200
+msgid "External Product New Tab setting."
 msgstr ""
 
-#: includes/Admin.php:184
-msgid "Download/Virtual Checkboxes"
+#: includes/Api/WooOptions.php:205
+msgid "Profile Picture setting."
 msgstr ""
 
-#: includes/Admin.php:185
-msgid "Inventory"
+#: includes/Api/WooOptions.php:210
+msgid "My Account Menu setting."
 msgstr ""
 
-#: includes/Admin.php:186
-msgid "Downloadable"
-msgstr ""
-
-#: includes/Admin.php:187
-msgid "Other Options"
-msgstr ""
-
-#: includes/Admin.php:188
-msgid "Shipping & Tax"
-msgstr ""
-
-#: includes/Admin.php:189
-msgid "Linked Products"
-msgstr ""
-
-#: includes/Admin.php:190
-msgid "Attributes & Variations"
-msgstr ""
-
-#: includes/Admin.php:191
-msgid "Discount Options"
-msgstr ""
-
-#: includes/Admin.php:192
-msgid "Products SEO (Yoast SEO)"
-msgstr ""
-
-#: includes/Admin.php:193
-msgid "Products SEO (Rank Math SEO)"
-msgstr ""
-
-#: includes/Admin.php:194
-msgid "Geolocation"
-msgstr ""
-
-#: includes/Admin.php:195
-msgid "RMA Options"
-msgstr ""
-
-#: includes/Admin.php:196
-msgid "Add-ons"
-msgstr ""
-
-#: includes/Admin.php:197
-msgid "Wholesale"
-msgstr ""
-
-#: includes/Admin.php:198
-msgid "Min/Max Options"
-msgstr ""
-
-#: includes/Admin.php:199
-msgid "Advertise Product"
-msgstr ""
-
-#: includes/Admin.php:206
-msgid "Insert default product stock amount during product creation of a vendor"
-msgstr ""
-
-#: includes/Admin.php:213
-msgid "Prevent customers from purchasing vendors' one product multiple times at a time"
-msgstr ""
-
-#: includes/Admin.php:235
-msgid "StoreKit: A Helpfull Toolkit for WooCommerce"
-msgstr ""
-
-#: includes/Emails/NewCustomer.php:18
+#: includes/Emails/NewCustomer.php:20
 msgid "New Customer Registration"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:19
-msgid "These emails are sent to chosen recipient(s) when a new customer registers in the store"
+#: includes/Emails/NewCustomer.php:21
+msgid "These emails are sent to chosen recipient(s) when a new customer registers in the store."
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:41
+#: includes/Emails/NewCustomer.php:43
 msgid "[{site_name}] A New customer has registered"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:51
+#: includes/Emails/NewCustomer.php:53
 msgid "New Customer Registered - {customer_name}"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:130
+#: includes/Emails/NewCustomer.php:133
 msgid "Enable/Disable"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:132
+#: includes/Emails/NewCustomer.php:135
 msgid "Enable this email notification"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:136
+#: includes/Emails/NewCustomer.php:139
 msgid "Recipient(s)"
 msgstr ""
 
-#. translators: %s admin email
-#: includes/Emails/NewCustomer.php:139
+#. translators: %s: admin email
+#: includes/Emails/NewCustomer.php:142
 msgid "Enter recipients (comma separated) for this email. Defaults to %s."
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:145
+#: includes/Emails/NewCustomer.php:148
 msgid "Subject"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:152
+#: includes/Emails/NewCustomer.php:155
 msgid "Email heading"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:159
+#: includes/Emails/NewCustomer.php:162
 msgid "Email type"
 msgstr ""
 
-#: includes/Emails/NewCustomer.php:161
+#: includes/Emails/NewCustomer.php:164
 msgid "Choose which format of email to send."
 msgstr ""
 
-#: includes/functions.php:231
+#: includes/Features/Cart.php:38
 msgid "Clear cart"
 msgstr ""
 
-#. translators: %s terms & condition permalink url
-#: includes/functions.php:373
-msgid "I have read and agree to the <a target=\"_blank\" href=\"%s\">Terms &amp; Conditions</a>."
+#: includes/Features/Frontend.php:74
+msgid "Store:"
 msgstr ""
 
-#: includes/functions.php:395
-msgid "Please read and accept the terms and conditions before registration"
+#: includes/Features/Miscellaneous.php:46
+msgid "Visit My Account"
 msgstr ""
 
-#. translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
-#: includes/functions.php:415
+#. Translators: 1$s, 2$s are HTML tags, 3$s, 4$s are the link to WooCommerce plugin, 5$s, 6$s are the link to install WooCommerce.
+#: includes/Features/Notices.php:37
 msgid "%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s install WooCommerce &raquo;%6$s"
 msgstr ""
 
-#. translators: 1$-2$: opening and closing <strong> tags, 3$-4$: link tags, takes to woocommerce plugin on wp.org, 5$-6$: opening and closing link tags, leads to plugins.php in admin
-#: includes/functions.php:420
+#. Translators: 1$s and 2$s are opening and closing strong HTML tags, 3$s and 4$s are opening and closing anchor HTML tags to the WooCommerce plugin page, 5$s and 6$s are opening and closing anchor HTML tags to the activate WooCommerce URL.
+#: includes/Features/Notices.php:57
 msgid "%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s activate WooCommerce &raquo;%6$s"
 msgstr ""
 
-#: storekit.php:213
+#: includes/Features/ProfileAvatar.php:60
+#: src/admin/components/WooOptions.js:252
+msgid "Profile Picture"
+msgstr ""
+
+#: includes/Features/ProfileAvatar.php:63
+msgid "Gravatar"
+msgstr ""
+
+#: includes/Features/ProfileAvatar.php:70
+msgid "Custom"
+msgstr ""
+
+#: includes/Features/ProfileAvatar.php:87
+msgid "Upload and Crop Your Avatar"
+msgstr ""
+
+#: includes/Features/ProfileAvatar.php:90
+msgid "Crop and Upload"
+msgstr ""
+
+#. translators: %s: terms & condition permalink url
+#: includes/Features/Registration.php:39
+msgid "I have read and agree to the <a target=\"_blank\" href=\"%s\">Terms &amp; Conditions</a>."
+msgstr ""
+
+#: includes/Features/Registration.php:66
+msgid "Please read and accept the terms and conditions before registration"
+msgstr ""
+
+#. Translators: %s is the HTML code element representing the template name.
+#: includes/Options.php:63
+msgid "%s does not exist."
+msgstr ""
+
+#: storekit.php:172
 msgid "View StoreKit settings"
 msgstr ""
 
-#: storekit.php:213
+#: storekit.php:172
 msgid "Settings"
 msgstr ""
 
@@ -366,4 +334,255 @@ msgstr ""
 
 #: templates/emails/plain/new-customer-registration.php:22
 msgid "To edit vendor access and details visit : "
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:73
+#: src/admin/components/DokanOptions.js:79
+msgid "None"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:74
+msgid "Ascending"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:75
+msgid "Descending"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:80
+msgid "After Product Title"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:81
+msgid "Before Add to Cart Button"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:82
+msgid "After Add to Cart Button"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:108
+msgid "Limit File Upload Size"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:109
+msgid "Limit vendor from uploading file size"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:136
+msgid "Sort Product by Vendor"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:137
+msgid "Sort products by vendor name on the cart"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:140
+#: src/admin/components/DokanOptions.js:165
+#: src/admin/components/DokanOptions.js:565
+#: src/admin/components/WooOptions.js:146
+#: src/admin/components/WooOptions.js:210
+msgid "Choose one..."
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:161
+msgid "Sort by Label"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:162
+msgid "Display sold by label on the shop page"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:184
+msgid "Hide Vendor Dashboard Widgets"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:185
+msgid "Hide Vendor Dashboard - Dashboard menu screen widgets"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:205
+msgid "Big Counter"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:219
+msgid "Orders"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:233
+msgid "Products"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:247
+msgid "Sales Report Chart"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:264
+msgid "Reviews"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:278
+msgid "Announcement"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:292
+msgid "Hide Product Form Sections"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:293
+msgid "Hide Vendor Dashboard - Product Form sections"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:314
+msgid "Downloadable & Virtual Checkbox"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:328
+msgid "Inventory"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:342
+msgid "Downloadable"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:357
+msgid "Shipping & Tax"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:372
+msgid "Linked Products"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:386
+msgid "Attributes"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:403
+msgid "Discount Options"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:417
+msgid "Products SEO (Yoast)"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:432
+msgid "Products SEO (RankMath)"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:447
+msgid "Geolocation"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:462
+msgid "RMA Options"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:477
+msgid "Product Addons"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:492
+msgid "Wholesale"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:507
+msgid "Order Min/Max"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:522
+msgid "Advertise"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:539
+#: src/admin/components/WooOptions.js:119
+msgid "Default Product Stock"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:540
+msgid "Set default product stock quantity to vendor's new product"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:561
+#: src/admin/components/WooOptions.js:142
+msgid "Product Individual Sale"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:562
+#: src/admin/components/WooOptions.js:143
+msgid "Allow only one item to be bought in a single order"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:570
+#: src/admin/components/WooOptions.js:151
+msgid "No"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:571
+#: src/admin/components/WooOptions.js:152
+msgid "Yes"
+msgstr ""
+
+#: src/admin/components/DokanOptions.js:589
+#: src/admin/components/WooOptions.js:297
+msgid "Save Changes"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:79
+msgid "New Customer Registration Email"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:80
+msgid "Get new customers registration email to the admin email"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:99
+msgid "Clear Cart Button"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:100
+msgid "Add a clear cart button on the cart page to empty the entire cart with one click"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:120
+msgid "Insert default product stock amount"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:165
+msgid "Hide Shipping Methods"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:166
+msgid "Hide other shipping methods when Free Shipping is available on the cart"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:185
+msgid "Terms & Conditions"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:186
+msgid "Add Terms & Condition checkbox on the My Account registration form"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:207
+msgid "Select Terms & Condition Page"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:232
+msgid "External Product New Tab"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:233
+msgid "Open External/Affiliate Type Products on a new tab"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:253
+msgid "Allow users to add custom profile picture from the My Account > Account details page"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:272
+msgid "My Account Menu"
+msgstr ""
+
+#: src/admin/components/WooOptions.js:273
+msgid "Add My Account Page to the Admin Bar Menu"
 msgstr ""

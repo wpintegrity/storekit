@@ -1,0 +1,43 @@
+/**
+ * Sold by label feature styles
+ *
+ * This stylesheet contains styles for the "Sold by" label and store rating features 
+ * in the StoreKit plugin.
+ *
+ * @since 1.0.0
+ */
+ .storekit_sold_by_wrapper {
+    padding: 5px 0;
+
+    /* Style for the store logo image */
+    img {
+        display: inline-block !important;
+        margin: 0 !important;
+        width: 25px !important; 
+        border-radius: 50%;
+        vertical-align: bottom;
+    }
+
+    /* Style for the store link */
+    a {
+        display: inline-block !important;
+    }
+}
+
+/* Style for the store rating */
+.storekit_store_rating {
+    padding: 5px 0;
+
+    /* Empty star icon style */
+    .dashicons-star-empty {
+        font-size: 15px;
+        color: #e0e0e0;
+    }
+
+    /* Filled and half-filled star icon styles */
+    .dashicons-star-filled,
+    .dashicons-star-half {
+        font-size: 15px;
+        color: #ffc239; 
+    }
+}

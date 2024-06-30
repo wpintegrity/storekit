@@ -4,3 +4,5 @@
 .github
 /languages/.gitkeep
 README.md
+/dist
+/assets/js/*.js.LICENSE.txt
