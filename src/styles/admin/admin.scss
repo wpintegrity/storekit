@@ -1,3 +1,11 @@
+/**
+ * Custom styles for StoreKit admin panel.
+ * Applies responsive design for different screen sizes.
+ *
+ * @since 2.0.0
+ */
+
+/* Styles for the main admin container */
 #storekit-admin {
     > .MuiBox-root {
         @media screen and (max-width: 768px) {
@@ -8,22 +16,25 @@
 
         @media screen and (max-width: 480px) {
             width: 100%;
-       }
+        }
     }
 }
+
+/* Styles for the sidebar */
 .storekit-settings-sidebar {
     position: fixed;
     width: 250px;
 
     @media screen and (max-width: 1024px) {
         width: 200px;
-   }
+    }
 
     @media screen and (max-width: 768px) {
         position: unset;
         width: 100%;
-   }
+    }
 
+    /* Styles for the sidebar menu items */
     .MuiList-root {
         @media screen and (max-width: 768px) {
             display: flex;
@@ -35,21 +46,21 @@
             font-size: 15px;
             background: #F6F6F6;
             border-radius: 6px;
-    
+
             &:first-child {
                 padding-top: 0;
             }
-    
+
             .MuiListItemButton-root {
                 text-align: center;
                 border-radius: 6px;
-    
+
                 &:hover {
                     background: #fff;
                     color: #2F69C4;
                 }
             }
-    
+
             .Mui-selected {
                 background: #fff;
                 color: #2F69C4;
@@ -57,19 +68,22 @@
         }
     }
 }
-.storekit-settings-content{
+
+/* Styles for the main content area */
+.storekit-settings-content {
     width: 75%;
     margin-left: 290px;
 
     @media screen and (max-width: 1024px) {
         margin-left: 240px;
-   }
+    }
 
     @media screen and (max-width: 768px) {
         width: 100%;
         margin-left: 0;
-   }
+    }
 
+    /* Styles for input fields */
     .MuiInput-root {
         padding: 0;
 
@@ -87,6 +101,8 @@
             }
         }
     }
+
+    /* Styles for nested cards */
     .MuiCard-root {
         .MuiStack-root {
             .MuiTypography-root {
@@ -96,6 +112,7 @@
     }
 }
 
+/* Additional styles for MUI Switch input */
 input.MuiSwitch-input {
     margin: 0;
     height: 100%;

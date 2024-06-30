@@ -14,12 +14,15 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/frontend/profile-avatar.scss ***!
   \**********************************************************************************************************************************/
 /**
-* Profile Avatar
-*/
+ * Profile Avatar Styles
+ *
+ * This stylesheet contains styles for the profile avatar selection and customization
+ * feature in the StoreKit plugin.
+ *
+ * @since 2.0.0
+ */
 .storekit-profile-picture {
   display: flex;
-  padding-inline-start: 0.5em;
-  padding-inline-end: 0.5em;
   margin-bottom: 15px;
   /* Hide default radio buttons */
   /* Container for each avatar option */
@@ -143,10 +146,17 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/frontend/sold-by-label.scss ***!
   \*********************************************************************************************************************************/
 /**
-* Sold by label feature
-*/
+ * Sold by label feature styles
+ *
+ * This stylesheet contains styles for the "Sold by" label and store rating features 
+ * in the StoreKit plugin.
+ *
+ * @since 1.0.0
+ */
 .storekit_sold_by_wrapper {
   padding: 5px 0;
+  /* Style for the store logo image */
+  /* Style for the store link */
 }
 .storekit_sold_by_wrapper img {
   display: inline-block !important;
@@ -159,8 +169,11 @@
   display: inline-block !important;
 }
 
+/* Style for the store rating */
 .storekit_store_rating {
   padding: 5px 0;
+  /* Empty star icon style */
+  /* Filled and half-filled star icon styles */
 }
 .storekit_store_rating .dashicons-star-empty {
   font-size: 15px;

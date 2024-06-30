@@ -1,17 +1,41 @@
 import React, { useMemo } from 'react';
-import { Button, CardActions, CardOverflow, FormControl, FormHelperText, FormLabel, Stack, Switch, Divider, Select, Option, Input } from '@mui/joy';
+import { 
+    Button, 
+    CardActions, 
+    CardOverflow, 
+    FormControl, 
+    FormHelperText, 
+    FormLabel, 
+    Stack, 
+    Switch, 
+    Divider, 
+    Select, 
+    Option, 
+    Input 
+} from '@mui/joy';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 import useSettings from '../hooks/useSettings';
 import { handleSwitchChange, handleInputChange, handleSelectChange } from '../utils/inputHandlers';
 
+/**
+ * WooOptions Component
+ * 
+ * This component renders the WooCommerce settings form for the admin panel.
+ * It allows administrators to manage various settings related to WooCommerce.
+ * 
+ * @since 2.0.0
+ * 
+ * @returns {JSX.Element} The WooOptions component.
+ */
 const WooOptions = () => {
+    // Initial settings for the WooOptions form
     const initialSettings = useMemo(() => ({
         new_customer_registration_email: false,
         clear_cart_button: false,
         default_product_stock: '',
-        product_individual_sale: false,
+        product_individual_sale: 'no',
         hide_shipping_methods: false,
         terms_conditions: false,
         terms_conditions_page_id: '',
@@ -20,12 +44,22 @@ const WooOptions = () => {
         my_account_admin_menu: true,
     }), []);
 
+    // Hook to manage settings state and provide update functions
     const { settings, setSettings, pages, updateSettings } = useSettings('woocommerce', initialSettings);
 
+    // Handlers for switch, input, and select changes
     const onSwitchChange = handleSwitchChange(setSettings);
     const onInputChange = handleInputChange(setSettings);
     const onSelectChange = handleSelectChange(setSettings);
 
+    /**
+     * Handle form submission.
+     * 
+     * @since 2.0.0
+     * 
+     * @param {Event} event The form submit event.
+     * @returns {void}
+     */
     const handleSubmit = (event) => {
         event.preventDefault();
         updateSettings(settings);
@@ -33,6 +67,7 @@ const WooOptions = () => {
 
     return (
         <form noValidate onSubmit={handleSubmit}>
+            {/* New Customer Registration Email setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -52,6 +87,7 @@ const WooOptions = () => {
             </Stack>
             <Divider />
 
+            {/* Clear Cart Button setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -71,6 +107,7 @@ const WooOptions = () => {
             </Stack>
             <Divider />
 
+            {/* Default Product Stock setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -93,6 +130,7 @@ const WooOptions = () => {
             </Stack>
             <Divider />
 
+            {/* Product Individual Sale setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -101,17 +139,21 @@ const WooOptions = () => {
             >
                 <FormControl>
                     <FormLabel>Product Individual Sale</FormLabel>
-                    <FormHelperText>Prevent customers from purchasing one product multiple times at a time</FormHelperText>
+                    <FormHelperText>Allow only one item to be bought in a single order</FormHelperText>
                 </FormControl>
-                <Switch
-                    size='lg'
+                <Select
+                    placeholder="Choose one..."
                     name='product_individual_sale'
-                    checked={Boolean(settings.product_individual_sale)}
-                    onChange={onSwitchChange('product_individual_sale')}
-                />
+                    value={settings.product_individual_sale}
+                    onChange={onSelectChange('product_individual_sale')}
+                >
+                    <Option value="no">No</Option>
+                    <Option value="yes">Yes</Option>
+                </Select>
             </Stack>
             <Divider />
             
+            {/* Hide Shipping Methods setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -124,13 +166,14 @@ const WooOptions = () => {
                 </FormControl>
                 <Switch
                     size='lg'
-                    name='terms_conditions'
+                    name='hide_shipping_methods'
                     checked={Boolean(settings.hide_shipping_methods)}
                     onChange={onSwitchChange('hide_shipping_methods')}
                 />
             </Stack>
             <Divider />
             
+            {/* Terms & Conditions setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -152,6 +195,7 @@ const WooOptions = () => {
                 <>
                 <Divider />
                 
+                {/* Terms & Conditions Page selection */}
                 <Stack
                     direction={'row'}
                     justifyContent={'space-between'}
@@ -176,6 +220,7 @@ const WooOptions = () => {
             )}
             <Divider/>
 
+            {/* External Product New Tab setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -195,6 +240,7 @@ const WooOptions = () => {
             </Stack>
             <Divider/>
 
+            {/* Manage Profile Avatar setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -214,6 +260,7 @@ const WooOptions = () => {
             </Stack>
             <Divider/>
 
+            {/* My Account Admin Menu setting */}
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -232,7 +279,7 @@ const WooOptions = () => {
                 />
             </Stack>
 
-
+            {/* Form actions */}
             <CardOverflow
                 sx={{
                     borderTop: '1px solid',

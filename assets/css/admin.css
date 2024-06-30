@@ -706,6 +706,13 @@
 /*!**********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/admin/admin.scss ***!
   \**********************************************************************************************************************/
+/**
+ * Custom styles for StoreKit admin panel.
+ * Applies responsive design for different screen sizes.
+ *
+ * @since 2.0.0
+ */
+/* Styles for the main admin container */
 @media screen and (max-width: 768px) {
   #storekit-admin > .MuiBox-root {
     width: 85%;
@@ -719,9 +726,11 @@
   }
 }
 
+/* Styles for the sidebar */
 .storekit-settings-sidebar {
   position: fixed;
   width: 250px;
+  /* Styles for the sidebar menu items */
 }
 @media screen and (max-width: 1024px) {
   .storekit-settings-sidebar {
@@ -762,9 +771,12 @@
   color: #2F69C4;
 }
 
+/* Styles for the main content area */
 .storekit-settings-content {
   width: 75%;
   margin-left: 290px;
+  /* Styles for input fields */
+  /* Styles for nested cards */
 }
 @media screen and (max-width: 1024px) {
   .storekit-settings-content {
@@ -795,6 +807,7 @@
   justify-content: space-between;
 }
 
+/* Additional styles for MUI Switch input */
 input.MuiSwitch-input {
   margin: 0;
   height: 100%;

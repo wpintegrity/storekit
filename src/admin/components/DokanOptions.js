@@ -1,5 +1,20 @@
 import React, { useMemo } from 'react';
-import { Button, Card, CardActions, CardOverflow, FormControl, FormHelperText, FormLabel, Stack, Switch, Divider, Select, Option, Input, Typography, CardContent } from '@mui/joy';
+import {
+    Button,
+    Card,
+    CardActions,
+    CardOverflow,
+    FormControl,
+    FormHelperText,
+    FormLabel,
+    Stack,
+    Switch,
+    Divider,
+    Select,
+    Option,
+    Input,
+    Typography
+} from '@mui/joy';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,6 +22,15 @@ import useSettings from '../hooks/useSettings';
 import { handleSwitchChange, handleInputChange, handleSelectChange } from '../utils/inputHandlers';
 import useCheckStatus from '../hooks/useCheckStatus';
 
+/**
+ * DokanOptions component
+ *
+ * Renders the Dokan options form and handles the form submission.
+ *
+ * @since 2.0.0
+ *
+ * @return {JSX.Element} The rendered component.
+ */
 const DokanOptions = () => {
     const initialSettings = useMemo(() => ({
         limit_file_upload_size       : '',
@@ -38,11 +62,11 @@ const DokanOptions = () => {
             advertise            : false
         },
         default_product_stock        : '',
-        product_individual_sale      : ''
+        product_individual_sale      : 'no'
     }), []);
 
-    const { settings, setSettings, updateSettings } = useSettings( 'dokan', initialSettings) ;
-    const isDokanProActive = useCheckStatus( 'plugin', 'dokan-pro/dokan-pro.php' );
+    const { settings, setSettings, updateSettings } = useSettings('dokan', initialSettings);
+    const isDokanProActive = useCheckStatus('plugin', 'dokan-pro/dokan-pro.php');
 
     const sort_product_by_vendor_options = [
         { value: '', label: 'None' },
@@ -61,6 +85,11 @@ const DokanOptions = () => {
     const onInputChange = handleInputChange(setSettings);
     const onSelectChange = handleSelectChange(setSettings);
 
+    /**
+     * Handle form submission
+     *
+     * @param {Event} event - The form submit event.
+     */
     const handleSubmit = (event) => {
         event.preventDefault();
         updateSettings(settings);
@@ -87,12 +116,10 @@ const DokanOptions = () => {
                     sx={{ width: 180 }}
                     onChange={onInputChange}
                     endDecorator={
-                        <React.Fragment>
+                        <>
                             <Divider orientation="vertical" />
-                            <Typography>
-                                MB
-                            </Typography>
-                        </React.Fragment>
+                            <Typography>MB</Typography>
+                        </>
                     }
                 />
             </Stack>
@@ -114,12 +141,11 @@ const DokanOptions = () => {
                     value={settings.sort_product_by_vendor}
                     onChange={onSelectChange('sort_product_by_vendor')}
                 >
-                    
-                    { sort_product_by_vendor_options.map(option => (
+                    {sort_product_by_vendor_options.map(option => (
                         <Option key={option.value} value={option.value}>
                             {option.label}
                         </Option>
-                    )) }
+                    ))}
                 </Select>
             </Stack>
             <Divider />
@@ -140,12 +166,11 @@ const DokanOptions = () => {
                     value={settings.sold_by_label}
                     onChange={onSelectChange('sold_by_label')}
                 >
-                    
-                    { sold_by_label_options.map(option => (
+                    {sold_by_label_options.map(option => (
                         <Option key={option.value} value={option.value}>
                             {option.label}
                         </Option>
-                    )) }
+                    ))}
                 </Select>
             </Stack>
             <Divider />
@@ -162,10 +187,7 @@ const DokanOptions = () => {
                     <Stack
                         direction={'column'}
                         spacing={1}
-                        sx={{
-                            width: "80%",
-                            m: "auto"
-                        }}
+                        sx={{ width: "80%", m: "auto" }}
                     >
                         <Typography 
                             level='body-sm'
@@ -182,7 +204,7 @@ const DokanOptions = () => {
                             Big Counter
                         </Typography>
                         <Typography
-                            level='body-sm' 
+                            level='body-sm'
                             component={'label'}
                             endDecorator={
                                 <Switch
@@ -196,7 +218,7 @@ const DokanOptions = () => {
                             Orders
                         </Typography>
                         <Typography
-                            level='body-sm' 
+                            level='body-sm'
                             component={'label'}
                             endDecorator={
                                 <Switch
@@ -210,7 +232,7 @@ const DokanOptions = () => {
                             Products
                         </Typography>
                         <Typography
-                            level='body-sm' 
+                            level='body-sm'
                             component={'label'}
                             endDecorator={
                                 <Switch
@@ -224,10 +246,10 @@ const DokanOptions = () => {
                             Sales Report Chart
                         </Typography>
 
-                        { isDokanProActive && (  
+                        {isDokanProActive && (  
                             <>
                                 <Typography
-                                    level='body-sm' 
+                                    level='body-sm'
                                     component={'label'}
                                     endDecorator={
                                         <Switch
@@ -239,9 +261,9 @@ const DokanOptions = () => {
                                     }
                                 >
                                     Reviews
-                                </Typography>                        
+                                </Typography>
                                 <Typography
-                                    level='body-sm' 
+                                    level='body-sm'
                                     component={'label'}
                                     endDecorator={
                                         <Switch
@@ -255,9 +277,9 @@ const DokanOptions = () => {
                                     Announcement
                                 </Typography>
                             </>
-                        ) }
+                        )}
                     </Stack>
-                    </Card>
+                </Card>
             </Stack>
             <Divider />
 
@@ -271,245 +293,241 @@ const DokanOptions = () => {
                 </FormControl>
 
                 <Card>
-                <Stack
-                    direction={'column'}
-                    spacing={1}
-                    sx={{
-                        width: "80%",
-                        m: "auto"
-                    }}
-                >
-                    <Typography
-                        level='body-sm' 
-                        component={'label'}
-                        endDecorator={
-                            <Switch
-                                size='sm'
-                                name='download_virtual_section'
-                                checked={Boolean(settings.hide_product_form_sections.download_virtual)}
-                                onChange={onSwitchChange('hide_product_form_sections', 'download_virtual')}
-                            />
-                        }
+                    <Stack
+                        direction={'column'}
+                        spacing={1}
+                        sx={{ width: "80%", m: "auto" }}
                     >
-                        Downloads & Virtual Checkboxes
-                    </Typography>
+                        <Typography
+                            level='body-sm'
+                            component={'label'}
+                            endDecorator={
+                                <Switch
+                                    size='sm'
+                                    name='download_virtual_section'
+                                    checked={Boolean(settings.hide_product_form_sections.download_virtual)}
+                                    onChange={onSwitchChange('hide_product_form_sections', 'download_virtual')}
+                                />
+                            }
+                        >
+                            Downloads & Virtual Checkboxes
+                        </Typography>
 
-                    <Typography
-                        level='body-sm' 
-                        component={'label'}
-                        endDecorator={
-                            <Switch
-                                size='sm'
-                                name='inventory_section'
-                                checked={Boolean(settings.hide_product_form_sections.inventory)}
-                                onChange={onSwitchChange('hide_product_form_sections', 'inventory')}
-                            />
-                        }
-                    >
-                        Inventory
-                    </Typography>
-                    
-                    <Typography
-                        level='body-sm' 
-                        component={'label'}
-                        endDecorator={
-                            <Switch
-                                size='sm'
-                                name='downloadable'
-                                checked={Boolean(settings.hide_product_form_sections.downloadable)}
-                                onChange={onSwitchChange('hide_product_form_sections', 'downloadable')}
-                            />
-                        }
-                    >
-                        Downloadable
-                    </Typography>
+                        <Typography
+                            level='body-sm'
+                            component={'label'}
+                            endDecorator={
+                                <Switch
+                                    size='sm'
+                                    name='inventory_section'
+                                    checked={Boolean(settings.hide_product_form_sections.inventory)}
+                                    onChange={onSwitchChange('hide_product_form_sections', 'inventory')}
+                                />
+                            }
+                        >
+                            Inventory
+                        </Typography>
+                        
+                        <Typography
+                            level='body-sm'
+                            component={'label'}
+                            endDecorator={
+                                <Switch
+                                    size='sm'
+                                    name='downloadable_section'
+                                    checked={Boolean(settings.hide_product_form_sections.downloadable)}
+                                    onChange={onSwitchChange('hide_product_form_sections', 'downloadable')}
+                                />
+                            }
+                        >
+                            Downloadable
+                        </Typography>
 
-                    { isDokanProActive && (
-                        <>
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='shipping_tax'
-                                        checked={Boolean(settings.hide_product_form_sections.shipping_tax)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'shipping_tax')}
-                                    />
-                                }
-                            >
-                                Shipping & Tax
-                            </Typography>
+                        <Typography
+                            level='body-sm'
+                            component={'label'}
+                            endDecorator={
+                                <Switch
+                                    size='sm'
+                                    name='shipping_tax_section'
+                                    checked={Boolean(settings.hide_product_form_sections.shipping_tax)}
+                                    onChange={onSwitchChange('hide_product_form_sections', 'shipping_tax')}
+                                />
+                            }
+                        >
+                            Shipping & Tax
+                        </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='linked_products'
-                                        checked={Boolean(settings.hide_product_form_sections.linked_products)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'linked_products')}
-                                    />
-                                }
-                            >
-                                Linked Products
-                            </Typography>
+                        <Typography
+                            level='body-sm'
+                            component={'label'}
+                            endDecorator={
+                                <Switch
+                                    size='sm'
+                                    name='linked_products_section'
+                                    checked={Boolean(settings.hide_product_form_sections.linked_products)}
+                                    onChange={onSwitchChange('hide_product_form_sections', 'linked_products')}
+                                />
+                            }
+                        >
+                            Linked Products
+                        </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='attributes'
-                                        checked={Boolean(settings.hide_product_form_sections.attributes)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'attributes')}
-                                    />
-                                }
-                            >
-                                Attributes & Variations
-                            </Typography>
+                        <Typography
+                            level='body-sm'
+                            component={'label'}
+                            endDecorator={
+                                <Switch
+                                    size='sm'
+                                    name='attributes_section'
+                                    checked={Boolean(settings.hide_product_form_sections.attributes)}
+                                    onChange={onSwitchChange('hide_product_form_sections', 'attributes')}
+                                />
+                            }
+                        >
+                            Attributes
+                        </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='discount_options'
-                                        checked={Boolean(settings.hide_product_form_sections.discount_options)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'discount_options')}
-                                    />
-                                }
-                            >
-                                Discount
-                            </Typography>
+                        <Typography
+                            level='body-sm'
+                            component={'label'}
+                            endDecorator={
+                                <Switch
+                                    size='sm'
+                                    name='discount_options_section'
+                                    checked={Boolean(settings.hide_product_form_sections.discount_options)}
+                                    onChange={onSwitchChange('hide_product_form_sections', 'discount_options')}
+                                />
+                            }
+                        >
+                            Discount Options
+                        </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='products_seo_yoast'
-                                        checked={Boolean(settings.hide_product_form_sections.products_seo_yoast)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'products_seo_yoast')}
-                                    />
-                                }
-                            >
-                                Products SEO (Yoast)
-                            </Typography>
+                        {isDokanProActive && (  
+                            <>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='products_seo_yoast_section'
+                                            checked={Boolean(settings.hide_product_form_sections.products_seo_yoast)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'products_seo_yoast')}
+                                        />
+                                    }
+                                >
+                                    Products SEO - Yoast
+                                </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='products_seo_rankmath'
-                                        checked={Boolean(settings.hide_product_form_sections.products_seo_rankmath)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'products_seo_rankmath')}
-                                    />
-                                }
-                            >
-                                Products SEO (RankMath)
-                            </Typography>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='products_seo_rankmath_section'
+                                            checked={Boolean(settings.hide_product_form_sections.products_seo_rankmath)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'products_seo_rankmath')}
+                                        />
+                                    }
+                                >
+                                    Products SEO - Rankmath
+                                </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='geolocation'
-                                        checked={Boolean(settings.hide_product_form_sections.geolocation)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'geolocation')}
-                                    />
-                                }
-                            >
-                                Geolocation
-                            </Typography>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='geolocation_section'
+                                            checked={Boolean(settings.hide_product_form_sections.geolocation)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'geolocation')}
+                                        />
+                                    }
+                                >
+                                    Geolocation
+                                </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='rma_options'
-                                        checked={Boolean(settings.hide_product_form_sections.rma_options)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'rma_options')}
-                                    />
-                                }
-                            >
-                                RMA Options
-                            </Typography>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='rma_options_section'
+                                            checked={Boolean(settings.hide_product_form_sections.rma_options)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'rma_options')}
+                                        />
+                                    }
+                                >
+                                    RMA Options
+                                </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='product_addons'
-                                        checked={Boolean(settings.hide_product_form_sections.product_addons)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'product_addons')}
-                                    />
-                                }
-                            >
-                                Add-ons
-                            </Typography>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='product_addons_section'
+                                            checked={Boolean(settings.hide_product_form_sections.product_addons)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'product_addons')}
+                                        />
+                                    }
+                                >
+                                    Product Addons
+                                </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='wholesale'
-                                        checked={Boolean(settings.hide_product_form_sections.wholesale)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'wholesale')}
-                                    />
-                                }
-                            >
-                                Wholesale
-                            </Typography>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='wholesale_section'
+                                            checked={Boolean(settings.hide_product_form_sections.wholesale)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'wholesale')}
+                                        />
+                                    }
+                                >
+                                    Wholesale
+                                </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='order_minmax'
-                                        checked={Boolean(settings.hide_product_form_sections.order_minmax)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'order_minmax')}
-                                    />
-                                }
-                            >
-                                Min/Max Options
-                            </Typography>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='order_minmax_section'
+                                            checked={Boolean(settings.hide_product_form_sections.order_minmax)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'order_minmax')}
+                                        />
+                                    }
+                                >
+                                    Order Min/Max
+                                </Typography>
 
-                            <Typography
-                                level='body-sm' 
-                                component={'label'}
-                                endDecorator={
-                                    <Switch
-                                        size='sm'
-                                        name='advertise'
-                                        checked={Boolean(settings.hide_product_form_sections.advertise)}
-                                        onChange={onSwitchChange('hide_product_form_sections', 'advertise')}
-                                    />
-                                }
-                            >
-                                Advertise Product
-                            </Typography>
-                        </>
-                    ) }
-                </Stack>
+                                <Typography
+                                    level='body-sm'
+                                    component={'label'}
+                                    endDecorator={
+                                        <Switch
+                                            size='sm'
+                                            name='advertise_section'
+                                            checked={Boolean(settings.hide_product_form_sections.advertise)}
+                                            onChange={onSwitchChange('hide_product_form_sections', 'advertise')}
+                                        />
+                                    }
+                                >
+                                    Advertise
+                                </Typography>
+                            </>
+                        )}
+                    </Stack>
                 </Card>
-
             </Stack>
             <Divider />
 
@@ -521,7 +539,7 @@ const DokanOptions = () => {
             >
                 <FormControl>
                     <FormLabel>Default Product Stock</FormLabel>
-                    <FormHelperText>Insert default product stock amount</FormHelperText>
+                    <FormHelperText>Default product stock for vendor's new product</FormHelperText>
                 </FormControl>
                 <Input
                     variant="outlined"
@@ -529,12 +547,12 @@ const DokanOptions = () => {
                     type="number"
                     name='default_product_stock'
                     value={settings.default_product_stock}
+                    sx={{ width: 180 }}
                     onChange={onInputChange}
-                    sx={{width: 180}}
                 />
             </Stack>
             <Divider />
-            
+
             <Stack
                 direction={'row'}
                 justifyContent={'space-between'}
@@ -543,14 +561,17 @@ const DokanOptions = () => {
             >
                 <FormControl>
                     <FormLabel>Product Individual Sale</FormLabel>
-                    <FormHelperText>Prevent customers from purchasing one product multiple times at a time</FormHelperText>
+                    <FormHelperText>Allow only one item to be bought in a single order</FormHelperText>
                 </FormControl>
-                <Switch
-                    size='lg'
+                <Select
+                    placeholder="Choose one..."
                     name='product_individual_sale'
-                    checked={Boolean(settings.product_individual_sale)}
-                    onChange={onSwitchChange('product_individual_sale')}
-                />
+                    value={settings.product_individual_sale}
+                    onChange={onSelectChange('product_individual_sale')}
+                >
+                    <Option value="no">No</Option>
+                    <Option value="yes">Yes</Option>
+                </Select>
             </Stack>
 
             <CardOverflow
@@ -567,11 +588,12 @@ const DokanOptions = () => {
                     }}
                 >
                     <Button type='submit'>Save Changes</Button>
-                    <ToastContainer autoClose={2000} />
                 </CardActions>
             </CardOverflow>
+
+            <ToastContainer autoClose={2000} />
         </form>
     );
-}
+};
 
 export default DokanOptions;

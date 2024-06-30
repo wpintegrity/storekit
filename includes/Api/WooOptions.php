@@ -64,7 +64,7 @@ class WooOptions extends Settings {
             'new_customer_registration_email' => '',
             'clear_cart_button'               => '',
             'default_product_stock'           => '',
-            'product_individual_sale'         => '',
+            'product_individual_sale'         => 'no',
             'hide_shipping_methods'           => '',
             'terms_conditions'                => '',
             'terms_conditions_page_id'        => '',
@@ -98,7 +98,7 @@ class WooOptions extends Settings {
             'new_customer_registration_email' => '',
             'clear_cart_button'               => '',
             'default_product_stock'           => '',
-            'product_individual_sale'         => '',
+            'product_individual_sale'         => 'no',
             'hide_shipping_methods'           => '',
             'terms_conditions'                => '',
             'terms_conditions_page_id'        => '',
@@ -178,7 +178,7 @@ class WooOptions extends Settings {
                 ],
                 'product_individual_sale' => [
                     'description' => esc_html__( 'Product individual sale setting.', 'storekit' ),
-                    'type'        => 'boolean',
+                    'type'        => 'string',
                     'context'     => [ 'view', 'edit' ],
                 ],
                 'hide_shipping_methods' => [

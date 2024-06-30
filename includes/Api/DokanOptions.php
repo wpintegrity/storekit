@@ -94,7 +94,7 @@ class DokanOptions extends Settings {
                 'advertise'             => false,
             ],
             'default_product_stock'         => '',
-            'product_individual_sale'       => false,
+            'product_individual_sale'       => '',
         ];
 
         $settings = $this->get_settings( $default_settings );
@@ -147,7 +147,7 @@ class DokanOptions extends Settings {
                 'advertise'             => false,
             ],
             'default_product_stock'         => '',
-            'product_individual_sale'       => false,
+            'product_individual_sale'       => 'no',
         ];
 
         $response = $this->update_settings( $params, $default_settings );
@@ -342,7 +342,7 @@ class DokanOptions extends Settings {
                 ],
                 'product_individual_sale' => [
                     'description' => esc_html__( 'Product Individual Sale.', 'storekit' ),
-                    'type'        => 'boolean',
+                    'type'        => 'string',
                     'context'     => [ 'view', 'edit' ],
                 ],
             ],
