@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-30T06:36:54+00:00\n"
+"POT-Creation-Date: 2024-06-30T07:47:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: storekit\n"
@@ -268,7 +268,6 @@ msgid "%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be acti
 msgstr ""
 
 #: includes/Features/ProfileAvatar.php:60
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:252
 msgid "Profile Picture"
 msgstr ""
@@ -337,59 +336,47 @@ msgstr ""
 msgid "To edit vendor access and details visit : "
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:73
 #: src/admin/components/DokanOptions.js:79
 msgid "None"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:74
 msgid "Ascending"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:75
 msgid "Descending"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:80
 msgid "After Product Title"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:81
 msgid "Before Add to Cart Button"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:82
 msgid "After Add to Cart Button"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:108
 msgid "Limit File Upload Size"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:109
 msgid "Limit vendor from uploading file size"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:136
 msgid "Sort Product by Vendor"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:137
 msgid "Sort products by vendor name on the cart"
 msgstr ""
 
-#: assets/js/admin.js:2912
-#: assets/js/admin.js:2945
 #: src/admin/components/DokanOptions.js:140
 #: src/admin/components/DokanOptions.js:165
 #: src/admin/components/DokanOptions.js:565
@@ -398,259 +385,204 @@ msgstr ""
 msgid "Choose one..."
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:161
 msgid "Sort by Label"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:162
 msgid "Display sold by label on the shop page"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:184
 msgid "Hide Vendor Dashboard Widgets"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:185
 msgid "Hide Vendor Dashboard - Dashboard menu screen widgets"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:205
 msgid "Big Counter"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:219
 msgid "Orders"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:233
 msgid "Products"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:247
 msgid "Sales Report Chart"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:264
 msgid "Reviews"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:278
 msgid "Announcement"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:292
 msgid "Hide Product Form Sections"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:293
 msgid "Hide Vendor Dashboard - Product Form sections"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:314
 msgid "Downloadable & Virtual Checkbox"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:328
 msgid "Inventory"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:342
 msgid "Downloadable"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:357
 msgid "Shipping & Tax"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:372
 msgid "Linked Products"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:386
 msgid "Attributes"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:403
 msgid "Discount Options"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:417
 msgid "Products SEO (Yoast)"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:432
 msgid "Products SEO (RankMath)"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:447
 msgid "Geolocation"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:462
 msgid "RMA Options"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:477
 msgid "Product Addons"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:492
 msgid "Wholesale"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:507
 msgid "Order Min/Max"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:522
 msgid "Advertise"
 msgstr ""
 
-#: assets/js/admin.js:2912
-#: assets/js/admin.js:2945
 #: src/admin/components/DokanOptions.js:539
 #: src/admin/components/WooOptions.js:119
 msgid "Default Product Stock"
 msgstr ""
 
-#: assets/js/admin.js:2912
 #: src/admin/components/DokanOptions.js:540
 msgid "Set default product stock quantity to vendor's new product"
 msgstr ""
 
-#: assets/js/admin.js:2912
-#: assets/js/admin.js:2945
 #: src/admin/components/DokanOptions.js:561
 #: src/admin/components/WooOptions.js:142
 msgid "Product Individual Sale"
 msgstr ""
 
-#: assets/js/admin.js:2912
-#: assets/js/admin.js:2945
 #: src/admin/components/DokanOptions.js:562
 #: src/admin/components/WooOptions.js:143
 msgid "Allow only one item to be bought in a single order"
 msgstr ""
 
-#: assets/js/admin.js:2912
-#: assets/js/admin.js:2945
 #: src/admin/components/DokanOptions.js:570
 #: src/admin/components/WooOptions.js:151
 msgid "No"
 msgstr ""
 
-#: assets/js/admin.js:2912
-#: assets/js/admin.js:2945
 #: src/admin/components/DokanOptions.js:571
 #: src/admin/components/WooOptions.js:152
 msgid "Yes"
 msgstr ""
 
-#: assets/js/admin.js:2912
-#: assets/js/admin.js:2945
 #: src/admin/components/DokanOptions.js:589
 #: src/admin/components/WooOptions.js:297
 msgid "Save Changes"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:79
 msgid "New Customer Registration Email"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:80
 msgid "Get new customers registration email to the admin email"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:99
 msgid "Clear Cart Button"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:100
 msgid "Add a clear cart button on the cart page to empty the entire cart with one click"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:120
 msgid "Insert default product stock amount"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:165
 msgid "Hide Shipping Methods"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:166
 msgid "Hide other shipping methods when Free Shipping is available on the cart"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:185
 msgid "Terms & Conditions"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:186
 msgid "Add Terms & Condition checkbox on the My Account registration form"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:207
 msgid "Select Terms & Condition Page"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:232
 msgid "External Product New Tab"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:233
 msgid "Open External/Affiliate Type Products on a new tab"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:253
 msgid "Allow users to add custom profile picture from the My Account > Account details page"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:272
 msgid "My Account Menu"
 msgstr ""
 
-#: assets/js/admin.js:2945
 #: src/admin/components/WooOptions.js:273
 msgid "Add My Account Page to the Admin Bar Menu"
 msgstr ""
