@@ -207,7 +207,16 @@ final class StoreKit {
      * @return void
      */
     public function localization_setup() {
-        load_plugin_textdomain( 'storekit', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+        $locale = determine_locale();
+
+        /**
+		 * Filter to adjust the StoreKit locale to use for translations.
+		 */
+		$locale = apply_filters( 'plugin_locale', $locale, 'storekit' ); // phpcs:ignore StoreKit.Commenting.CommentHooks.MissingSinceComment
+
+        unload_textdomain( 'storekit' );
+		load_textdomain( 'storekit', WP_LANG_DIR . '/storekit/storekit-' . $locale . '.mo' );
+        load_plugin_textdomain( 'storekit', false, dirname( plugin_basename( STOREKIT_FILE ) ) . '/languages/' );
     }
 
     /**

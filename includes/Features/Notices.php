@@ -33,6 +33,7 @@ class Notices {
                     'install-plugin_woocommerce'
                 );
                 $admin_notice_content = sprintf(
+                    // Translators: 1$s, 2$s are HTML tags, 3$s, 4$s are the link to WooCommerce plugin, 5$s, 6$s are the link to install WooCommerce.
                     esc_html__(
                         '%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s install WooCommerce &raquo;%6$s',
                         'storekit'
@@ -52,6 +53,7 @@ class Notices {
                         'activate-plugin_woocommerce/woocommerce.php'
                     );
                     $admin_notice_content = sprintf(
+                        // Translators: 1$s and 2$s are opening and closing strong HTML tags, 3$s and 4$s are opening and closing anchor HTML tags to the WooCommerce plugin page, 5$s and 6$s are opening and closing anchor HTML tags to the activate WooCommerce URL.
                         esc_html__(
                             '%1$sStoreKit is inactive.%2$s The %3$sWooCommerce plugin%4$s must be active for StoreKit to work. Please %5$s activate WooCommerce &raquo;%6$s',
                             'storekit'

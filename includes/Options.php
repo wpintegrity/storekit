@@ -59,6 +59,7 @@ class Options {
         if ( file_exists( $template ) ) {
             include $template;
         } else {
+            // Translators: %s is the HTML code element representing the template name.
             _doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'storekit' ), '<code>' . $template . '</code>' ), '1.0' );
         }
     }
