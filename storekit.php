@@ -2,7 +2,7 @@
 /**
  * Plugin Name: StoreKit
  * Plugin URI: https://wordpress.org/plugins/storekit
- * Description: A Helpful Toolkit WordPress plugin for WooCommerce
+ * Description: A Powerful Toolkit WordPress plugin for WooCommerce
  * Version: 2.0.0
  * Author: WPIntegrity
  * Author URI: https://wpintegrity.com/

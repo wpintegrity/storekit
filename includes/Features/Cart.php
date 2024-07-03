@@ -33,7 +33,7 @@ class Cart {
      * @return void
      */
     public function clear_cart_button() {
-        if ( Options::get_option( 'clear_cart_button', 'woocommerce', true ) === true ) :
+        if ( Options::get_option( 'clear_cart_button', 'woocommerce' ) === true ) :
         ?>
             <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'storekit' ); ?>"><?php esc_html_e( 'Clear cart', 'storekit' ); ?></button>
         <?php

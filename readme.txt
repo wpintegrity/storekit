@@ -87,7 +87,7 @@ e.g.
 
 
 == Changelog ==
-= Version 2.0.0 – 30th June 2024 =
+= Version 2.0.0 – July 03, 2024 =
 - **New:** [WooCommerce] Added External Product Opens in a New Tab
 - **New:** [WooCommerce] Added Profile Picture Manager on My Account > Account Details Page
 - **New:** [WooCommerce] Added My Account Page menu to the Admin Bar Menu
