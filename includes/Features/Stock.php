@@ -76,7 +76,12 @@ class Stock {
     
         $post_author = get_post_field( 'post_author', $product->get_id() );
         $user        = get_userdata( $post_author );
-        $user_roles  = $user->roles;
+    
+        if ( $user ) { // Ensure $user is not null
+            $user_roles  = $user->roles;
+        } else {
+            $user_roles = array(); // Set to an empty array if $user is null
+        }
     
         if ( storekit()->has_dokan() && in_array( 'seller', $user_roles, true ) && 'yes' === $dokan_sold_individually ) {
             $individually = true;
@@ -91,5 +96,5 @@ class Stock {
         }
     
         return $individually;
-    }    
+    }       
 }

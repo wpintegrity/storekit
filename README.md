@@ -1,5 +1,5 @@
 # StoreKit
-StoreKit is a powerful toolkit plugin designed to enhance your WooCommerce store, providing additional features to improve your online eCommerce experience. It also integrates seamlessly with the Dokan Multivendor plugin, optimizing your multivendor marketplace functionality.
+StoreKit enhances WooCommerce with extra features and integrates with Dokan Multivendor, optimizing your eCommerce and multivendor marketplace.
 
 ## Description
 
@@ -52,6 +52,9 @@ A: Yes, but to utilize the multivendor features, you need to have Dokan Lite ins
 A: No, the compatibility with any page builder plugin is currently unavailable.
 
 ### Changelog
+
+= Version 2.0.0.1 – July 10, 2024 =
+- **Fixed:** Fatal error on shop page after activating the plugin
 
 = Version 2.0.0 – July 10, 2024 =
 - **New:** [WooCommerce] Added External Product Opens in a New Tab
