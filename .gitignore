@@ -4,3 +4,4 @@ build
 /assets/css/*.min.css
 /assets/js/*.min.js
 /assets/js/*.js.LICENSE.txt
+*.zip

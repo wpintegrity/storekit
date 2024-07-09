@@ -79,15 +79,18 @@ class Stock {
         $user_roles  = $user->roles;
 
         if ( storekit()->has_dokan() ) {
-            if ( in_array( 'seller', $user_roles ) && $dokan_sold_individually == 'yes' ) {    
+            if ( in_array( 'seller', $user_roles, true ) && 'yes' === $dokan_sold_individually ) {    
                 $individually = true;
-            } elseif ( in_array( 'administrator', $user_roles ) && $woo_sold_individually == 'yes' ) {
+                echo wp_kses( '<i>Single Unit</i>', [ 'i' => [] ] );
+            } elseif ( in_array( 'administrator', $user_roles, true ) && 'yes' === $woo_sold_individually ) {
                 $individually = true;
+                echo wp_kses( '<i>Single Unit</i>', [ 'i' => [] ] );
             }
-        } elseif ( $woo_sold_individually == true ) {
+        } elseif ( 'yes' === $woo_sold_individually ) {
             $individually = true;
+            echo wp_kses( '<i>Single Unit</i>', [ 'i' => [] ] );
         }
-
+        
         return $individually;
     }
 }
