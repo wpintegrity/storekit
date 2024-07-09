@@ -73,24 +73,23 @@ class Stock {
     public function storekit_product_sold_individually( $individually, $product ) {
         $woo_sold_individually   = Options::get_option( 'product_individual_sale', 'woocommerce', 'no' );
         $dokan_sold_individually = Options::get_option( 'product_individual_sale', 'dokan', 'no' );
-
+    
         $post_author = get_post_field( 'post_author', $product->get_id() );
         $user        = get_userdata( $post_author );
         $user_roles  = $user->roles;
-
-        if ( storekit()->has_dokan() ) {
-            if ( in_array( 'seller', $user_roles, true ) && 'yes' === $dokan_sold_individually ) {    
-                $individually = true;
-                echo wp_kses( '<i>Single Unit</i>', [ 'i' => [] ] );
-            } elseif ( in_array( 'administrator', $user_roles, true ) && 'yes' === $woo_sold_individually ) {
-                $individually = true;
-                echo wp_kses( '<i>Single Unit</i>', [ 'i' => [] ] );
-            }
+    
+        if ( storekit()->has_dokan() && in_array( 'seller', $user_roles, true ) && 'yes' === $dokan_sold_individually ) {
+            $individually = true;
+        } elseif ( ! storekit()->has_dokan() && in_array( 'administrator', $user_roles, true ) && 'yes' === $woo_sold_individually ) {
+            $individually = true;
         } elseif ( 'yes' === $woo_sold_individually ) {
             $individually = true;
-            echo wp_kses( '<i>Single Unit</i>', [ 'i' => [] ] );
         }
-        
+    
+        if ( $individually && is_cart() ) {
+            echo wp_kses_post( '<i>Single Unit</i>' );
+        }
+    
         return $individually;
-    }
+    }    
 }
