@@ -1,7 +1,7 @@
 /vendor/
 node_modules
 build
-/assets/css/*.min.css
-/assets/js/*.min.js
-/assets/js/*.js.LICENSE.txt
+*.min.css
+*.min.js
+*.js.LICENSE.txt
 *.zip

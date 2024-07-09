@@ -53,7 +53,7 @@ A: No, the compatibility with any page builder plugin is currently unavailable.
 
 ### Changelog
 
-= Version 2.0.0 – July 03, 2024 =
+= Version 2.0.0 – July 10, 2024 =
 - **New:** [WooCommerce] Added External Product Opens in a New Tab
 - **New:** [WooCommerce] Added Profile Picture Manager on My Account > Account Details Page
 - **New:** [WooCommerce] Added My Account Page menu to the Admin Bar Menu
