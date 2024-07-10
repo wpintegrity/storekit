@@ -28,7 +28,7 @@ class Shipping {
      * @return array Modified array of shipping rates.
      */
     public function hide_shipping_when_free_is_available( $rates ) {
-        $wc_hide_shipping = Options::get_option( 'hide_shipping_methods', 'woocommerce', false );
+        $wc_hide_shipping = Options::get_option( 'hide_shipping_methods', 'woocommerce' );
 
         if ( $wc_hide_shipping === true ) {
             $free = array();

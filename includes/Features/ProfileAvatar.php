@@ -1,6 +1,8 @@
 <?php
 namespace WpIntegrity\StoreKit\Features;
 
+use WP_Comment;
+
 /**
  * Profile Avatar Manager Class.
  *
@@ -194,16 +196,24 @@ class ProfileAvatar {
      */
     public function storekit_get_user_avatar( $avatar, $id_or_email, $size, $default, $alt ) {
         $user_id = 0;
-
+    
         if ( is_numeric( $id_or_email ) ) {
             $user_id = (int) $id_or_email;
-        } elseif ( is_object( $id_or_email ) && ! empty( $id_or_email->user_id ) ) {
-            $user_id = (int) $id_or_email->user_id;
+        } elseif ( is_object( $id_or_email ) ) {
+            if ( $id_or_email instanceof WP_Comment ) {
+                $user_id = (int) $id_or_email->user_id;
+                if ( !$user_id ) {
+                    $user = get_user_by( 'email', $id_or_email->comment_author_email );
+                    $user_id = $user ? $user->ID : 0;
+                }
+            } elseif ( ! empty( $id_or_email->user_id ) ) {
+                $user_id = (int) $id_or_email->user_id;
+            }
         } else {
             $user = get_user_by( 'email', $id_or_email );
             $user_id = $user ? $user->ID : 0;
         }
-
+    
         if ( $user_id ) {
             $avatar_option = get_user_meta( $user_id, 'storekit_avatar_option', true );
             if ( $avatar_option === 'custom' ) {
@@ -213,7 +223,8 @@ class ProfileAvatar {
                 }
             }
         }
-
+    
         return $avatar;
     }
+    
 }

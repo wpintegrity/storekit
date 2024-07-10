@@ -27,7 +27,7 @@ class Registration {
      * @since 1.1.0
      */
     public function terms_conditions() {
-        $terms_conditions      = Options::get_option( 'terms_conditions', 'woocommerce', false );
+        $terms_conditions      = Options::get_option( 'terms_conditions', 'woocommerce' );
         $terms_conditions_page = Options::get_option( 'terms_conditions_page_id', 'woocommerce' );
 
         if ( $terms_conditions ): ?>
