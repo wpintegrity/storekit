@@ -3,7 +3,7 @@
  * Plugin Name: StoreKit
  * Plugin URI: https://wordpress.org/plugins/storekit
  * Description: A Powerful Toolkit WordPress plugin for WooCommerce
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: WPIntegrity
  * Author URI: https://wpintegrity.com/
  * Text Domain: storekit
@@ -33,7 +33,7 @@ final class StoreKit {
      *
      * @var string
      */
-    const VERSION = '2.0.0';
+    const VERSION = '2.0.1';
 
     /**
      * Holds various class instances

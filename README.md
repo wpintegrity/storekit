@@ -53,7 +53,7 @@ A: No, the compatibility with any page builder plugin is currently unavailable.
 
 ### Changelog
 
-= Version 2.0.0.1 – July 10, 2024 =
+= Version 2.0.1 – July 10, 2024 =
 - **Fixed:** Fatal error on shop page after activating the plugin
 
 = Version 2.0.0 – July 10, 2024 =
